@@ -16,11 +16,13 @@ class CreatePetsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->string('name', 100)->nullable();
 			$table->enum('species', array('cat', 'dog', 'other'));
-			$table->string('color', 100);
+			$table->enum('status', array('lost', 'found', 'adoptable'));
+			$table->string('color', 100)->nullable();
 			$table->enum('age', array('baby', 'young', 'adult', 'senior'));
 			$table->text('description');
-			$table->date('dethklok')->nullable();
+			$table->date('death_clock')->nullable();
 			$table->char('gender', 7);
             $table->integer('breed_id')->unsigned();
             $table->foreign('breed_id')->references('id')->on('breeds');
@@ -37,14 +39,6 @@ class CreatePetsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('pets', function($table) {
-            $table->dropForeign('pets_user_id_foreign');
-            $table->dropColumn('user_id');
-        });
-        Schema::table('pets', function($table) {
-            $table->dropForeign('pets_breed_id_foreign');
-            $table->dropColumn('breed_id');
-        });
 		Schema::drop('pets');
 	}
 
