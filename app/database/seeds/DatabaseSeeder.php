@@ -11,7 +11,17 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		DB::table('shelters')->delete();
+		DB::table('breeds')->delete();
+		DB::table('pets')->delete();
+		DB::table('users')->delete();
+		
+		$this->call('UserTableSeeder');
+		$this->call('PetTableSeeder');
+		$this->call('BreedTableSeeder');
+		$this->call('ShelterSTableSeeder');
 	}
+
+
 
 }

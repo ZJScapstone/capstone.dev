@@ -29,10 +29,6 @@ class CreateImagesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('images', function($table) {
-            $table->dropForeign('images_pet_id_foreign');
-            $table->dropColumn('pet_id');
-        });
 		Schema::drop('images');
 	}
 

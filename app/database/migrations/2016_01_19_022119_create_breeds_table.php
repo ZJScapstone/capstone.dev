@@ -16,7 +16,8 @@ class CreateBreedsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->string('breed', 100);
+			$table->string('breed', 100)->nullable();
+			$table->enum('species', array('cat', 'dog', 'other'));
 		});
 	}
 

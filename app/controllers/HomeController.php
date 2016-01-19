@@ -22,6 +22,24 @@ class HomeController extends BaseController {
 
 	public doContact(){
 
-		
+		$from    = Input::get('from');
+		$email   = Input::get('email');
+		$subject = Input::get('subject');
+		$body    = Input::get('body');
+
+		$data = [
+			'from'    => $from,
+			'email'   => $email,
+			'subject' => $subject,
+			'body'    => $body
+		];
+
+		Mail::send('emails.contact', $data, function($message) use ($data)
+		{
+			$message->from($data['email'], $data['from']);
+
+			$message->to('sjmrstevens@gmail.com', '')
+		});
+
 	}
 }
