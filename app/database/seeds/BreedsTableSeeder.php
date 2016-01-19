@@ -4,8 +4,12 @@ class BreedTableSeeder extends Seeder {
 
 	public function run()
 	{
-		$pet = new Pet();
+		$breed = new Breed();
 
+        $breed->breed   = 'something';
+        $breed->species = 'cat';
+        
+        $breed->save();
 		
 	}
 }
