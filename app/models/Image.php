@@ -6,7 +6,7 @@ class Image extends BaseModel
 
 	public function pets()
 	{
-		return $this->belongsToMany('Pet');
+		return $this->belongsTo('Pet');
 	}
 
 }
