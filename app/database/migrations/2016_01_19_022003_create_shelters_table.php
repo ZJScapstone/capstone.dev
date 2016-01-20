@@ -22,8 +22,6 @@ class CreateSheltersTable extends Migration {
 			$table->string('name', 255);
 			$table->text('description');
 			$table->string('img_path', 255);
-			// $table->integer('user_id')->unsigned();
-   //          $table->foreign('user_id')->references('id')->on('users');
 		});
 	}
 
