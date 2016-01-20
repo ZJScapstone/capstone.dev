@@ -91,6 +91,9 @@
         				<input class="file-path validate" type="text" placeholder="Upload one or more images of your pet">
       				</div>
     			</div>
+    			<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    				<i class="material-icons right">></i>
+  				</button>
 	    	</form>
 	  	</div>
 	</div>
