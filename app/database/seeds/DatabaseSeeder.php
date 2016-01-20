@@ -17,9 +17,10 @@ class DatabaseSeeder extends Seeder {
 		DB::table('users')->delete();
 		
 		$this->call('UserTableSeeder');
-		$this->call('PetTableSeeder');
 		$this->call('BreedTableSeeder');
 		$this->call('ShelterSTableSeeder');
+		$this->call('PetTableSeeder');
+		// images
 	}
 
 
