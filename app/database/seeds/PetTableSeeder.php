@@ -15,6 +15,7 @@ class PetTableSeeder extends Seeder {
         $pet->gender      = 'M';
         $pet->breed_id    = Breed::first()->id;
         $pet->user_id     = User::first()->id;
+        $pet->shelter_id  = Shelter::first()->id;
 
         $pet->save();
 	}
