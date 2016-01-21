@@ -4,6 +4,9 @@ class BreedTableSeeder extends Seeder {
 
 	public function run()
 	{
+        /**
+         * ------------------------------ Cats ------------------------------
+         */
         $abyssinian = new Breed();
 
         $abyssinian->breed = 'Abyssinian';
@@ -604,6 +607,9 @@ class BreedTableSeeder extends Seeder {
         $toybob->species = 'cat';
         $toybob->save();
 
+        /**
+         * ------------------------------ Dogs ------------------------------
+         */
         $affenpinscher = new Breed();
 
         $affenpinscher->breed = 'Affenpinscher';

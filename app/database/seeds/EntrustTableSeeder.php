@@ -71,9 +71,9 @@ class EntrustTableSeeder extends Seeder {
 
         $editShelter = new Permission();
 
-        $editShelter->name = 'edit_shelter';
+        $editShelter->name         = 'edit_shelter';
         $editShelter->display_name = 'Can Edit Shelter';
-        $editShelter->name = 'Able to edit shelter information';
+        $editShelter->name         = 'Able to edit shelter information';
         $editShelter->save();
 
         $editShelterPosts = new Permission();
@@ -113,9 +113,9 @@ class EntrustTableSeeder extends Seeder {
 
         $createShelter = new Permission();
 
-        $createShelter->name = 'create_shelter';
+        $createShelter->name         = 'create_shelter';
         $createShelter->display_name = 'Can Create A Shelter';
-        $createShelter->description = 'Able to create a shelter';
+        $createShelter->description  = 'Able to create a shelter';
         $createShelter->save();
 
         /**
