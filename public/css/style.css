@@ -21,4 +21,16 @@
   max-height: 90%;
   width: 90%; }
 
+nav {
+  position: fixed;
+  bottom: 0; }
+  nav p {
+    margin: 0;
+    padding: 0 10px; }
+  nav a {
+    margin: 5px;
+    font-size: 20px; }
+  nav p:first-child a {
+    font-size: 25px; }
+
 /*# sourceMappingURL=style.css.map */

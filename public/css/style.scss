@@ -29,3 +29,23 @@
     max-height: 90%;
     width : 90%;
 }
+
+nav{
+
+    position: fixed;
+    bottom: 0;
+
+    p{
+        margin: 0;
+        padding: 0 10px;
+    }
+
+    a{
+        margin: 5px;
+        font-size: 20px;
+    }
+
+    p:first-child a{
+        font-size: 25px;
+    }
+}
