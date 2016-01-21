@@ -23,7 +23,7 @@ cats.map(createVariableNameObject).forEach(function(breed){
     console.log(breed.varName + ' = new Breed();');
     console.log();
     console.log(breed.varName + '->breed = \'' + breed.name + '\';');
-    console.log(breed.varName + '->species = \'cat\'');
+    console.log(breed.varName + '->species = \'cat\';');
     console.log(breed.varName + '->save();');
     console.log();
 });
