@@ -2,6 +2,15 @@
 
 @section('title', 'happytails!')
 
+@section('bottom-script')
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+</script>
+@stop
+
 @section('content')
     <div class="hero-title light-blue">
         <h2 class="center">happy tails!</h1>
