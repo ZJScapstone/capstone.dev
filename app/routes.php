@@ -15,6 +15,17 @@ Route::get('/', function()
 {
 	return View::make('main');
 });
+
+Route::get('create', function()
+{
+	return View::make('create');
+});
+
+Route::get('register', function()
+{
+	return View::make('register');
+});
+
 //
 
 // Confide routes
