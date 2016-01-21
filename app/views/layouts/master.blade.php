@@ -10,6 +10,8 @@
 <body>
     @yield('content')
 
+    @include('footer')
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
     @yield('bottom-script')
