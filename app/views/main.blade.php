@@ -27,9 +27,11 @@
                 </div>
             </div>
             <div class="col m4">
-                <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h1 class="center">New Post/ Second/ Third</h1>
-                </div>
+                <a href="#pets-create-modal" class="modal-trigger">
+                    <div class="card-panel indigo darken-4 white-text hoverable">
+                        <h1 class="center">New Post/ Second/ Third</h1>
+                    </div>
+                </a>
             </div>
             <div class="col m4">
                 <div class="card-panel indigo darken-4 white-text hoverable">
@@ -41,6 +43,14 @@
     <div class="auth-bar blue">
         login...etc
     </div>
+
+    {{-- pets create form modal --}}
+
+    <div id="pets-create-modal" class="modal">
+        @include('pets.create')
+    </div>
+
+
     <!--Start Animals-->
     <div class="row">
         <div class="col s4">
