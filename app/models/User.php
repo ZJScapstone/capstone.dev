@@ -2,13 +2,13 @@
 
 use Zizaco\Confide\ConfideUser;
 use Zizaco\Confide\ConfideUserInterface;
+use Bbatsche\Entrust\Contracts\EntrustUserInterface;
+use Bbatsche\Entrust\Traits\EntrustUserTrait;
 
 class User extends Eloquent implements ConfideUserInterface, EntrustUserInterface
 {
     use ConfideUser;
     use EntrustUsertrait;
-
-    <?php
 
 	public function pets()
 	{
