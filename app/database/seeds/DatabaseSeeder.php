@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder {
 		
 		$this->call('UserTableSeeder');
 		$this->call('BreedTableSeeder');
-		$this->call('ShelterSTableSeeder');
+		$this->call('ShelterTableSeeder');
 		$this->call('PetTableSeeder');
 		// images
 	}

@@ -23,19 +23,19 @@ class EntrustTableSeeder extends Seeder {
         $shelterAdmin->description  = 'Administrator for a specific shelter';
         $shelterAdmin->save();
 
-        $user = new Role();
-
-        $user->name         = 'user';
-        $user->display_name = 'User';
-        $user->description  = 'Generic user';
-        $user->save();
-
         $shelterUser = new Role();
 
         $shelterUser->name         = 'shelter_user';
         $shelterUser->display_name = 'Shelter User';
         $shelterUser->description  = 'A member of a shelter';
         $shelterUser->save();
+
+        $user = new Role();
+
+        $user->name         = 'user';
+        $user->display_name = 'User';
+        $user->description  = 'Generic user';
+        $user->save();
 
         /**
          * --------------------- Permission Definitions ---------------------

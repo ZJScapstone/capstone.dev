@@ -1,10 +1,10 @@
 <?php
 
-class SheltersTableSeeder extends Seeder {
+class ShelterTableSeeder extends Seeder {
 
-	public function run()
-	{
-		$shelter = new Shelter();
+    public function run()
+    {
+    	$shelter = new Shelter();
 
         $shelter->location    = 'san antonio';
         $shelter->url         = 'http://google.com';
@@ -14,6 +14,6 @@ class SheltersTableSeeder extends Seeder {
         $shelter->img_path    = 'http://placehold.it/300';
 		
         $shelter->save();
-	}
+    }
 }
 
