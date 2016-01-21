@@ -40,9 +40,6 @@
             </div>
         </div>
     </div>
-    <div class="auth-bar blue">
-        login...etc
-    </div>
 
     {{-- pets create form modal --}}
 
