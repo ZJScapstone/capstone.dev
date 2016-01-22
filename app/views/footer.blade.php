@@ -3,6 +3,12 @@
         <a href="#">Happy Tails!</a>
     </p>
     <p class="right">
-        <a href="">Log In</a> / <a href="#">Sign Up</a>
+    	@if(!Confide::user())
+        <a href="{{{ action('UsersController@login') }}}" >Log In</a> / <a href="{{{ action('UsersController@create') }}}">Sign Up</a>
+        @endif
+        @if(Confide::user())
+        <a href="{{{ action('UsersController@logout')}}}">Logout</a> / <a href="UsersController@showProfile">Your Profile</a>
+        @endif
+
     </p>
 </nav>

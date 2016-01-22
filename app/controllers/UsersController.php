@@ -38,7 +38,7 @@ class UsersController extends Controller
                     compact('user'),
                     function ($message) use ($user) {
                         $message
-                            ->to($user->email, $user->username)
+                            ->to($user->email, $user->first_name)
                             ->subject(Lang::get('confide::confide.email.account_confirmation.subject'));
                     }
                 );
@@ -52,6 +52,24 @@ class UsersController extends Controller
             return Redirect::action('UsersController@create')
                 ->withInput(Input::except('password'))
                 ->with('error', $error);
+        }
+
+        $input = array('image' => Input::file('image'));
+    
+        $rules = array('image' => 'image');
+
+        $validator = Validator::make($input, $rules);
+       
+        if ($validator->fails()){
+
+            return Redirect::back()->withInput()->withErrors($e->getErrors());
+
+        } else {
+
+            $file = Input::file('image');
+            $name = time().'-'.$file->getClientOriginalName();
+            $file = $file->move('uploads/', $name);
+            $input['file'] = '/public/uploads/'.$name;
         }
     }
 
@@ -184,7 +202,10 @@ class UsersController extends Controller
                 ->with('error', $error_msg);
         }
     }
-
+    public function showProfile()
+    {
+        return View::make('profile');
+    }
     /**
      * Log the user out of the application.
      *

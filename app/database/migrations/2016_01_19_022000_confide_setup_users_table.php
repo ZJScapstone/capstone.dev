@@ -20,6 +20,8 @@ class ConfideSetupUsersTable extends Migration
             $table->string('first_name', 100);
             $table->string('last_name', 100);
             $table->text('description')->nullable();
+            $table->text('username')->nullable();
+            $table->text('img_path')->nullable();
             $table->timestamps();
         });
 
