@@ -13,9 +13,12 @@
         $('select').material_select();
     });
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="/js/app.js"></script>
 @stop
 
 @section('content')
+<div ng-app="petsApp" ng-controller="PetsController as ctrl">
     <div class="hero-title light-blue">
         <h2 class="center">happy tails!</h1>
     </div>
