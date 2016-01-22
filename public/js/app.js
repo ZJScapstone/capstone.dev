@@ -4,26 +4,23 @@ var app = angular.module('petsApp', [], function($interpolateProvider) {
     $interpolateProvider.endSymbol('%>');
 });
 
-app.controller('PetsController', ['$http', function($http){
+app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
-
-    this.getPets = function(){
-        var self = this;
+    $scope.getPets = function(){
         $http.get('/getpets').then(function(response){
-            self.pets = response.data;
+            $scope.pets = response.data;
         },function(){
             console.log("error!");
         });
     }
 
-    this.openPetModal = function(id){
-        this.displayedPet = this.pets.filter(pet => pet.id == id).pop();
+    $scope.openPetModal = function(id){
+        $scope.displayedPet = $scope.pets.filter(pet => pet.id == id).pop();
         $('#show-pet-modal').openModal();
-        console.log(this.displayedPet.images);
     }
 
-    this.pets = [];
-    this.displayedPet = {};
+    $scope.pets = [];
+    $scope.displayedPet = {};
 
-    this.getPets();
+    $scope.getPets();
 }]);
