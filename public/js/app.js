@@ -17,6 +17,12 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.openPetModal = function(id){
         $scope.displayedPet = $scope.pets.filter(pet => pet.id == id).pop();
         $('#show-pet-modal').openModal();
+        setTimeout( function(){
+            $('#show-pet-modal').css({
+                "transition": "all 0.3s",
+                "top": "5%"
+            });
+        }, 400);
     }
 
     $scope.pets = [];
