@@ -16,7 +16,7 @@ class Shelter extends BaseModel
 
 	public function users()
 	{
-		return $this->hasMany('User');
+		return $this->belongsToMany('User', 'shelter_users');
 	}
 
 }
