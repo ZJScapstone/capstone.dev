@@ -65,7 +65,7 @@ class SheltersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return View::make('shelters.show');
+		return View::make('shelters.show')->with('shelter', Shelter::find($id));
 	}
 
 
