@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('admin', function()
 {
-	return View::make('users.adminpanel')
+	return View::make('users.adminpanel');
 });
 
 Route::get('profile', function()
