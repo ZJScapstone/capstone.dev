@@ -26,7 +26,8 @@ Route::get('register', function()
 	return View::make('register');
 });
 
-//
+//Pets routes
+Route::resource('pets', 'PetsController');
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
