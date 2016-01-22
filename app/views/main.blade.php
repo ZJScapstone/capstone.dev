@@ -53,40 +53,29 @@
 
     <!--Start Animals-->
     <div class="row">
-        <div class="col s4">
-            <div class="card hoverable">
+        <div class="col s4" ng-repeat="pet in ctrl.pets">
+            <div class="card hoverable" ng-click="ctrl.openPetModal(pet.id)">
                 <div class="card-image ">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Kit</span>
+                    <img src="http://placehold.it/400">
+                    <span class="card-title"><% pet.name %></span>
                 </div>
                 <div class="card-content">
-                    <p>Kit is a terrible cat who bites you.</p>
+                    <p><% pet.description %></p>
                 </div>
             </div>
-        </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/dog1.jpg">
-                    <span class="card-title">Ruby</span>
-                </div>
-                <div class="card-content">
-                    <p>A beautiful, shiny pup.</p>
-                </div>
-            </div>        
-        </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Max</span>
-                </div>
-                <div class="card-content">
-                    <p>This isn't Max, this is kit.</p>
-                </div>
-            </div>        
         </div>
     </div>
     <!--End Animals-->
 
+    {{-- individual animal modal --}}
+    <div class="modal" id="show-pet-modal">
+        <h4><% ctrl.displayedPet.name %></h4>
+        <div class="col s4" ng-repeat="path in ctrl.displayedPet.images">
+            <img style="max-width:100%;" ng-src="<% path %>">
+        </div>
+        <p><% ctrl.displayedPet.description %></p>
+        <p>posted by <a href="/users/<% ctrl.displayedPet.user.id %>"><% ctrl.displayedPet.user.email %></a></p>
+    </div>
+
+</div>
 @stop
