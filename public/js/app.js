@@ -12,7 +12,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         },function(){
             console.log("error!");
         });
-    }
+    };
 
     $scope.openPetModal = function(id){
         $scope.displayedPet = $scope.pets.filter(pet => pet.id == id).pop();
@@ -23,7 +23,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
                 "top": "5%"
             });
         }, 400);
-    }
+    };
 
     $scope.pets = [];
     $scope.displayedPet = {};
