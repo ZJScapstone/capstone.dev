@@ -13,9 +13,13 @@
         $('select').material_select();
     });
 </script>
+<script src="/js/styleFixes.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="/js/app.js"></script>
 @stop
 
 @section('content')
+<div ng-app="petsApp" ng-controller="PetsController as ctrl">
     <div class="hero-title light-blue">
         <h2 class="center">happy tails!</h1>
     </div>
@@ -47,43 +51,38 @@
         @include('pets.create')
     </div>
 
+    {{-- filters --}}
+    <div class="container filters">
+        <input type="text" ng-model="search">
+    </div>
 
     <!--Start Animals-->
+    <div class="container">
     <div class="row">
-        <div class="col s4">
-            <div class="card hoverable">
+        <div class="col m4" ng-repeat="pet in pets | filter:search">
+            <div class="card hoverable" ng-click="openPetModal(pet.id)">
                 <div class="card-image ">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Kit</span>
+                    <img src="http://placehold.it/400">
+                    <span class="card-title"><% pet.name %></span>
                 </div>
                 <div class="card-content">
-                    <p>Kit is a terrible cat who bites you.</p>
+                    <p><% pet.description %></p>
                 </div>
             </div>
         </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/dog1.jpg">
-                    <span class="card-title">Ruby</span>
-                </div>
-                <div class="card-content">
-                    <p>A beautiful, shiny pup.</p>
-                </div>
-            </div>        
-        </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Max</span>
-                </div>
-                <div class="card-content">
-                    <p>This isn't Max, this is kit.</p>
-                </div>
-            </div>        
-        </div>
+    </div>
     </div>
     <!--End Animals-->
 
+    {{-- individual animal modal --}}
+    <div class="modal" id="show-pet-modal">
+        <h4><% displayedPet.name %></h4>
+        <div class="col s3" ng-repeat="path in displayedPet.images">
+            <img ng-src="<% path %>">
+        </div>
+        <p><% displayedPet.description %></p>
+        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a></p>
+    </div>
+
+</div>
 @stop
