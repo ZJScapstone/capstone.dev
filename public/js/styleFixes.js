@@ -3,7 +3,7 @@
 
     setTimeout( function(){
         $('body').css('padding-bottom', (navbarHeight * 2) + 'px')
-    }, 300);
+    }, 400);
 
     $('.modal-trigger').click(function(){
         $modal = $($(this).attr('href'));
