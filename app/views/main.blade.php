@@ -50,11 +50,15 @@
         @include('pets.create')
     </div>
 
+    {{-- filters --}}
+    <div class="container filters">
+        <input type="text" ng-model="search">
+    </div>
 
     <!--Start Animals-->
     <div class="row">
-        <div class="col s4" ng-repeat="pet in ctrl.pets">
-            <div class="card hoverable" ng-click="ctrl.openPetModal(pet.id)">
+        <div class="col s4" ng-repeat="pet in pets | filter:search">
+            <div class="card hoverable" ng-click="openPetModal(pet.id)">
                 <div class="card-image ">
                     <img src="http://placehold.it/400">
                     <span class="card-title"><% pet.name %></span>
@@ -70,11 +74,11 @@
     {{-- individual animal modal --}}
     <div class="modal" id="show-pet-modal">
         <h4><% ctrl.displayedPet.name %></h4>
-        <div class="col s4" ng-repeat="path in ctrl.displayedPet.images">
-            <img style="max-width:100%;" ng-src="<% path %>">
+        <div class="col s3" ng-repeat="path in displayedPet.images">
+            <img ng-src="<% path %>">
         </div>
         <p><% ctrl.displayedPet.description %></p>
-        <p>posted by <a href="/users/<% ctrl.displayedPet.user.id %>"><% ctrl.displayedPet.user.email %></a></p>
+        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a></p>
     </div>
 
 </div>
