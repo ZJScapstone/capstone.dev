@@ -34,4 +34,11 @@ nav {
   nav p:first-child a {
     font-size: 25px; }
 
+.modal-trigger {
+  color: inherit; }
+
+.bottom-sheet {
+  padding-top: 25px;
+  padding-bottom: 50px; }
+
 /*# sourceMappingURL=style.css.map */
