@@ -9,7 +9,8 @@ class SheltersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('shelters.index')->with('shelters', Shelter::all());
+		$shelters = Shelter::with('users')->get();
+		return View::make('shelters.index')->with('shelters', $shelters);
 	}
 
 
