@@ -16,9 +16,9 @@ Route::get('/', function()
 	return View::make('main');
 });
 
-Route::get('create', function()
+Route::get('users/profile', function()
 {
-	return View::make('create');
+	return View::make('profile');
 });
 
 Route::get('register', function()
@@ -30,6 +30,7 @@ Route::get('register', function()
 Route::resource('pets', 'PetsController', array('except' => array('create', 'show', 'edit')));
 
 Route::resource('shelters', 'SheltersController');
+
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');

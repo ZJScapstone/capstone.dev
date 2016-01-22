@@ -1,5 +1,6 @@
 <form>
     <h4 class="center"> Create A New Pet Listing </h4>
+    <p>To post a pet you must first login or register </p>
     <div class="row">
         <div class="input-field col s4">
             <select>
@@ -72,7 +73,7 @@
     <div class="file-field">
         <div class="btn">
             <span>Images</span>
-            <input type="file" multiple>
+            <input name="image[]"  type="file" multiple>
         </div>
         <div class="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="Upload one or more images of your pet">
