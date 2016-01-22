@@ -27,7 +27,7 @@ Route::get('register', function()
 });
 
 //Pets routes
-Route::resource('pets', 'PetsController');
+Route::resource('pets', 'PetsController', array('except' => array('create', 'show', 'edit')));
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
