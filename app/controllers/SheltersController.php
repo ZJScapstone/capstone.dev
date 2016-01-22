@@ -35,7 +35,6 @@ class SheltersController extends \BaseController {
         $validator = Validator::make(Input::all(), Shelter::$rules);
 
         if ( $validator->fails() ) {
-        	dd($validator->failed());
             Session::flash('errorMessage', 'Invalid Post!!!');
             Log::error('Failed post creation', Input::all());
             return Redirect::back()->withInput()->withErrors($validator);
