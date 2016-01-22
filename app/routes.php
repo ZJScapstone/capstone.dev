@@ -23,10 +23,61 @@ Route::get('create', function()
 
 Route::get('register', function()
 {
-	return View::make('register');
+    return View::make('register');
 });
 
-//
+Route::get('shelters', function()
+{
+	return View::make('shelters.create');
+});
+
+Route::get('showuser', function()
+{
+    return View::make('users.show')->with('user', User::first());
+});
+
+Route::get('/getpets', function()
+{
+    $pets = [];
+
+    Pet::with('breed', 'user', 'shelter')->get()->each(function($pet) use (&$pets)
+    {
+        $pets[] = 
+        [
+            'id'          => $pet->id,
+            'name'        => $pet->name,
+            'species'     => $pet->species,
+            'status'      => $pet->status,
+            'color'       => $pet->color,
+            'age'         => $pet->age,
+            'description' => $pet->description,
+            'gender'      => $pet->gender,
+            'breed'       => $pet->breed->breed,
+
+            'user'        => 
+            [
+                'email' => $pet->user->email, 
+                'id'    => $pet->user->id
+            ],
+
+            'shelter'     => 
+            [
+                'name' => $pet->shelter->name, 
+                'id'   => $pet->shelter->id
+            ],
+
+            'images' => [
+                'http://placehold.it/600',
+                'http://placehold.it/601',
+                'http://placehold.it/610',
+                'http://placehold.it/620',
+                'http://placehold.it/630'
+            ]
+        ];
+    });
+
+    return json_encode($pets);
+});
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
