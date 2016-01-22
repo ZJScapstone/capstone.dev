@@ -21,8 +21,12 @@ class UserRepository
     {
         $user = new User;
 
-        $user->email    = array_get($input, 'email');
-        $user->password = array_get($input, 'password');
+        $user->first_name  = array_get($input, 'first_name');
+        $user->last_name   = array_get($input, 'last_name');
+        $user->email       = array_get($input, 'email');
+        $user->password    = array_get($input, 'password');
+        $user->description = array_get($input, 'description');
+        $user->image       = array_get($input, 'img_path')
 
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
@@ -77,7 +81,7 @@ class UserRepository
      */
     public function existsButNotConfirmed($input)
     {
-        $user = Confide::getUserByEmailOrUsername($input);
+        $user = Confide::getUserByEmail($input);
 
         if ($user) {
             $correctPassword = Hash::check(
