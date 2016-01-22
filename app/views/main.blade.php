@@ -2,7 +2,23 @@
 
 @section('title', 'happytails!')
 
+@section('bottom-script')
+<script>
+    $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="/js/app.js"></script>
+@stop
+
 @section('content')
+<div ng-app="petsApp" ng-controller="PetsController as ctrl">
     <div class="hero-title light-blue">
         <h2 class="center">happy tails!</h1>
     </div>
@@ -14,9 +30,11 @@
                 </div>
             </div>
             <div class="col m4">
-                <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h1 class="center">New Post/ Second/ Third</h1>
-                </div>
+                <a href="#pets-create-modal" class="modal-trigger">
+                    <div class="card-panel indigo darken-4 white-text hoverable">
+                        <h1 class="center">New Post/ Second/ Third</h1>
+                    </div>
+                </a>
             </div>
             <div class="col m4">
                 <div class="card-panel indigo darken-4 white-text hoverable">
@@ -25,45 +43,39 @@
             </div>
         </div>
     </div>
-    <div class="auth-bar blue">
-        login...etc
+
+    {{-- pets create form modal --}}
+
+    <div id="pets-create-modal" class="modal">
+        @include('pets.create')
     </div>
+
+
     <!--Start Animals-->
     <div class="row">
-        <div class="col s4">
-            <div class="card hoverable">
+        <div class="col s4" ng-repeat="pet in ctrl.pets">
+            <div class="card hoverable" ng-click="ctrl.openPetModal(pet.id)">
                 <div class="card-image ">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Kit</span>
+                    <img src="http://placehold.it/400">
+                    <span class="card-title"><% pet.name %></span>
                 </div>
                 <div class="card-content">
-                    <p>Kit is a terrible cat who bites you.</p>
+                    <p><% pet.description %></p>
                 </div>
             </div>
-        </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/dog1.jpg">
-                    <span class="card-title">Ruby</span>
-                </div>
-                <div class="card-content">
-                    <p>A beautiful, shiny pup.</p>
-                </div>
-            </div>        
-        </div>
-        <div class="col s4">
-            <div class="card hoverable">
-                <div class="card-image">
-                    <img src="img/cat3.jpg">
-                    <span class="card-title">Max</span>
-                </div>
-                <div class="card-content">
-                    <p>This isn't Max, this is kit.</p>
-                </div>
-            </div>        
         </div>
     </div>
     <!--End Animals-->
 
+    {{-- individual animal modal --}}
+    <div class="modal" id="show-pet-modal">
+        <h4><% ctrl.displayedPet.name %></h4>
+        <div class="col s4" ng-repeat="path in ctrl.displayedPet.images">
+            <img style="max-width:100%;" ng-src="<% path %>">
+        </div>
+        <p><% ctrl.displayedPet.description %></p>
+        <p>posted by <a href="/users/<% ctrl.displayedPet.user.id %>"><% ctrl.displayedPet.user.email %></a></p>
+    </div>
+
+</div>
 @stop

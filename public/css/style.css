@@ -13,4 +13,25 @@
 .auth-bar {
   height: 10vh; }
 
+#pets-create-modal {
+  padding: 5px 15px;
+  top: 5%; }
+
+.modal {
+  max-height: 90%;
+  width: 90%; }
+
+nav {
+  position: fixed;
+  bottom: 0;
+  z-index: 999; }
+  nav p {
+    margin: 0;
+    padding: 0 10px; }
+  nav a {
+    margin: 5px;
+    font-size: 20px; }
+  nav p:first-child a {
+    font-size: 25px; }
+
 /*# sourceMappingURL=style.css.map */

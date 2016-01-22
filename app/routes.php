@@ -23,7 +23,7 @@ Route::get('create', function()
 
 Route::get('register', function()
 {
-	return View::make('register');
+    return View::make('register');
 });
 
 //Pets routes
