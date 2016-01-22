@@ -79,6 +79,8 @@ Route::get('/getpets', function()
     return json_encode($pets);
 });
 
+Route::resource('shelters', 'SheltersController');
+
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');
@@ -90,3 +92,4 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+
