@@ -34,4 +34,7 @@ nav {
   nav p:first-child a {
     font-size: 25px; }
 
+.modal-trigger {
+  color: inherit; }
+
 /*# sourceMappingURL=style.css.map */
