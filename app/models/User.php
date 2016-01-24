@@ -15,9 +15,15 @@ class User extends Eloquent implements ConfideUserInterface, EntrustUserInterfac
 		return $this->hasMany('Pet');
 	}
 
+	public function posts()
+	{
+		return $this->hasMany('Post');
+	}
+
 	public function shelters()
 	{
 		return $this->belongsToMany('Shelter', 'shelter_users');
 	}
+
 
 }
