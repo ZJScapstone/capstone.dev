@@ -16,20 +16,19 @@ class CreatePetsTable extends Migration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+			$table->string('a_num')->nullable();
 			$table->string('name', 100)->nullable();
-			$table->enum('species', array('cat', 'dog', 'other'));
-			$table->enum('status', array('lost', 'found', 'adoptable'));
+			$table->enum('status', array('available', 'inprogress', 'adopted'));
 			$table->string('color', 100)->nullable();
 			$table->enum('age', array('baby', 'young', 'adult', 'senior'));
 			$table->text('description');
-			$table->date('death_clock')->nullable();
 			$table->enum('gender', array('male', 'female', 'unknown'));
             $table->integer('breed_id')->unsigned();
             $table->foreign('breed_id')->references('id')->on('breeds');
 			$table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('shelter_id')->unsigned();
-            $table->foreign('shelter_id')->references('id')->on('shelters');
+            $table->integer('species_id')->unsigned();
+            $table->foreign('species_id')->references('id')->on('species');
 		});
 	}
 

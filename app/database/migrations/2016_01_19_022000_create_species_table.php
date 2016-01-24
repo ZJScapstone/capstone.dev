@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBreedsTable extends Migration {
+class CreateSpeciesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,16 +12,12 @@ class CreateBreedsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('breeds', function(Blueprint $table)
+		Schema::create('species', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->timestamps();
-			$table->integer('species_id')->unsigned();
-            $table->foreign('species_id')->references('id')->on('species');
-			$table->string('breed', 100)->nullable();
-
-		});
-	}
+			$table->enum('species', array('dog', 'cat', 'other'));
+		});	}
 
 	/**
 	 * Reverse the migrations.
@@ -30,7 +26,7 @@ class CreateBreedsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('breeds');
+		Schema::drop('species');
 	}
 
 }
