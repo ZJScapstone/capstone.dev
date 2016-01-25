@@ -16,9 +16,14 @@ Route::get('/', function()
 	return View::make('main');
 });
 
-Route::get('users/profile', function()
+Route::get('admin', function()
 {
-	return View::make('profile');
+	return View::make('users.adminpanel');
+});
+
+Route::get('profile', function()
+{
+	return View::make('users.profile');
 });
 
 Route::get('register', function()

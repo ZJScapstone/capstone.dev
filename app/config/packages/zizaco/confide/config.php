@@ -47,7 +47,7 @@ return array(
     |
     */
     'login_form' =>             'users.login',
-    'signup_form' =>            'users.signup',
+    'signup_form' =>            'users.create',
     'forgot_password_form' =>   'users.forgot_password',
     'reset_password_form' =>    'users.reset_password',
 
