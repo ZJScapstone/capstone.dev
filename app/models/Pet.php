@@ -30,4 +30,9 @@ class Pet extends BaseModel
 	{
 		return $this->hasMany('Image');
 	}
+
+    public function species()
+    {
+        return $this->belongsTo('Species');
+    }
 }
