@@ -1,17 +1,17 @@
-<form>
+<form ng-submit="addPet(newPet)">
     <h4 class="center"> Create A New Pet Listing </h4>
     <p>To post a pet you must first login or register </p>
     <div class="row">
         <div class="input-field col s4">
-            <select>
+            <select id="pet-status" ng-init-"newPet.status=null" ng-model="newPet.status">
                 <option value="" disabled selected>Status</option>
-                <option value="1">Lost</option>
-                <option value="2">Found</option>
-                <option value="3">Adoptable</option>
+                <option value="available">Available</option>
+                <option value="inprogress">In Progress</option>
+                <option value="adopted">Adopted</option>
             </select>
         </div>
         <div class="input-field col s4">
-            <select>
+            <select ng-model="newPet.species_id">
                 <option value="" disabled selected>Species</option>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
@@ -19,54 +19,50 @@
             </select>
         </div>
         <div class="input-field col s4">
-            <select>
+            <select ng-model="newPet.breed_id">
                 <option value="" disabled selected>Breed</option>
-                <option value="1">Dog</option>
-                <option value="2">Cat</option>
-                <option value="3">Other</option>
+                @foreach($breeds as $breed)
+                    <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
+                @endforeach
             </select>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s4">
-            <select>
-                <option value="" disabled selected>Shelter</option>
-                <option value="1">SAPA</option>
-                <option value="2">Purrfect Haven</option>
-                <option value="3">ACS</option>
-            </select>
-        </div>
-        <div class="input-field col s4">
-            <select>
+            <select ng-model="newPet.age">
                 <option value="" disabled selected>Age</option>
-                <option value="1">Baby</option>
-                <option value="2">Young</option>
-                <option value="3">Adult</option>
-                <option value="4">Senior</option>
+                <option value="baby">Baby</option>
+                <option value="young">Young</option>
+                <option value="adult">Adult</option>
+                <option value="senior">Senior</option>
             </select>
         </div>
         <div class="input-field col s4">
-            <select>
+            <select ng-model="newPet.gender">
                 <option value="" disabled selected>Gender</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Unknown</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="unknown">Unknown</option>
             </select>
+        </div>
+        <div class="input-field col s4">
+            <input type="text" id="a_num" class="validate" ng-model="newPet.a_num">
+            <label for="a_num">A Num</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input  id="pet_name" type="text" class="validate">
+            <input id="pet_name" type="text" class="validate" ng-model="newPet.name">
             <label for="pet_name">Pet Name</label>
         </div>
         <div class="input-field col s6">
-            <input id="pet_color" type="text" class="validate">
+            <input id="pet_color" type="text" class="validate" ng-model="newPet.color">
             <label for="pet_color">Pet Color</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea placeholder="Tell us about this friend" id="description" class="materialize-textarea"></textarea>
+            <textarea placeholder="Tell us about this friend" id="description" class="materialize-textarea" ng-model="newPet.description"></textarea>
             <label for="description">Pet Description</label>
         </div>
     </div>
