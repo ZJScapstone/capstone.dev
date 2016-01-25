@@ -7,8 +7,8 @@ var app = angular.module('petsApp', [], function($interpolateProvider) {
 app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     $scope.getPets = function(){
-        $http.get('/getpets').then(function(response){
-            $scope.pets = response.data;
+        $http.get('/pets').then(function(response){
+            $scope.pets = response.data.pets;
         },function(){
             console.log("error!");
         });
@@ -25,8 +25,22 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         }, 400);
     };
 
+    $scope.addPet = function(pet){
+        $http.post('/pets', pet).then(function(response){
+            var errors = response.data.errors;
+            if (errors){
+                for (var err in errors) {
+                    alert(errors[err].pop())
+                }
+            }
+        }, function(){
+            console.log("error!");
+        });
+    }
+
     $scope.pets = [];
     $scope.displayedPet = {};
+    $scope.newPet = {};
 
     $scope.getPets();
 }]);
