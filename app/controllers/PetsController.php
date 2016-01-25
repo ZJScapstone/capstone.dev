@@ -17,15 +17,18 @@ class PetsController extends \BaseController {
                     ->leftJoin('users', 'users.id', '=', 'pets.user_id');
 
         $pets = $query->select('pets.id as id',
-                               'pets.species',
+                               'pets.a_num as a_num',
+                               'pets.name as name',
                                'pets.status',
                                'pets.color',
                                'pets.age',
                                'pets.description',
                                'pets.gender',
+                               'breeds.breed',
                                'users.id as user_id',
-                               'users.email as user')
-                      ->get();
+                               'users.email as user',
+                               'species.species')->get();
+
         $response['pets'] = $pets;
 
         $response['breeds'] = Breed::all();
@@ -56,7 +59,7 @@ class PetsController extends \BaseController {
         $response['errors']  = [];
 
         $pet = new Pet($data);
-        $pet->user_id = 1;
+        $pet->user_id = 1; // this will eventually be Confide::user->id
         $pet->save();
 
         return Response::json($response);
@@ -100,9 +103,8 @@ class PetsController extends \BaseController {
      */
     public function destroy($id)
     {
-        $result = Pet::destroy($id);
-
-        return $result;
+        $response['success'] = Pet::destroy($id) ? true : false;
+        return Response::json($response);
     }
 
 }
