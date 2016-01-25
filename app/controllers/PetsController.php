@@ -16,22 +16,18 @@ class PetsController extends \BaseController {
                     ->join('species', 'pets.species_id', '=', 'species.id')
                     ->leftJoin('users', 'users.id', '=', 'pets.user_id');
 
-        $pets = $query->select('pets.id as id',
-                               'pets.a_num as a_num',
-                               'pets.name as name',
-                               'pets.status',
-                               'pets.color',
-                               'pets.age',
-                               'pets.description',
-                               'pets.gender',
-                               'breeds.breed',
-                               'users.id as user_id',
-                               'users.email as user',
-                               'species.species')->get();
-
-        $response['pets'] = $pets;
-
-        $response['breeds'] = Breed::all();
+        $response['pets'] = $query->select('pets.id',
+                                           'pets.a_num',
+                                           'pets.name',
+                                           'pets.status',
+                                           'pets.color',
+                                           'pets.age',
+                                           'pets.description',
+                                           'pets.gender',
+                                           'breeds.breed',
+                                           'users.id as user_id',
+                                           'users.email as user',
+                                           'species.species')->get();
 
         return Response::json($response);
     }
