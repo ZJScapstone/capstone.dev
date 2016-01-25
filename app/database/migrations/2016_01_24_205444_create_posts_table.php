@@ -20,7 +20,8 @@ class CreatePostsTable extends Migration {
             $table->string('title', 100);
             $table->string('slug_title', 150);
             $table->text('body');
-			$table->enum('type', array('doc', 'forum', 'event'));
+            $table->integer('post_type_id')->unsigned();
+            $table->foreign('post_type_id')->references('id')->on('post_type');
             $table->timestamps();
         });
 	}

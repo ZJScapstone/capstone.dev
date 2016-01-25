@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSpeciesTable extends Migration {
+class CreatePostTypeTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateSpeciesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('species', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('species');
-			$table->timestamps();
-		});	
+		Schema::create('post_type', function($table)
+        {
+            $table->increments('id');
+			$table->string('post_type');
+            $table->timestamps();
+        });
 	}
 
 	/**
@@ -27,7 +27,7 @@ class CreateSpeciesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('species');
+        Schema::drop('post_type');
 	}
 
 }
