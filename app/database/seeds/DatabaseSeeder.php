@@ -13,7 +13,6 @@ class DatabaseSeeder extends Seeder {
 
 		DB::table('posts')->delete();
 		DB::table('post_type')->delete();
-		DB::table('shelters')->delete();
 		DB::table('breeds')->delete();
 		DB::table('pets')->delete();
 		DB::table('users')->delete();
@@ -21,7 +20,6 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('SpeciesTableSeeder');
 		$this->call('BreedsTableSeeder');
-		$this->call('ShelterTableSeeder');
 		$this->call('PetTableSeeder');
 		$this->call('PostTypeTableSeeder');
 		$this->call('PostTableSeeder');

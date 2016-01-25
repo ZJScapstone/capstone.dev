@@ -27,19 +27,20 @@
         <div class="row">
             <div class="col m4">
                 <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h1 class="center">View found/ adoptable</h1>
+                    <h3 class="center">View Found and Adoptable Pets</h3>
                 </div>
             </div>
             <div class="col m4">
                 <a href="#pets-create-modal" class="modal-trigger">
                     <div class="card-panel indigo darken-4 white-text hoverable">
-                        <h1 class="center">New Post/ Second/ Third</h1>
+                        <h3 class="center">Create A New Pet Listing</h3>
                     </div>
                 </a>
             </div>
             <div class="col m4">
                 <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h1 class="center">view lost/ Second/ Third</h1>
+                    <h3 class="center">View Lost Pets</h3>
+                    <p></p>
                 </div>
             </div>
         </div>
