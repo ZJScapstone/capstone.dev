@@ -2,79 +2,107 @@
 
 class PetsController extends \BaseController {
 
-	/**
-	 * Display a listing of pets
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+    /**
+     * Display a listing of pets
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $response = [];
 
-		$query = DB::table('pets')
-					->join('breeds', 'breeds.id', '=', 'pets.breed_id')
-					->leftJoin('shelters', 'shelters.id', '=', 'pets.shelter_id')
-					->leftJoin('users', 'users.id', '=', 'pets.user_id');
+        $query = DB::table('pets')
+                    ->join('breeds', 'breeds.id', '=', 'pets.breed_id')
+                    ->join('species', 'pets.species_id', '=', 'species.id')
+                    ->leftJoin('users', 'users.id', '=', 'pets.user_id');
 
-        $array = [];
-        $array['pets'] = $query->select('pets.id as pet_id', 'pets.species', 'pets.status', 'pets.color', 'pets.age', 'pets.description', 'pets.gender', 'breeds.breed')->get();
-        $array['shelters'] = $query->select('shelters.id as shelter_id', 'shelters.name as shelter_name', 'shelters.url', 'shelters.img_path')->get();
-        $array['users'] = $query->select('users.id as user_id', 'users.email as user_email', 'users.first_name as user_first', 'users.last_name as user_last')->get();
+        $pets = $query->select('pets.id as id',
+                               'pets.species',
+                               'pets.status',
+                               'pets.color',
+                               'pets.age',
+                               'pets.description',
+                               'pets.gender',
+                               'users.id as user_id',
+                               'users.email as user')
+                      ->get();
+        $response['pets'] = $pets;
 
-		return Response::json($array);
-	}
+        $response['breeds'] = Breed::all();
 
-	/**
-	 * Store a newly created pet in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$validator = Validator::make($data = Input::all(), Pet::$rules);
+        return Response::json($response);
+    }
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		};
+    /**
+     * Store a newly created pet in storage.
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        $data      = Input::all();
+        $validator = Validator::make($data, Pet::$rules);
+        $response  = [];
 
-		$result = Pet::create($data);
+        $response['data'] = $data;
 
-		return $result;
-	}
+        if ( $validator->fails() ){
+            $response['success'] = false;
+            $response['errors']  = $validator->messages();
+            return Response::json($response);
+        }
 
-	/**
-	 * Update the specified pet in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		$pet = Pet::findOrFail($id);
+        $response['success'] = true;
+        $response['errors']  = [];
 
-		$validator = Validator::make($data = Input::all(), Pet::$rules);
+        $pet = new Pet($data);
+        $pet->user_id = 1;
+        $pet->save();
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+        return Response::json($response);
+    }
 
-		$result = $pet->update($data);
+    /**
+     * Update the specified pet in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function update($id)
+    {
+        $pet       = Pet::findOrFail($id);
+        $data      = Input::all();
+        $validator = Validator::make($data, Pet::$rules);
+        $response  = [];
 
-		return $result;
-	}
+        $response['data'] = $data;
 
-	/**
-	 * Remove the specified pet from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		$result = Pet::destroy($id);
 
-		return $result;
-	}
+        if ($validator->fails())
+        {
+            $resposne['success'] = false;
+            $response['errors']  = $validator->errors();
+            return Response::json($response);
+        }
+
+        $pet->update($data);
+        $response['success'] = true;
+        $response['errors']  = [];
+
+        return Response::json($response);
+    }
+
+    /**
+     * Remove the specified pet from storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $result = Pet::destroy($id);
+
+        return $result;
+    }
 
 }
