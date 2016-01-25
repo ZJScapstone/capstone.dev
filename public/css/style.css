@@ -1,13 +1,29 @@
+#test_toggle {
+    position: absolute;
+    display: inline-block;
+    top: 130vh;
+    right: 50px;
+}
+
+.fixed-action-btn ul {
+    bottom: 10px;
+}
+
 .hero-title {
-  height: 45vh;
-  padding-top: 3vh; }
-  .hero-title h1 {
+    height: 100vh;
+    padding-top: 3vh;
+    background-image: url("/img/puppy_hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-title h1 {
     font-size: 10vh; }
 
 .hero-body {
-  padding-top: 3vh;
-  height: 45vh; }
-  .hero-body h1 {
+    padding-top: 1vh;
+    height: 45vh; }
+.hero-body h1 {
     font-size: 8vh; }
 
 .auth-bar {
