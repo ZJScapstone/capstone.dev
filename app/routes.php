@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('main');
+	return View::make('main')->with('breeds', Breed::all());
 });
 
 Route::get('admin', function()
@@ -32,7 +32,7 @@ Route::get('register', function()
 });
 
 //Pets routes
-Route::resource('pets', 'PetsController', array('except' => array('create', 'show', 'edit')));
+Route::resource('pets', 'PetsController');
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
