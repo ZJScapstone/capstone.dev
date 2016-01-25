@@ -6,10 +6,6 @@ class Pet extends BaseModel
     {
         return $this->belongsTo('User');
     }
-    public function shelter()
-    {
-        return $this->belongsTo('Shelter');
-    }
     public function breed()
     {
         return $this->belongsTo('Breed');

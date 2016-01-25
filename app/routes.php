@@ -31,10 +31,6 @@ Route::get('register', function()
     return View::make('register');
 });
 
-Route::get('shelters', function()
-{
-	return View::make('shelters.create');
-});
 
 Route::get('showuser', function()
 {
@@ -45,7 +41,7 @@ Route::get('/getpets', function()
 {
     $pets = [];
 
-    Pet::with('breed', 'user', 'shelter')->get()->each(function($pet) use (&$pets)
+    Pet::with('breed', 'user', 'a_num')->get()->each(function($pet) use (&$pets)
     {
         $pets[] = 
         [
@@ -55,6 +51,7 @@ Route::get('/getpets', function()
             'status'      => $pet->status,
             'color'       => $pet->color,
             'age'         => $pet->age,
+            'a_num'		  => $pet->a_num,	
             'description' => $pet->description,
             'gender'      => $pet->gender,
             'breed'       => $pet->breed->breed,
@@ -63,12 +60,6 @@ Route::get('/getpets', function()
             [
                 'email' => $pet->user->email, 
                 'id'    => $pet->user->id
-            ],
-
-            'shelter'     => 
-            [
-                'name' => $pet->shelter->name, 
-                'id'   => $pet->shelter->id
             ],
 
             'images' => [
@@ -83,8 +74,6 @@ Route::get('/getpets', function()
 
     return json_encode($pets);
 });
-
-Route::resource('shelters', 'SheltersController');
 
 
 // Confide routes
