@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: sunrey
- * Date: 1/25/16
- * Time: 13:51
- */
+<ul class="side-nav fixed">
+    <li class="search">
+        <div class="search-wrapper card">
+            <input type="search" id="search"><i class="material-icons">search</i>
+        </div>
+    </li>
+</ul>
