@@ -47,7 +47,7 @@
         </div>
         <div class="input-field col s4">
             <input type="text" id="a_num" class="validate" ng-model="newPet.a_num">
-            <label for="a_num">A Num</label>
+            <label for="a_num">Pet ID#</label>
         </div>
     </div>
     <div class="row">
