@@ -64,6 +64,9 @@ class petFaker extends Command {
 		$gender = ['male', 'female', 'unknown'];
 		$gender = $gender[array_rand($gender)];
 
+		$a_num = ['342335', '234567', '234412', '123123', '123345', '345345'];
+		$a_num = $a_num[array_rand($a_num)];
+
 		$pet = new Pet();
 
 		$pet->name        = $name;
@@ -73,9 +76,9 @@ class petFaker extends Command {
         $pet->age         = $age;
         $pet->description = $description;
         $pet->gender      = $gender;
+        $pet->a_num       = $a_num;
         $pet->breed_id    = Breed::first()->id;
         $pet->user_id     = User::first()->id;
-        $pet->shelter_id  = Shelter::first()->id;
 
         $pet->save();
 
