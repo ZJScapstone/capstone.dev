@@ -3,15 +3,14 @@
 class Pet extends BaseModel
 {
     public static $rules = array(
-        'name'    => 'max:100',
-        'species_id' => 'required',
-        'status'  => 'required',
-        'color'   => 'max:100',
-        'age'     => 'required',
+        'name'        => 'max:100',
+        'species_id'  => 'required',
+        'status'      => 'required',
+        'color'       => 'max:100',
+        'age'         => 'required',
         'description' => 'required|min:10|max:10000',
-        'gender'  => 'required',
-        'breed_id'   => 'required',
-        'a_num' => 'required'
+        'gender'      => 'required',
+        'breed_id'    => 'required'
     );
 
     protected $fillable = ['name', 'species', 'status', 'color', 'age',
