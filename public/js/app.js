@@ -26,13 +26,19 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     };
 
     $scope.addPet = function(pet){
+        $('#pets-create-modal').closeModal();
         $http.post('/pets', pet).then(function(response){
-            var errors = response.data.errors;
-            if (errors){
+            if (response.data.success){
+                alert('pet successfully posted!');
+            } else {
+                var errors = response.data.errors;
                 for (var err in errors) {
-                    alert(errors[err].pop())
+                    errors[err] = errors[err].pop();
                 }
+                $scope.errors = errors;
+                $('#errors').openModal();
             }
+            $scope.getPets();
         }, function(){
             console.log("error!");
         });
@@ -41,6 +47,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.pets = [];
     $scope.displayedPet = {};
     $scope.newPet = {};
+    $scope.errors = {};
 
     $scope.getPets();
 }]);
