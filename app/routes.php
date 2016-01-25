@@ -55,9 +55,6 @@ Route::get('layout', function()
 //Pets routes
 Route::resource('pets', 'PetsController', array('except' => array('create', 'show', 'edit')));
 
-Route::resource('shelters', 'SheltersController');
-
-
 // Confide routes
 Route::get('users/create', 'UsersController@create');
 Route::post('users', 'UsersController@store');

@@ -80,98 +80,41 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Fido</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
+        <div class="row">
+            <div class="col md4">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <img src="http://placehold.it/275">
+                        <span class="card-title">Fido</span>
+                    </div>
+                    <div class="card-content">
+                        <p>Ace Ventura Pet Description</p>
                     </div>
                 </div>
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Meowers</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
-                    </div>
+                    {{-- filters --}}
+                    {{-- <div class="container filters">
+                        <input type="text" ng-model="search">
+                    </div> --}}
+                <div class="fixed-action-btn" id="test_toggle">
+                    <a class="btn-floating btn-large deep-orange darken-3">
+                        <i class="material-icons">shopping_basket</i>
+                    </a>
+                    <ul>
+                        <li>
+                            <a class="btn-floating red modal-trigger" href="#pets-create-modal">
+                                <i class="material-icons">mode_edit</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="btn-floating green" href="#">
+                                <i class="material-icons">loyalty</i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Adopt Me</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Fido</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Meowers</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col md4">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src="http://placehold.it/275">
-                            <span class="card-title">Adopt Me</span>
-                        </div>
-                        <div class="card-content">
-                            <p>Ace Ventura Pet Description</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {{-- filters --}}
-            <div class="container filters">
-                <input type="text" ng-model="search">
             </div>
         </div>
-        <div class="fixed-action-btn" id="test_toggle">
-            <a class="btn-floating btn-large deep-orange darken-3">
-                <i class="material-icons">shopping_basket</i>
-            </a>
-            <ul>
-                <li>
-                    <a class="btn-floating red modal-trigger" href="#pets-create-modal">
-                        <i class="material-icons">mode_edit</i>
-                    </a>
-                </li>
-                <li>
-                    <a class="btn-floating green" href="#">
-                        <i class="material-icons">loyalty</i>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    </div>
     </div>
 
 
