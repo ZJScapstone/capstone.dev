@@ -1,4 +1,4 @@
-<nav>
+<nav class="deep-orange darken-3">
     <p class="left">
         <a href="#">Happy Tails!</a>
     </p>

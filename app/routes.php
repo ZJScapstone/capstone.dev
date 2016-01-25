@@ -31,6 +31,27 @@ Route::get('register', function()
     return View::make('register');
 });
 
+//Test Routes
+Route::get('docs', function()
+{
+    return View::make('docs');
+});
+
+Route::get('forums', function()
+{
+    return View::make('forums');
+});
+
+Route::get('events', function()
+{
+    return View::make('events');
+});
+
+Route::get('layout', function()
+{
+    return View::make('layout');
+});
+
 //Pets routes
 Route::resource('pets', 'PetsController');
 
