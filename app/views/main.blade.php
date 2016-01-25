@@ -28,8 +28,10 @@
 
 @section('content')
 <div ng-app="petsApp" ng-controller="PetsController as ctrl">
-    <div class="hero-title deep-orange darken-3 z-depth-1">
-        <h1 class="center white-text">happy tails!</h1>
+    <div id="overlay">
+        <div class="hero-title z-depth-1">
+            <h1 class="white-text left-align">happy tails!</h1>
+        </div>
     </div>
         <div class="row z-depth-1">
             <div class="col s12">
