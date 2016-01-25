@@ -6,16 +6,16 @@ class PetTableSeeder extends Seeder {
 	{
         $pet = new Pet();
 
-        $pet->name        = 'somename';
-        $pet->species     = 'cat';
-        $pet->status      = 'lost';
-        $pet->color       = 'grey';
-        $pet->age         = 'baby';
+        $pet->name        = 'Marimba';
+        $pet->status      = 'adopted';
+        $pet->color       = 'calico';
+        $pet->age         = 'adult';
         $pet->description = 'text goes here';
-        $pet->gender      = 'M';
+        $pet->gender      = 'F';
         $pet->breed_id    = Breed::first()->id;
         $pet->user_id     = User::first()->id;
-        $pet->shelter_id  = Shelter::first()->id;
+        $pet->species_id  = Species::first()->id;
+        $pet->a_num       = 'A143656';
 
         $pet->save();
 	}
