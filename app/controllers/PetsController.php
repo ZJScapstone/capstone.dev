@@ -32,6 +32,8 @@ class PetsController extends \BaseController {
         return Response::json($response);
     }
 
+    public function show(){}
+
     /**
      * Store a newly created pet in storage.
      *
@@ -100,6 +102,14 @@ class PetsController extends \BaseController {
     {
         $response['success'] = Pet::destroy($id) ? true : false;
         return Response::json($response);
+    }
+
+    public function uploadImage()
+    {
+        $file = Input::file('file');
+        $file->move('./uploads');
+        
+        return $file;
     }
 
 }

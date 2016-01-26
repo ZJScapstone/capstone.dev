@@ -2,6 +2,10 @@
 
 @section('title', 'happytails!')
 
+@section('top-script')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/dropzone.css">
+@stop
+
 @section('bottom-script')
 <script>
     $(document).ready(function() {
@@ -21,10 +25,23 @@
         Materialize.scrollFire(options);
     });
 
+    $('#image-upload').openModal();
+
 </script>
 <script src="/js/styleFixes.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <script src="/js/app.js"></script>
+<script src="/js/dropzone.js"></script>
+<script>
+    var myDropzone = new Dropzone("#image-upload", { 
+        url: "/pets/image",
+        init: function(){
+            this.on('success', function(file, response){
+                console.log(response);
+            });
+        }
+    });
+</script>
 @stop
 
 @section('content')
@@ -76,15 +93,18 @@
     {{-- pets index --}}
     @include('pets.index')
 
+    {{-- individual animal modal --}}
+    <div class="modal" id="show-pet-modal">
+        @include('pets.show')
+    </div>
+
     {{-- pets create form modal --}}
     <div id="pets-create-modal" class="modal">
         @include('pets.create')
     </div>
 
-    {{-- individual animal modal --}}
-    <div class="modal" id="show-pet-modal">
-        @include('pets.show')
-    </div>
+    {{-- image upload modal --}}
+    <div class="modal" id="image-upload">&nbsp;</div>
 
     {{-- show errors modal --}}
     <div class="modal" id="errors">
