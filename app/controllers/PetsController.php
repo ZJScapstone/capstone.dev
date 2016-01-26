@@ -29,6 +29,8 @@ class PetsController extends \BaseController {
                                            'users.email as user',
                                            'species.species')->get();
 
+        $response['user'] = Confide::user();
+
         foreach ($response['pets'] as $pet) {
             $pet->images = Image::where('pet_id', '=', $pet->id)->get();
         }
@@ -61,7 +63,6 @@ class PetsController extends \BaseController {
         $response['errors']  = [];
 
         $pet = new Pet($data);
-        $pet->user_id = 1; // this will eventually be Confide::user->id
         $pet->save();
         $response['pet'] = $pet;
 
