@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class PetsController extends \BaseController {
 
     /**
@@ -24,6 +26,7 @@ class PetsController extends \BaseController {
                                            'pets.age',
                                            'pets.description',
                                            'pets.gender',
+                                           'pets.created_at',
                                            'breeds.breed',
                                            'users.id as user_id',
                                            'users.email as user',
@@ -33,6 +36,8 @@ class PetsController extends \BaseController {
 
         foreach ($response['pets'] as $pet) {
             $pet->images = Image::where('pet_id', '=', $pet->id)->get();
+            $posted = new Carbon($pet->created_at);
+            $pet->posted = $posted->diffForHumans();
         }
 
         return Response::json($response);
