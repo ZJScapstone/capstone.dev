@@ -42,7 +42,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         }, function(){
             console.log("error!");
         });
-    }
+    };
 
     $scope.pets = [];
     $scope.displayedPet = {};
