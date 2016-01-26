@@ -91,7 +91,10 @@
     </div>
 
     {{-- image upload modal --}}
-    <div class="modal" id="image-upload">&nbsp;</div>
+    <div class="modal" id="image-upload-modal">
+        <h2 class="center">Let's add some pictures!</h2>
+        <div id="image-upload">&nbsp;</div>
+    </div>
 
     {{-- show errors modal --}}
     <div class="modal" id="errors">
