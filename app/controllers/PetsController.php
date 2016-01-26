@@ -49,7 +49,7 @@ class PetsController extends \BaseController {
         $validator = Validator::make($data, Pet::$rules);
         $response  = [];
 
-        $response['data'] = $data;
+        $response['input'] = $data;
 
         if ( $validator->fails() ) {
             $response['success'] = false;
@@ -63,6 +63,7 @@ class PetsController extends \BaseController {
         $pet = new Pet($data);
         $pet->user_id = 1; // this will eventually be Confide::user->id
         $pet->save();
+        $response['pet'] = $pet;
 
         return Response::json($response);
     }
