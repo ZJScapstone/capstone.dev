@@ -3,72 +3,19 @@
 class Pet extends BaseModel
 {
     public static $rules = array(
-        'name'    => 'max:100',
-        'species' => 'required',
-        'status'  => 'required',
-        'color'   => 'max:100',
-        'age'     => 'required',
+        'name'        => 'max:100',
+        'species_id'  => 'required',
+        'status'      => 'required',
+        'color'       => 'max:100',
+        'age'         => 'required',
         'description' => 'required|min:10|max:10000',
-        'gender'  => 'required',
-        'breed'   => 'required'
+        'gender'      => 'required',
+        'breed_id'    => 'required'
     );
 
-    public static function create($data)
-    {
-        $pet = new Pet();
-
-        $pet->name = $data['name'];
-        $pet->color = $data['color'];
-        $pet->species = $data['species'];
-        $pet->status = $data['status'];
-        $pet->age = $data['age'];
-        $pet->description = $data['description'];
-        $pet->gender = $data['gender'];
-        $pet->breed_id = $data['breed_id'];
-        $pet->user_id = Confide::user();
-
-        $result = $pet->save();
-
-        if(!$result) {
-            return Response::json(array('message' => 'Could not create posting', 'data' => $data ));
-        } else {
-            return Response::json(array('message' => 'Pet posting created', 'data' => $result));
-        }
-    }
-
-    public function update($data)
-    {
-
-        $this->name = $data['name'];
-        $this->color = $data['color'];
-        $this->species = $data['species'];
-        $this->status = $data['status'];
-        $this->age = $data['age'];
-        $this->description = $data['description'];
-        $this->gender = $data['gender'];
-        $this->breed_id = $data['breed_id'];
-
-        $result = $this->save();
-
-        if(!$result) {
-            return Response::json(array('message' => 'Could not save edits', 'success' => 'false', 'data' => $data ));
-        } else {
-            return Response::json(array('message' => 'Post successfully updated', 'success' => 'true', 'data' => $result));
-        }
-    }
-
-    public function destroy($id)
-    {
-        $pet = Pet::find($id);
-
-        $result = $pet->delete();
-
-        if(!$result) {
-            return Response::json(array('message' => 'Failed to delete posting', 'success' => 'false', 'data' => $pet));
-        } else {
-            return Response::json(array('message' => 'Post successfully deleted', 'success' => 'true', 'data' => $result));
-        }
-    }
+    protected $fillable = ['name', 'species', 'status', 'color', 'age',
+                           'description', 'gender', 'breed_id', 'species_id',
+                           'a_num'];
 
 	public function user()
     {
@@ -82,4 +29,9 @@ class Pet extends BaseModel
 	{
 		return $this->hasMany('Image');
 	}
+
+    public function species()
+    {
+        return $this->belongsTo('Species');
+    }
 }
