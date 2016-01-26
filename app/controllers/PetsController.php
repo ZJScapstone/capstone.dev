@@ -29,6 +29,10 @@ class PetsController extends \BaseController {
                                            'users.email as user',
                                            'species.species')->get();
 
+        foreach ($response['pets'] as $pet) {
+            $pet->images = Image::where('pet_id', '=', $pet->id)->get();
+        }
+
         return Response::json($response);
     }
 
