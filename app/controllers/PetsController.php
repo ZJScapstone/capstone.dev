@@ -45,7 +45,7 @@ class PetsController extends \BaseController {
 
         $response['data'] = $data;
 
-        if ( $validator->fails() ){
+        if ( $validator->fails() ) {
             $response['success'] = false;
             $response['errors']  = $validator->messages();
             return Response::json($response);
@@ -77,8 +77,7 @@ class PetsController extends \BaseController {
         $response['data'] = $data;
 
 
-        if ($validator->fails())
-        {
+        if ( $validator->fails() ) {
             $resposne['success'] = false;
             $response['errors']  = $validator->errors();
             return Response::json($response);
