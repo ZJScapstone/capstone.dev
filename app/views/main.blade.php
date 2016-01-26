@@ -4,14 +4,23 @@
 
 @section('bottom-script')
 <script>
-    $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $(document).ready(function() {
         $('.modal-trigger').leanModal();
     });
 
     $(document).ready(function() {
         $('select').material_select();
     });
+
+    $(document).ready(function() {
+        var options = [{
+            selector: '#test_toggle',
+            offset: 300,
+            callback: 'Materialize.fadeInImage("#test_toggle")'
+        }];
+        Materialize.scrollFire(options);
+    });
+
 </script>
 <script src="/js/styleFixes.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -20,70 +29,71 @@
 
 @section('content')
 <div ng-app="petsApp" ng-controller="PetsController as ctrl">
-    <div class="hero-title light-blue">
-        <h2 class="center">happy tails!</h1>
-    </div>
-    <div class="hero-body">
-        <div class="row">
-            <div class="col m4">
-                <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h3 class="center">View Found and Adoptable Pets</h3>
-                </div>
-            </div>
-            <div class="col m4">
-                <a href="#pets-create-modal" class="modal-trigger">
-                    <div class="card-panel indigo darken-4 white-text hoverable">
-                        <h3 class="center">Create A New Pet Listing</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="col m4">
-                <div class="card-panel indigo darken-4 white-text hoverable">
-                    <h3 class="center">View Lost Pets</h3>
-                    <p></p>
-                </div>
-            </div>
+
+    {{-- hero area --}}
+    <div id="overlay">
+        <div class="hero-title z-depth-1">
+            <h1 class="white-text left-align">happy tails!</h1>
         </div>
     </div>
 
-    {{-- pets create form modal --}}
-
-    <div id="pets-create-modal" class="modal">
-        @include('pets.create')
+    {{-- navbar tabs --}}
+    <div class="row z-depth-1">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a href="#">Pets</a></li>
+                <li class="tab col s3"><a href="#">Docs</a></li>
+                <li class="tab col s3"><a href="#">Forum</a></li>
+                <li class="tab col s3"><a href="#">Events</a></li>
+            </ul>
+        </div>
     </div>
 
-    {{-- filters --}}
+    {{-- circle icons --}}
+    <div class="fixed-action-btn" id="test_toggle">
+        <a class="btn-floating btn-large deep-orange darken-3">
+            <i class="material-icons">shopping_basket</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating red modal-trigger" href="#pets-create-modal">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating green" href="#">
+                    <i class="material-icons">loyalty</i>
+                </a>
+            </li>
+        </ul>
+    </div>    
+
+    {{-- search --}}
     <div class="container filters">
         <input type="text" ng-model="search">
     </div>
 
-    <!--Start Animals-->
-    <div class="container">
-    <div class="row">
-        <div class="col m4" ng-repeat="pet in pets | filter:search">
-            <div class="card hoverable" ng-click="openPetModal(pet.id)">
-                <div class="card-image ">
-                    <img src="http://placehold.it/400">
-                    <span class="card-title"><% pet.name %></span>
-                </div>
-                <div class="card-content">
-                    <p><% pet.description %></p>
-                </div>
-            </div>
-        </div>
+    {{-- pets index --}}
+    @include('pets.index')
+
+    {{-- pets create form modal --}}
+    <div id="pets-create-modal" class="modal">
+        @include('pets.create')
     </div>
-    </div>
-    <!--End Animals-->
 
     {{-- individual animal modal --}}
     <div class="modal" id="show-pet-modal">
-        <h4><% displayedPet.name %></h4>
-        <div class="col s3" ng-repeat="path in displayedPet.images">
-            <img ng-src="<% path %>">
+        @include('pets.show')
+    </div>
+
+    {{-- show errors modal --}}
+    <div class="modal" id="errors">
+        <div class="container">
+            <h2 class="center">user-friendly error alert</h2>
+            <p ng-repeat="err in errors"><% err %></p>
         </div>
-        <p><% displayedPet.description %></p>
-        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a></p>
     </div>
 
 </div>
+
 @stop

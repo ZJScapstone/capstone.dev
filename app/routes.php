@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('main');
+	return View::make('main')->with('breeds', Breed::all());
 });
 
 Route::get('admin', function()
@@ -31,8 +31,29 @@ Route::get('register', function()
     return View::make('register');
 });
 
+//Test Routes
+Route::get('docs', function()
+{
+    return View::make('docs');
+});
+
+Route::get('forums', function()
+{
+    return View::make('forums');
+});
+
+Route::get('events', function()
+{
+    return View::make('events');
+});
+
+Route::get('layout', function()
+{
+    return View::make('layout');
+});
+
 //Pets routes
-Route::resource('pets', 'PetsController', array('except' => array('create', 'show', 'edit')));
+Route::resource('pets', 'PetsController');
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');
@@ -45,4 +66,3 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
-
