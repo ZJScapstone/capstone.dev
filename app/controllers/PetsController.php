@@ -113,7 +113,7 @@ class PetsController extends \BaseController {
     {
         $file = Input::file('file');
         $filename = uniqid() . '.' . $file->getClientOriginalExtension();
-        $file->move('./uploads', $filename);
+        $file->move('./img/uploads', $filename);
 
         $img = new Image();
         $img->img_path = '/img/uploads/' . $filename;
