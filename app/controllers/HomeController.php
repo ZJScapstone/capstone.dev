@@ -20,7 +20,7 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
-	public doContact(){
+	public function doContact(){
 
 		$from    = Input::get('from');
 		$email   = Input::get('email');
@@ -38,7 +38,7 @@ class HomeController extends BaseController {
 		{
 			$message->from($data['email'], $data['from']);
 
-			$message->to('sjmrstevens@gmail.com', '')
+			$message->to('sjmrstevens@gmail.com', '');
 		});
 
 	}
