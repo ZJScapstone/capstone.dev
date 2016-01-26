@@ -8,7 +8,7 @@
                         <span class="card-title"><% pet.name %></span>
                     </div>
                     <div class="card-content">
-                        <p><%$index + pet.description | limitTo : 50 : 0 %>...</p>
+                        <p><% pet.description | limitTo : 50 : 0 %>...</p>
                     </div>
                 </div>
             </div>
