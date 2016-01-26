@@ -29,6 +29,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <script src="/js/dropzone.js"></script>
 <script src="/js/app.js"></script>
+<script src="/js/dropzone.js"></script>
+<script>
+    var myDropzone = new Dropzone("#image-upload", { 
+        url: "/pets/image",
+        init: function(){
+            this.on('success', function(file, response){
+                console.log(response);
+            });
+        }
+    });
+</script>
 @stop
 
 @section('content')
@@ -95,7 +106,7 @@
         <h2 class="center">Let's add some pictures!</h2>
         <div id="image-upload">&nbsp;</div>
     </div>
-
+    
     {{-- show errors modal --}}
     <div class="modal" id="errors">
         <div class="container">
