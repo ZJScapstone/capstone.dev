@@ -107,9 +107,15 @@ class PetsController extends \BaseController {
     public function uploadImage()
     {
         $file = Input::file('file');
-        $file->move('./uploads');
-        
-        return $file;
+        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move('./uploads', $filename);
+
+        $img = new Image();
+        $img->img_path = '/img/uploads/' . $filename;
+        $img->pet_id = Input::get('pet_id');
+        $img->save();
+
+        return Response::json('asdf');
     }
 
 }
