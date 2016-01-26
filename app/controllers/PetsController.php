@@ -12,33 +12,9 @@ class PetsController extends \BaseController {
     public function index()
     {
         $response = [];
-
-        $query = DB::table('pets')
-                    ->join('breeds', 'breeds.id', '=', 'pets.breed_id')
-                    ->join('species', 'pets.species_id', '=', 'species.id')
-                    ->leftJoin('users', 'users.id', '=', 'pets.user_id');
-
-        $response['pets'] = $query->select('pets.id',
-                                           'pets.a_num',
-                                           'pets.name',
-                                           'pets.status',
-                                           'pets.color',
-                                           'pets.age',
-                                           'pets.description',
-                                           'pets.gender',
-                                           'pets.created_at',
-                                           'breeds.breed',
-                                           'users.id as user_id',
-                                           'users.email as user',
-                                           'species.species')->get();
-
+        
+        $response['pets'] = Pet::with('breed', 'species', 'user', 'images')->get();
         $response['user'] = Confide::user();
-
-        foreach ($response['pets'] as $pet) {
-            $pet->images = Image::where('pet_id', '=', $pet->id)->get();
-            $posted = new Carbon($pet->created_at);
-            $pet->posted = $posted->diffForHumans();
-        }
 
         return Response::json($response);
     }
