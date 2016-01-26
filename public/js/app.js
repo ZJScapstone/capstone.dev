@@ -9,14 +9,11 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     function createDropzone(){
         var myDropzone = new Dropzone("#image-upload", { 
             url: "/pets/image",
-            init: function(){
-                this.on('success', function(file, response){
-                    console.log(response);
-                });
-            },
             sending: function(file, xhr, formData){
                 formData.append('pet_id', $scope.newPet.id);
-                console.log(formData);
+            },
+            success: function(file, response){
+                $scope.getPets();
             }
         });
     }
@@ -24,6 +21,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
             $scope.pets = response.data.pets;
+            $scope.user = response.data.user;
         },function(e){
             console.log(e);
         });
@@ -42,6 +40,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     $scope.addPet = function(pet){
         $('#pets-create-modal').closeModal();
+        pet.user_id = $scope.user.id;
         $http.post('/pets', pet).then(function(response){
             if (response.data.success){
                 alert('pet successfully posted!');
