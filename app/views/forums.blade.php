@@ -3,26 +3,17 @@
 @section('title', 'happy tails! - Forums')
 
 @section('top-script')
-    <style>
-        header, main, footer {
-            padding-left: 240px;
-        }
-
-        li.search .search-wrapper i.material-icons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/side_nav.css">
 @stop
 
 @section('bottom-script')
-
+    <script src="/js/styleFixes.js"></script>
+    <script src="/js/side_nav.js"></script>
 @stop
 
 @section('content')
     <header>
+        @include('partials.forums_nav')
         <div class="row z-depth-0 section fixed">
             <div class="col s12">
                 <ul class="tabs">
@@ -33,7 +24,6 @@
                 </ul>
             </div>
         </div>
-        @include('partials.side_nav')
     </header>
     <main>
         <div class="container">
