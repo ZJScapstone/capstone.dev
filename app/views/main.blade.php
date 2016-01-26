@@ -86,6 +86,14 @@
         @include('pets.show')
     </div>
 
+    {{-- show errors modal --}}
+    <div class="modal" id="errors">
+        <div class="container">
+            <h2 class="center">user-friendly error alert</h2>
+            <p ng-repeat="err in errors"><% err %></p>
+        </div>
+    </div>
+
 </div>
 
 @stop
