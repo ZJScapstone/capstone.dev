@@ -6,11 +6,26 @@ var app = angular.module('petsApp', [], function($interpolateProvider) {
 
 app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
+    function createDropzone(){
+        var myDropzone = new Dropzone("#image-upload", { 
+            url: "/pets/image",
+            init: function(){
+                this.on('success', function(file, response){
+                    console.log(response);
+                });
+            },
+            sending: function(file, xhr, formData){
+                formData.append('pet_id', $scope.newPet.id);
+                console.log(formData);
+            }
+        });
+    }
+
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
             $scope.pets = response.data.pets;
-        },function(){
-            console.log("error!");
+        },function(e){
+            console.log(e);
         });
     };
 
@@ -30,6 +45,9 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         $http.post('/pets', pet).then(function(response){
             if (response.data.success){
                 alert('pet successfully posted!');
+                $scope.newPet.id = response.data.pet.id;
+                createDropzone();
+                $('#image-upload-modal').openModal();
             } else {
                 var errors = response.data.errors;
                 for (var err in errors) {
@@ -39,8 +57,8 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
                 $('#errors').openModal();
             }
             $scope.getPets();
-        }, function(){
-            console.log("error!");
+        }, function(e){
+            console.log(e);
         });
     };
 
