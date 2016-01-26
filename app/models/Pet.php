@@ -10,12 +10,13 @@ class Pet extends BaseModel
         'age'         => 'required',
         'description' => 'required|min:10|max:10000',
         'gender'      => 'required',
-        'breed_id'    => 'required'
+        'breed_id'    => 'required',
+        'user_id'     => 'required'
     );
 
     protected $fillable = ['name', 'species', 'status', 'color', 'age',
                            'description', 'gender', 'breed_id', 'species_id',
-                           'a_num'];
+                           'a_num', 'user_id'];
 
 	public function user()
     {

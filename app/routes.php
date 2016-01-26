@@ -54,6 +54,7 @@ Route::get('layout', function()
 
 //Pets routes
 Route::resource('pets', 'PetsController');
+Route::post('/pets/image', 'PetsController@uploadImage');
 
 // Confide routes
 Route::get('users/create', 'UsersController@create');

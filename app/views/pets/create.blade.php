@@ -66,15 +66,6 @@
             <label for="description">Pet Description</label>
         </div>
     </div>
-    <div class="file-field">
-        <div class="btn">
-            <span>Images</span>
-            <input name="image[]"  type="file" multiple>
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Upload one or more images of your pet">
-        </div>
-    </div>
     <div class="modal-footer">
         <a href="#!" class="left modal-action modal-close waves-effect waves-light btn">Close</a>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
