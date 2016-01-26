@@ -72,6 +72,8 @@
         </ul>
     </div>    
 
+    <a id="main"></a>
+
     {{-- search --}}
     <div class="container filters">
         <input type="text" ng-model="search">
@@ -92,7 +94,9 @@
 
     {{-- image upload modal --}}
     <div class="modal" id="image-upload-modal">
+        <button class="btn right modal-action modal-close">done</button>
         <h2 class="center">Let's add some pictures!</h2>
+        <p>Click or drag pictures here</p>
         <div id="image-upload">&nbsp;</div>
     </div>
 

@@ -73,6 +73,7 @@ nav {
     background: rgb(225,225,225);
 }
 
-#image-upload::before{
-    content: 'Click or drag images here';
+.dz-complete{
+  display: inline-block;
+  margin: 10px;
 }
