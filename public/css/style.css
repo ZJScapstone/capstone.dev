@@ -67,4 +67,12 @@ nav {
   padding-top: 25px;
   padding-bottom: 50px; }
 
-/*# sourceMappingURL=style.css.map */
+#image-upload{
+    padding: 30px;
+    margin: 30px;
+    background: rgb(225,225,225);
+}
+
+#image-upload::before{
+    content: 'Click or drag images here';
+}
