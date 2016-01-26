@@ -2,13 +2,13 @@
 <div class="row">
     <div class="col m6">
         <p>Status: <% displayedPet.status %></p>
-        <p>posted by <a href="/users/<% displayedPet.user_id %>"><% displayedPet.user %></a> <% displayedPet.posted %></p>
+        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a> <% displayedPet.created_at.date %></p>
         <p>ID#: <% displayedPet.a_num %></p>
     </div>
     <div class="col m6">
-        <p>Species: <% displayedPet.species %></p>
+        <p>Species: <% displayedPet.species.species %></p>
         <p>Gender: <% displayedPet.gender %></p>
-        <p>Breed: <% displayedPet.breed %></p>
+        <p>Breed: <% displayedPet.breed.breed %></p>
     </div>
 </div>
 <div class="row">
