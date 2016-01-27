@@ -13,7 +13,7 @@ class PetsController extends \BaseController {
     {
         $response = [];
         
-        $response['pets'] = Pet::with('breed', 'species', 'user', 'images')
+        $response['pets'] = Pet::with('size', 'species', 'user', 'images')
             ->get()->map(function($pet){
                 $pet->posted = $pet->created_at->diffForHumans();
                 return $pet;

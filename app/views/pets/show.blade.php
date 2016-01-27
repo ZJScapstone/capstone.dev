@@ -1,14 +1,15 @@
+<p class="modal-action modal-close modal-dismiss">x</p>
 <h2 class="center"><% displayedPet.name %></h2>
 <div class="row">
     <div class="col m6">
-        <p>Status: <% displayedPet.status %></p>
         <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a> <% displayedPet.posted %></p>
-        <p>ID#: <% displayedPet.a_num %></p>
+        <p><strong>Status:</strong> <em><% displayedPet.status %></em></p>
+        <p><strong>ID#:</strong> <% displayedPet.a_num %></p>
     </div>
     <div class="col m6">
-        <p>Species: <% displayedPet.species.species %></p>
-        <p>Gender: <% displayedPet.gender %></p>
-        <p>Breed: <% displayedPet.breed.breed %></p>
+        <p><strong>Species:</strong> <% displayedPet.species.species %></p>
+        <p><strong>Gender:</strong> <% displayedPet.gender %></p>
+        <p><strong>Breed:</strong> <% displayedPet.breed %></p>
     </div>
 </div>
 <div class="row">
@@ -16,10 +17,11 @@
         <p><% displayedPet.description %></p>
     </div>
 </div>
-<div class="col s3" ng-repeat="image in displayedPet.images">
-    <div class="card hoverable">
-        <div class="card-image">
-            <img ng-src="<% image.img_path %>">
-        </div>
+<div class="row">
+    <div class="col m6" ng-repeat="image in displayedPet.images">
+        <img class="responsive-img" ng-src="<% image.img_path %>">
     </div>
+</div>
+<div class="modal-footer">
+    <button class="right modal-action modal-close btn waves-effect waves-light">Close</button>
 </div>
