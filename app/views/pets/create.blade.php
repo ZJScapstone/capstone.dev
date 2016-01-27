@@ -14,7 +14,6 @@
                 <option value="" disabled selected>Species</option>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
-                <option value="3">Other</option>
             </select>
         </div>
         <div class="input-field col s4">
