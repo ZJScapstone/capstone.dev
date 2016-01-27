@@ -10,21 +10,22 @@ class Pet extends BaseModel
         'age'         => 'required',
         'description' => 'required|min:10|max:10000',
         'gender'      => 'required',
-        'breed_id'    => 'required',
+        'size_id'     => 'required',
+        'breed'       => 'required',
         'user_id'     => 'required'
     );
 
     protected $fillable = ['name', 'species', 'status', 'color', 'age',
-                           'description', 'gender', 'breed_id', 'species_id',
+                           'description', 'gender', 'breed', 'size_id', 'species_id',
                            'a_num', 'user_id'];
 
 	public function user()
     {
         return $this->belongsTo('User');
     }
-    public function breed()
+    public function size()
     {
-        return $this->belongsTo('Breed');
+        return $this->belongsTo('Size');
     }
 	public function images()
 	{
