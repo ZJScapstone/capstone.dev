@@ -30,7 +30,11 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
                 errors[err] = errors[err].pop();
             }
             $scope.errors = errors;
-            $('#errors').openModal();
+            $('#errors').openModal({
+                complete: function(){
+                    $('#pets-create-modal').openModal();
+                }
+            });
         }
         $scope.getPets();
     }
@@ -89,11 +93,12 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         }
     };
 
-    $scope.pets = [];
+    $scope.pets         = [];
     $scope.displayedPet = {};
-    $scope.newPet = {};
-    $scope.errors = {};
-    $scope.user = {};
+    $scope.newPet       = {};
+    $scope.errors       = {};
+    $scope.user         = {};
+    $scope.search       = '';
 
     $scope.csrfToken = $('#csrf-token input').val();
 
