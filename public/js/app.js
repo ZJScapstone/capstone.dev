@@ -37,8 +37,17 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
-            $scope.pets = response.data.pets;
             $scope.user = response.data.user;
+            $scope.pets = response.data.pets.map(function(pet){
+            // if a pet doesn't have images, use a placeholder
+                if (!pet.images.length) {
+                    pet.images.push({
+                        "img_path": "http://placehold.it/500"
+                    });
+                }
+                return pet;
+            });
+            
         },function(e){
             console.log(e);
         });
