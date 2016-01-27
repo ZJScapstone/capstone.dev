@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 class PetsController extends \BaseController {
 
     /**
@@ -10,27 +12,14 @@ class PetsController extends \BaseController {
     public function index()
     {
         $response = [];
-
-        $query = DB::table('pets')
-                    ->join('breeds', 'breeds.id', '=', 'pets.breed_id')
-                    ->join('species', 'pets.species_id', '=', 'species.id')
-                    ->leftJoin('users', 'users.id', '=', 'pets.user_id');
-
-        $response['pets'] = $query->select('pets.id',
-                                           'pets.a_num',
-                                           'pets.name',
-                                           'pets.status',
-                                           'pets.color',
-                                           'pets.age',
-                                           'pets.description',
-                                           'pets.gender',
-                                           'breeds.breed',
-                                           'users.id as user_id',
-                                           'users.email as user',
-                                           'species.species')->get();
+        
+        $response['pets'] = Pet::with('breed', 'species', 'user', 'images')->get();
+        $response['user'] = Confide::user();
 
         return Response::json($response);
     }
+
+    public function show(){}
 
     /**
      * Store a newly created pet in storage.
@@ -43,7 +32,7 @@ class PetsController extends \BaseController {
         $validator = Validator::make($data, Pet::$rules);
         $response  = [];
 
-        $response['data'] = $data;
+        $response['input'] = $data;
 
         if ( $validator->fails() ) {
             $response['success'] = false;
@@ -55,8 +44,8 @@ class PetsController extends \BaseController {
         $response['errors']  = [];
 
         $pet = new Pet($data);
-        $pet->user_id = 1; // this will eventually be Confide::user->id
         $pet->save();
+        $response['pet'] = $pet;
 
         return Response::json($response);
     }
@@ -100,6 +89,20 @@ class PetsController extends \BaseController {
     {
         $response['success'] = Pet::destroy($id) ? true : false;
         return Response::json($response);
+    }
+
+    public function uploadImage()
+    {
+        $file = Input::file('file');
+        $filename = uniqid() . '.' . $file->getClientOriginalExtension();
+        $file->move('./img/uploads', $filename);
+
+        $img = new Image();
+        $img->img_path = '/img/uploads/' . $filename;
+        $img->pet_id = Input::get('pet_id');
+        $img->save();
+
+        return Response::json('asdf');
     }
 
 }

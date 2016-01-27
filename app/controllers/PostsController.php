@@ -58,7 +58,7 @@ class PostsController extends \BaseController {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  $idOrTitle
 	 * @return Response
 	 */
 	public function show($idOrTitle)

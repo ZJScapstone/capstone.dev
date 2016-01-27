@@ -12,3 +12,4 @@
 */
 
 Artisan::add(new petFaker);
+Artisan::add(new newUser);
