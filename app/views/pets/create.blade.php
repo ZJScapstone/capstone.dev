@@ -21,11 +21,10 @@
             </select>
         </div>
         <div class="input-field col s4">
-            <select ng-model="newPet.breed_id">
-                <option value="" disabled selected>Breed</option>
-                @foreach($breeds as $breed)
-                    <option value="{{ $breed->id }}">{{ $breed->breed }}</option>
-                @endforeach
+            <select ng-model="newPet.gender">
+                <option value="" disabled selected>Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
             </select>
         </div>
     </div>
@@ -40,23 +39,29 @@
             </select>
         </div>
         <div class="input-field col s4">
-            <select ng-model="newPet.gender">
-                <option value="" disabled selected>Gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+            <select ng-model="newPet.size_id">
+                <option value="" disabled selected>Size</option>
+                <option value="1">Small</option>
+                <option value="2">Medium</option>
+                <option value="3">Large</option>
+                <option value="4">Xtra Large</option>
             </select>
+        </div>
+        <div class="input-field col s4">
+            <input type="text" class="validate" id="breed" ng-model="newPet.breed">
+            <label for="breed">Breed</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s4">
+            <input id="pet_name" type="text" class="validate" ng-model="newPet.name">
+            <label for="pet_name">Pet Name</label>
         </div>
         <div class="input-field col s4">
             <input type="text" id="a_num" class="validate" ng-model="newPet.a_num">
             <label for="a_num">Pet ID#</label>
         </div>
-    </div>
-    <div class="row">
-        <div class="input-field col s6">
-            <input id="pet_name" type="text" class="validate" ng-model="newPet.name">
-            <label for="pet_name">Pet Name</label>
-        </div>
-        <div class="input-field col s6">
+        <div class="input-field col s4">
             <input id="pet_color" type="text" class="validate" ng-model="newPet.color">
             <label for="pet_color">Pet Color</label>
         </div>

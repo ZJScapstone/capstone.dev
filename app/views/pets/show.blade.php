@@ -9,7 +9,7 @@
     <div class="col m6">
         <p><strong>Species:</strong> <% displayedPet.species.species %></p>
         <p><strong>Gender:</strong> <% displayedPet.gender %></p>
-        <p><strong>Breed:</strong> <% displayedPet.breed.breed %></p>
+        <p><strong>Breed:</strong> <% displayedPet.breed %></p>
     </div>
 </div>
 <div class="row">

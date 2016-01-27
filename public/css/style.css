@@ -86,7 +86,9 @@ nav {
 }
 
 .modal-dismiss{
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 1.5rem;
     padding: 0 10px;
     color: rgb(200,200,200);
