@@ -79,7 +79,9 @@ nav {
 }
 
 .dz-success-mark,
-.dz-error-mark{
+.dz-error-mark,
+.dz-details,
+.dz-error-message{
   display: none;
 }
 
@@ -96,4 +98,8 @@ nav {
 
 .modal-dismiss:hover{
     color: black;
+}
+
+#auth-modal .col{
+    text-align: center;
 }

@@ -97,23 +97,26 @@
     <div class="modal" id="image-upload-modal">
         <button class="btn right modal-action modal-close" ng-click="finishNewPet()">done</button>
         <h2 class="center">Let's add some pictures!</h2>
-        <p>Click or drag pictures here</p>
+        <p>Click or drag pictures below</p>
         <div id="image-upload">&nbsp;</div>
     </div>
 
     {{-- show errors modal --}}
     <div class="modal" id="errors">
+        <p class="modal-action modal-close modal-dismiss">x</p>
         <div class="container">
-            <h2 class="center">user-friendly error alert</h2>
+            <h2 class="center">Something went wrong!</h2>
+            <p><strong>Please review the errors below.</strong></p>
             <p ng-repeat="err in errors"><% err %></p>
         </div>
     </div>
 
     {{-- auth modal --}}
     <div class="modal" id="auth-modal">
-        <div class="container">
+        <p class="modal-action modal-close modal-dismiss">x</p>
+        <div class="section container">
             <h4 class="center">Please Login or sign up to post a pet</h4>
-            <div class="row">
+            <div class="section row">
                 <div class="col m6">
                     <a href="/users/login" class="btn">Login</a>
                 </div>

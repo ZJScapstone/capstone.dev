@@ -9,6 +9,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     function createDropzone () {
         var myDropzone = new Dropzone("#image-upload", { 
             url: "/images/pet",
+            maxFilesize: 10,
             sending: function(file, xhr, formData){
                 xhr.setRequestHeader('csrftoken', $scope.csrfToken);
                 formData.append('pet_id', $scope.newPet.id);
@@ -43,7 +44,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     function addPlaceholders(pet){
         if (!pet.images.length) {
             var img = '';
-            
+
             if (pet.species.species == 'cat') {
                 img = 'http://placehold.it/400';
             } else {

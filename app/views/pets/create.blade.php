@@ -1,3 +1,4 @@
+<p class="modal-action modal-close modal-dismiss">x</p>
 <form ng-submit="addPet(newPet)">
     <div id="csrf-token">
         {{ Form::token() }}
@@ -43,7 +44,6 @@
                 <option value="" disabled selected>Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
-                <option value="unknown">Unknown</option>
             </select>
         </div>
         <div class="input-field col s4">
@@ -63,7 +63,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea placeholder="Tell us about this friend" id="description" class="materialize-textarea" ng-model="newPet.description"></textarea>
+            <textarea placeholder="Tell us about your pet! e.g. are they spayed/ neutered? microchipped? vaccinated?" id="description" class="materialize-textarea" ng-model="newPet.description"></textarea>
             <label for="description">Pet Description</label>
         </div>
     </div>
