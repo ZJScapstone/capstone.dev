@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="pet" ng-repeat="pet in pets | filter:search">
+        <div ng-repeat="pet in pets | filter:search">
+            <div class="row" ng-if="$index % 3 == 0"></div>
             <div class="col m4">
                 <div class="card hoverable" ng-click="openPetModal(pet.id)">
                     <div class="card-image ">
