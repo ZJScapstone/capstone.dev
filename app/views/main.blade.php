@@ -75,8 +75,9 @@
     <a id="main"></a>
 
     {{-- search --}}
-    <div class="container filters">
-        <input type="text" ng-model="search">
+    <div class="container filters input-field">
+        <input type="text" ng-model="search" id="search">
+        <label for="search">Search</label>
     </div>
 
     {{-- pets index --}}
