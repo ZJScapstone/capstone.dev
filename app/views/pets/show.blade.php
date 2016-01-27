@@ -1,3 +1,4 @@
+<p class="modal-action modal-close modal-dismiss">x</p>
 <h2 class="center"><% displayedPet.name %></h2>
 <div class="row">
     <div class="col m6">
@@ -16,10 +17,11 @@
         <p><% displayedPet.description %></p>
     </div>
 </div>
-{{-- <div class="container"> --}}
-    <div class="row">
-        <div class="col m6" ng-repeat="image in displayedPet.images">
-            <img class="responsive-img" ng-src="<% image.img_path %>">
-        </div>
+<div class="row">
+    <div class="col m6" ng-repeat="image in displayedPet.images">
+        <img class="responsive-img" ng-src="<% image.img_path %>">
     </div>
-{{-- </div> --}}
+</div>
+<div class="modal-footer">
+    <button class="right modal-action modal-close btn waves-effect waves-light">Close</button>
+</div>
