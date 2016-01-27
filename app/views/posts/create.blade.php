@@ -1,6 +1,14 @@
 @extends('layouts.master')
+@section('bottom-script')
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>
+@stop
 @section('content')
-<form ng-submit="addPost(newPost)">
+<div class="container">
+    {{ Form::open(array('action' => 'PostsController@store')) }}
     <h4 class="center"> Create A New Post </h4>
     @if(!Confide::user())    
     <p>To submit a post you must first <a href="{{{ action('UsersController@login') }}}">log in</a> or <a href="{{{ action('UsersController@create') }}}">sign up</a>. </p>
@@ -8,29 +16,23 @@
     @if(Confide::user())
     <div class="row">
         <div class="input-field col s6">
-            <input id="title" type="text" class="validate" ng-model="newPost.title">
-            <label for="title">Title</label>
+            {{ Form::label('title', 'Title') }}
+            {{ Form::text('title', null, ['class' => 'form-control'] ) }}
         </div>
         <div class="input-field col s6">
-            <select id="post-type" ng-init-"newPost.post_type=null" ng-model="newPost.post_type">
-                <option value="" disabled selected>Post Type</option>
-                <option value="doc">Document</option>
-                <option value="forum">Forum</option>
-                <option value="event">Event</option>
-            </select>
+            {{ Form::label('post_type_id', 'Post Type') }}
+            {{ Form::select('post_type_id', array('' => '', '1' => 'Forum','3' => 'Document', '2' => 'Event')); }} 
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea id="body" placeholder="Remember to include dates for events!" class="materialize-textarea" ng-model="newPost.body"></textarea>
-            <label for="body">Body</label>
+            {{ Form::label('body', 'Body') }}
+            {{ Form::textarea('body', null, ['class' => 'form-control, materialize-textarea'] ) }}
         </div>
     </div>
-    <div class="modal-footer">
-        <a href="#!" class="left modal-action modal-close waves-effect waves-light btn">Close</a>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">></i>
-        </button>
-    </div>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">></i>
+    </button>
+    {{ Form::close() }}
     @endif
-</form>
+</div>

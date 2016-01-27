@@ -30,7 +30,7 @@ class PostsController extends \BaseController {
 		}
 		$posts = $query->orderBy('updated_at','desc')->paginate(4);
 
-		return View::make('blog')->with('posts', $posts);
+		return View::make('forums')->with('posts', $posts);
 	}
 
 	/**
@@ -142,9 +142,9 @@ class PostsController extends \BaseController {
 	        $post->user_id = 1;
 			$post->title = Input::get('title');
 			$post->body = Input::get('body');
-			$post->type = Input::get('type');
+			$post->post_type_id = Input::get('post_type_id');
 
-			$userEmail = 
+			$userEmail = '';
 			$result = $post->save();
 
 			if($result) {

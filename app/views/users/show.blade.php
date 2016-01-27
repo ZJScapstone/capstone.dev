@@ -26,9 +26,9 @@
                 <p>Email: {{{ $user->email }}} </p>
             </div>
         </div>
-        <div class="row">
+{{--          <div class="row">
             <h4> My Pets </h4>
-            @foreach( $pets as $pet)
+            @foreach( $user->$pets as $pet )
             <div class="col m4">
                 <div class="card hoverable">
                     <div class="card-image ">
@@ -42,7 +42,7 @@
                 </div>
             </div>
             @endforeach
-        </div>
+        </div>  --}}
 
     </div>
 @stop

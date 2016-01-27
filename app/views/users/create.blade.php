@@ -3,12 +3,11 @@
 @section('title', 'Register for Happy Tails')
 
 @section('content')
-
-        <div class="row">
-            <h4> Register for Happy Tails!</h4>
+    <div class="container">
             <form class="col s12" method="POST" action="{{{ URL::to('users') }}}" accept-charset="UTF-8">
+            <h4 class="center"> Register for Furry Tail Endings!</h4>
+            
                 <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
-                <fieldset>
                     <div class="form-group">
                         <label for="first_name">{{{ Lang::get('confide::confide.first_name') }}} </label>
                         <input class="form-control" placeholder="{{{ Lang::get('confide::confide.first_name') }}}" type="text" name="first_name" id="first_name" value="{{{ Input::old('first_name') }}}">
@@ -49,6 +48,7 @@
                     <div class="form-actions form-group">
                       <button type="submit" class="btn btn-primary">{{{ Lang::get('confide::confide.signup.submit') }}}</button>
                     </div>
-
-                </fieldset>
             </form>
+        </div>
+    </div>
+
