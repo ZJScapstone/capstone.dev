@@ -10,8 +10,8 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         var myDropzone = new Dropzone("#image-upload", { 
             url: "/pets/image",
             sending: function(file, xhr, formData){
+                xhr.setRequestHeader('csrftoken', $scope.csrfToken);
                 formData.append('pet_id', $scope.newPet.id);
-                formData.append('csrf_token', $scope.csrfToken);
             },
             success: function(file, response){
                 $scope.getPets();
@@ -58,7 +58,15 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.addPet = function(pet){
         $('#pets-create-modal').closeModal();
         pet.user_id = $scope.user.id;
-        $http.post('/pets', pet).then(onPostSuccess, console.log);
+        $http({
+            method: 'POST',
+            url: '/pets',
+            data: pet,
+            headers: {
+                "csrftoken": $scope.csrfToken,
+                "X-Requested-With": "XMLHttpRequest"
+            }
+        }).then(onPostSuccess, console.log);
     };
 
     $scope.finishNewPet = function(){
