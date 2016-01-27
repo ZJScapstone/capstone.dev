@@ -18,6 +18,11 @@ class PetTableSeeder extends Seeder {
         $pet->a_num       = 'A143656';
 
         $pet->save();
+
+        $img = new Image();
+        $img->img_path = '/img/uploads/' . explode("\n", trim(`ls public/img/uploads/`))[0];
+        $img->pet_id = $pet->id;
+        $img->save();
 	}
 }
 

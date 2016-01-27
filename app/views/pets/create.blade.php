@@ -1,6 +1,8 @@
 <form ng-submit="addPet(newPet)">
+    <div id="csrf-token">
+        {{ Form::token() }}
+    </div>
     <h4 class="center"> Create A New Pet Listing </h4>
-    <p>To post a pet you must first login or register </p>
     <div class="row">
         <div class="input-field col s4">
             <select id="pet-status" ng-init-"newPet.status=null" ng-model="newPet.status">
@@ -15,7 +17,6 @@
                 <option value="" disabled selected>Species</option>
                 <option value="1">Dog</option>
                 <option value="2">Cat</option>
-                <option value="3">Other</option>
             </select>
         </div>
         <div class="input-field col s4">
