@@ -13,7 +13,12 @@ class PetsController extends \BaseController {
     {
         $response = [];
         
-        $response['pets'] = Pet::with('breed', 'species', 'user', 'images')->get();
+        $response['pets'] = Pet::with('breed', 'species', 'user', 'images')
+            ->get()->map(function($pet){
+                $pet->posted = $pet->created_at->diffForHumans();
+                return $pet;
+            });
+        
         $response['user'] = Confide::user();
 
         return Response::json($response);
@@ -102,7 +107,9 @@ class PetsController extends \BaseController {
         $img->pet_id = Input::get('pet_id');
         $img->save();
 
-        return Response::json('asdf');
+        $response['success'] = true;
+
+        return Response::json($response);
     }
 
 }

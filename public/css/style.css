@@ -77,3 +77,8 @@ nav {
   display: inline-block;
   margin: 10px;
 }
+
+.dz-success-mark,
+.dz-error-mark{
+  display: none;
+}

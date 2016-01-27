@@ -6,10 +6,11 @@ var app = angular.module('petsApp', [], function($interpolateProvider) {
 
 app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
-    function createDropzone(){
+    function createDropzone () {
         var myDropzone = new Dropzone("#image-upload", { 
-            url: "/pets/image",
+            url: "/images/pet",
             sending: function(file, xhr, formData){
+                xhr.setRequestHeader('csrftoken', $scope.csrfToken);
                 formData.append('pet_id', $scope.newPet.id);
             },
             success: function(file, response){
@@ -18,10 +19,35 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         });
     }
 
+    function onPostSuccess (response) {
+        if (response.data.success){
+            $scope.newPet.id = response.data.pet.id;
+            createDropzone();
+            $('#image-upload-modal').openModal();
+        } else {
+            var errors = response.data.errors;
+            for (var err in errors) {
+                errors[err] = errors[err].pop();
+            }
+            $scope.errors = errors;
+            $('#errors').openModal();
+        }
+        $scope.getPets();
+    }
+
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
-            $scope.pets = response.data.pets;
             $scope.user = response.data.user;
+            $scope.pets = response.data.pets.map(function(pet){
+            // if a pet doesn't have images, use a placeholder
+                if (!pet.images.length) {
+                    pet.images.push({
+                        "img_path": "http://placehold.it/500"
+                    });
+                }
+                return pet;
+            });
+            
         },function(e){
             console.log(e);
         });
@@ -41,30 +67,35 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.addPet = function(pet){
         $('#pets-create-modal').closeModal();
         pet.user_id = $scope.user.id;
-        $http.post('/pets', pet).then(function(response){
-            if (response.data.success){
-                alert('pet successfully posted!');
-                $scope.newPet.id = response.data.pet.id;
-                createDropzone();
-                $('#image-upload-modal').openModal();
-            } else {
-                var errors = response.data.errors;
-                for (var err in errors) {
-                    errors[err] = errors[err].pop();
-                }
-                $scope.errors = errors;
-                $('#errors').openModal();
+        $http({
+            method: 'POST',
+            url: '/pets',
+            data: pet,
+            headers: {
+                "csrftoken": $scope.csrfToken,
+                "X-Requested-With": "XMLHttpRequest"
             }
-            $scope.getPets();
-        }, function(e){
-            console.log(e);
-        });
+        }).then(onPostSuccess, console.log);
+    };
+
+    $scope.finishNewPet = function(){
+        $scope.newPet = {};
+    };
+
+    $scope.verifyUser = function(){
+        if ( !$scope.user ) {
+            $('#pets-create-modal').closeModal();
+            $('#auth-modal').openModal();
+        }
     };
 
     $scope.pets = [];
     $scope.displayedPet = {};
     $scope.newPet = {};
     $scope.errors = {};
+    $scope.user = {};
+
+    $scope.csrfToken = $('#csrf-token input').val();
 
     $scope.getPets();
 }]);
