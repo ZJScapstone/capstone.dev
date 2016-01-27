@@ -8,7 +8,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     function createDropzone () {
         var myDropzone = new Dropzone("#image-upload", { 
-            url: "/pets/image",
+            url: "/images/pet",
             sending: function(file, xhr, formData){
                 xhr.setRequestHeader('csrftoken', $scope.csrfToken);
                 formData.append('pet_id', $scope.newPet.id);
