@@ -11,6 +11,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
             url: "/pets/image",
             sending: function(file, xhr, formData){
                 formData.append('pet_id', $scope.newPet.id);
+                formData.append('csrf_token', $scope.csrfToken);
             },
             success: function(file, response){
                 $scope.getPets();
@@ -76,6 +77,8 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.newPet = {};
     $scope.errors = {};
     $scope.user = {};
+
+    $scope.csrfToken = $('#csrf-token input').val();
 
     $scope.getPets();
 }]);
