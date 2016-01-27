@@ -21,10 +21,7 @@ Route::get('admin', function()
 	return View::make('users.adminpanel');
 });
 
-Route::get('profile', function()
-{
-	return View::make('users.profile');
-});
+Route::get('users/profile', 'UsersController@showProfile');
 
 Route::get('register', function()
 {
@@ -50,6 +47,16 @@ Route::get('events', function()
 Route::get('layout', function()
 {
     return View::make('layout');
+});
+
+Route::get('posts/create', function()
+{
+	return View::make('posts.create');
+});
+
+Route::get('posts/show', function()
+{
+	return View::make('posts.show');
 });
 
 //Pets routes
