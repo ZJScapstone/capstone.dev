@@ -2,7 +2,7 @@
 <div class="row">
     <div class="col m6">
         <p>Status: <% displayedPet.status %></p>
-        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a> <% displayedPet.created_at.date %></p>
+        <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a> <% displayedPet.posted %></p>
         <p>ID#: <% displayedPet.a_num %></p>
     </div>
     <div class="col m6">
