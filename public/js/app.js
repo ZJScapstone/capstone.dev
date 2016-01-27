@@ -39,18 +39,28 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         $scope.getPets();
     }
 
+    // if a pet doesn't have images, use a placeholder based on species
+    function addPlaceholders(pet){
+        if (!pet.images.length) {
+            var img = '';
+            
+            if (pet.species.species == 'cat') {
+                img = 'http://placehold.it/400';
+            } else {
+                img = 'http://placehold.it/500';
+            }
+
+            pet.images.push({
+                "img_path": img
+            });
+        }
+        return pet;
+    }
+
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
             $scope.user = response.data.user;
-            $scope.pets = response.data.pets.map(function(pet){
-            // if a pet doesn't have images, use a placeholder
-                if (!pet.images.length) {
-                    pet.images.push({
-                        "img_path": "http://placehold.it/500"
-                    });
-                }
-                return pet;
-            });
+            $scope.pets = response.data.pets.map(addPlaceholders);
             
         },function(e){
             console.log(e);
