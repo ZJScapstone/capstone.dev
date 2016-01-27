@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('main')->with('breeds', Breed::all());
+	return View::make('main');
 });
 
 Route::get('admin', function()
