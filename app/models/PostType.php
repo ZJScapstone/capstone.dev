@@ -6,7 +6,7 @@ class PostType extends BaseModel
 
 	public function posts()
 	{
-		return $this->belongsToMany('Post');
+		return $this->hasMany('Post');
 	}
 
 }
