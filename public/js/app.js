@@ -6,7 +6,7 @@ var app = angular.module('petsApp', [], function($interpolateProvider) {
 
 app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
-    function createDropzone(){
+    function createDropzone () {
         var myDropzone = new Dropzone("#image-upload", { 
             url: "/pets/image",
             sending: function(file, xhr, formData){
@@ -16,6 +16,22 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
                 $scope.getPets();
             }
         });
+    }
+
+    function onPostSuccess (response) {
+        if (response.data.success){
+            $scope.newPet.id = response.data.pet.id;
+            createDropzone();
+            $('#image-upload-modal').openModal();
+        } else {
+            var errors = response.data.errors;
+            for (var err in errors) {
+                errors[err] = errors[err].pop();
+            }
+            $scope.errors = errors;
+            $('#errors').openModal();
+        }
+        $scope.getPets();
     }
 
     $scope.getPets = function(){
@@ -41,24 +57,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     $scope.addPet = function(pet){
         $('#pets-create-modal').closeModal();
         pet.user_id = $scope.user.id;
-        $http.post('/pets', pet).then(function(response){
-            if (response.data.success){
-                alert('pet successfully posted!');
-                $scope.newPet.id = response.data.pet.id;
-                createDropzone();
-                $('#image-upload-modal').openModal();
-            } else {
-                var errors = response.data.errors;
-                for (var err in errors) {
-                    errors[err] = errors[err].pop();
-                }
-                $scope.errors = errors;
-                $('#errors').openModal();
-            }
-            $scope.getPets();
-        }, function(e){
-            console.log(e);
-        });
+        $http.post('/pets', pet).then(onPostSuccess, console.log);
     };
 
     $scope.finishNewPet = function(){
