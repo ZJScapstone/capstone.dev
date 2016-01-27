@@ -204,7 +204,9 @@ class UsersController extends Controller
     }
     public function showProfile()
     {
-        return View::make('profile');
+        $user = Confide::user();
+
+        return View::make('users.show')->with('user', $user);
     }
     /**
      * Log the user out of the application.

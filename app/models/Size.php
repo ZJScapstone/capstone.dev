@@ -1,8 +1,8 @@
 <?php
 
-class Breed extends BaseModel
+class Size extends BaseModel
 {
-	protected $table = 'breeds';
+	protected $table = 'sizes';
 
 	public function pets()
 	{

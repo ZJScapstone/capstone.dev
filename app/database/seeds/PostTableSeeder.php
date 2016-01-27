@@ -7,7 +7,7 @@ class PostTableSeeder extends Seeder {
         $user = User::firstOrFail();
 
         $post1 = new Post; 
-            $post1->title = 'Kitten Mittens!'; 
+            $post1->title = 'Routine Medical Care for Dogs'; 
             $post1->body = 'They are amazing! They\'re having a sale today over at ...';
             $post1->user_id = $user->id;
             $post1->post_type_id = '3';
