@@ -69,8 +69,6 @@
     </div>
     <div class="modal-footer">
         <a href="#!" class="left modal-action modal-close waves-effect waves-light btn">Close</a>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">></i>
-        </button>
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
     </div>
 </form>
