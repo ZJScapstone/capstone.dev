@@ -102,7 +102,9 @@ class PetsController extends \BaseController {
         $img->pet_id = Input::get('pet_id');
         $img->save();
 
-        return Response::json('asdf');
+        $response['success'] = true;
+
+        return Response::json($response);
     }
 
 }
