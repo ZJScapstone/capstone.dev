@@ -60,7 +60,7 @@
         </a>
         <ul>
             <li>
-                <a class="btn-floating red modal-trigger" href="#pets-create-modal">
+                <a class="btn-floating red modal-trigger" href="#pets-create-modal" ng-click="verifyUser()">
                     <i class="material-icons">mode_edit</i>
                 </a>
             </li>
@@ -94,7 +94,7 @@
 
     {{-- image upload modal --}}
     <div class="modal" id="image-upload-modal">
-        <button class="btn right modal-action modal-close">done</button>
+        <button class="btn right modal-action modal-close" ng-click="finishNewPet()">done</button>
         <h2 class="center">Let's add some pictures!</h2>
         <p>Click or drag pictures here</p>
         <div id="image-upload">&nbsp;</div>
@@ -105,6 +105,21 @@
         <div class="container">
             <h2 class="center">user-friendly error alert</h2>
             <p ng-repeat="err in errors"><% err %></p>
+        </div>
+    </div>
+
+    {{-- auth modal --}}
+    <div class="modal" id="auth-modal">
+        <div class="container">
+            <h4 class="center">Please Login or sign up to post a pet</h4>
+            <div class="row">
+                <div class="col m6">
+                    <a href="/users/login" class="btn">Login</a>
+                </div>
+                <div class="col m6">
+                    <a href="/users/create" class="btn">Sign Up</a>
+                </div>
+            </div>
         </div>
     </div>
 

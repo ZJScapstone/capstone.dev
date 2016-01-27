@@ -61,10 +61,22 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         });
     };
 
+    $scope.finishNewPet = function(){
+        $scope.newPet = {};
+    };
+
+    $scope.verifyUser = function(){
+        if ( !$scope.user ) {
+            $('#pets-create-modal').closeModal();
+            $('#auth-modal').openModal();
+        }
+    };
+
     $scope.pets = [];
     $scope.displayedPet = {};
     $scope.newPet = {};
     $scope.errors = {};
+    $scope.user = {};
 
     $scope.getPets();
 }]);

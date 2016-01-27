@@ -1,6 +1,5 @@
 <form ng-submit="addPet(newPet)">
     <h4 class="center"> Create A New Pet Listing </h4>
-    <p>To post a pet you must first login or register </p>
     <div class="row">
         <div class="input-field col s4">
             <select id="pet-status" ng-init-"newPet.status=null" ng-model="newPet.status">
