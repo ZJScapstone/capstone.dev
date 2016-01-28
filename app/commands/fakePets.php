@@ -37,8 +37,13 @@ class fakePets extends Command {
 	 */
 	public function fire()
 	{
+		echo "\n| This command will fake a whole lot of pet data! It will create\n";
+		echo "| as many pet records as you specify, and then associate five\n";
+		echo "| random pictures in /public/img/uploads with each new pet\n\n";
+
 		echo "How many pets would you like to fake?\n> ";
-		$n = $this->ask('');
+		$n = intval($this->ask(''));
+		echo "working...";
 
 		$names        = ['fido', 'fluffy', 'muffins', 'whiskers', 'benji', 'kitty'];
 		$colors       = ['white', 'brown', 'black', 'calico', 'grey'];
@@ -54,7 +59,8 @@ class fakePets extends Command {
 		$breeds = ['doberman', 'short hair', 'long hair', 'husky'];
 		$images = explode("\n", trim(`ls public/img/uploads`));
 
-		for ($i=0; $i < $n; $i++) { 
+		for ($i = 0; $i < $n; $i++) { 
+			if ($i % 10 == 0) echo '.';
 			$pet = new Pet();
 
 			$pet->name        = $names[array_rand($names)];
@@ -71,13 +77,14 @@ class fakePets extends Command {
 
 	        $pet->save();
 
-	        for ($i=0; $i < 5; $i++) { 
+	        for ($j=0; $j < 5; $j++) { 
 				$img = new Image();
 				$img->pet_id   = $pet->id;
 				$img->img_path = '/img/uploads/' . $images[array_rand($images)];
 				$img->save();
 	        }
 		}
+		echo "\n";
     	$this->info('pets created!');
 
 	}
