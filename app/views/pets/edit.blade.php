@@ -18,18 +18,22 @@
         var $form  = $('#delete-image-form');
         var imgId  = $(this).children().first().data('id');
         var action =  $form.attr('action').replace('img_id', imgId);
-        $form.attr('action', action).submit();
+        if (confirm('Are you sure you want to remove this picture?')) {
+            $form.attr('action', action).submit();
+        }
     });
 </script>
 @stop
 
 @section('content')
 <div class="container">
+@if($errors->all())
+    @foreach($errors->all() as $err)
+        <p class="error-message">{{ $err }}</p>
+    @endforeach
+@endif
 {{ Form::open( ['action' => ['PetsController@update', $pet->id], 'method' => 'PUT'] ) }}
     {{ Form::token() }}
-    @if($errors)
-        {{ var_dump($errors) }}
-    @endif
     <input type="hidden" id="old-status" value="{{ $pet->status }}">
     <input type="hidden" id="old-species_id" value="{{ $pet->species_id }}">
     <input type="hidden" id="old-gender" value="{{ $pet->gender }}">
