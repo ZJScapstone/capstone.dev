@@ -49,6 +49,7 @@ Route::get('layout', function()
     return View::make('layout');
 });
 
+
 Route::get('posts/create', function()
 {
 	return View::make('posts.create');
@@ -58,6 +59,9 @@ Route::get('posts/show', function()
 {
 	return View::make('posts.show');
 });
+
+Route::get('post/{id}', 'PostsController@show');
+
 
 //Pets routes
 Route::resource('pets', 'PetsController');

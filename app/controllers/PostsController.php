@@ -16,22 +16,28 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		$query = Post::with('user');
+        $search = Input::get('search');
 
-		$search = Input::get('search');
 
-		if($search) {
-			$query->where('title', 'like', "%$search%");
-			$query->orWhere('type', 'like', "%$search%");
-			$query->orWhere('body', 'like', "%$search%");
-			$query->orWhereHas('user', function($q) use ($search) {
-				$q->where('email', 'like', "%$search%");
-			});
-		}
-		$posts = $query->orderBy('updated_at','desc')->paginate(4);
+        if($search) {
+            $data = [
+                'docs' => Post::with('users', 'post_type')->where('post_type', '=', 'doc')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
+                    ->orderBy('updated_at', 'desc')->paginate(10),
+                'forums' => Post::with('users', 'post_type')->where('post_type', '=', 'forum')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
+                    ->orderBy('updated_at', 'desc')->paginate(10),
+                'events' => Post::with('users', 'post_type')->where('post_type', '=', 'event')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
+                    ->orderBy('updated_at', 'desc')->paginate(10)
+            ];
+        } else {
+            $data = [
+                'docs' => Post::with('users', 'post_type')->where('type', '=', 'doc')->orderBy('updated_at', 'desc')->paginate(10),
+                'forums' => Post::with('users', 'post_type')->where('type', '=', 'forum')->orderBy('updated_at', 'desc')->paginate(10),
+                'events' => Post::with('users', 'post_type')->where('type', '=', 'event')->orderBy('updated_at', 'desc')->paginate(10)
+            ];
+        }
 
-		return View::make('forums')->with('posts', $posts);
-	}
+        return View::make('posts.index')->with($data);
+    }
 
 	/**
 	 * Show the form for creating a new resource.
@@ -50,31 +56,54 @@ class PostsController extends \BaseController {
 	 */
 	public function store()
 	{	
-	    $post = new Post();
-		Log::info('Post: ' . $post->title . ' with id: ' . $post->id . ' created.', array('newPost' => Input::all()));
-    	return $this->validateAndSave($post);
+	    $data      = Input::all();
+        $validator = Validator::make($data, Post::$rules);
+
+        if($validator->fails() ) {
+            Session::flash('message', 'Posting not created!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
+        $post = new Post($data);
+        $post->user_id = Confide::user()->id;
+
+        $result = $post->save();
+
+        if($result) {
+            return Redirect::action('PostsController@index');
+        } else {
+            Session::flash('message', $result);
+            return Redirect::back()->withInput();
+        }
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $idOrTitle
+	 * @param  int  $postIdOrTitle
 	 * @return Response
 	 */
-	public function show($idOrTitle)
+	public function show($postIdOrTitle)
 	{
-		if(is_numeric($idOrTitle)){
-			$post = Post::find($idOrTitle);
-				if(!$post){
-					App::abort(404);
-					return Redirect::action('PostsController@index');
-				}
+		if(is_numeric($postIdOrTitle) ) {
+
+			$post = Post::with('postType')->where('id', '=', $postIdOrTitle)->first();
+
+            if(!$post){
+                App::abort(404);
+                return Redirect::action('PostsController@index');
+            }
+
 		} else {
-			$post = Post::where('slug_title', '=', $idOrTitle)->first();
+			$post = Post::with('postType')->where('slug_title', '=', $postIdOrTitle)->first();
+
 			if(!$post){
+                App::abort(404);
 				return Redirect::action('PostsController@index');
 			}
+
 		}
+
 		return View::make('posts.show')->with('post', $post);
 	}
 
@@ -86,7 +115,6 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		
 
 		$post = Post::find($id);
 
@@ -103,11 +131,20 @@ class PostsController extends \BaseController {
 	public function update($id)
 	{
 		$post = Post::find($id);
-		$post->title = Input::get('title');
-		$post->body = Input::get('body');
-		$post->subtitle = Input::get('subtitle');
+        $data = Input::all();
+        $validator = Validator::make($data, Post::$rules);
+
+        if ( $validator->fails() ) {
+            Session::flash('message', 'Posting not updated!');
+            return Redirect::back()->withInput()->withErrors($validator);
+        }
+
+		$post->update($data);
+
 		$post->save();
-		return Redirect::action('PostsController@index');
+
+        Session::flash('message', 'Posting successfully updated');
+		return Redirect::action('PostsController@show', $post->id);
 	}
 
 	/**
@@ -120,6 +157,8 @@ class PostsController extends \BaseController {
 	{
 		$post = Post::find($id);
 		$post->delete();
+
+        Session::flash('message', 'Posting successfully deleted.');
 		return Redirect::action('PostsController@index');
 
 	}
@@ -145,6 +184,7 @@ class PostsController extends \BaseController {
 			$post->post_type_id = Input::get('post_type_id');
 
 			$userEmail = '';
+
 			$result = $post->save();
 
 			if($result) {
