@@ -1,6 +1,6 @@
 <nav class="deep-orange darken-3">
     <p class="left">
-        <a href="#">Happy Tails!</a>
+        <a href="{{{ action('HomeController@showHome') }}}">Furry-Tail Endings</a>
     </p>
     <p class="right">
     	@if(!Confide::user())
