@@ -2,7 +2,6 @@
 <div class="container">
     <form role="form" method="POST" action="{{{ URL::to('/users/login') }}}" accept-charset="UTF-8">
         <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
-        <fieldset>
             <div class="form-group">
                 <label for="email">{{{ Lang::get('confide::confide.e_mail') }}}</label>
                 <input class="form-control" tabindex="1" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
@@ -31,6 +30,5 @@
             <div class="form-group">
                 <button tabindex="3" type="submit" class="btn btn-default">{{{ Lang::get('confide::confide.login.submit') }}}</button>
             </div>
-        </fieldset>
     </form>
 </div>
