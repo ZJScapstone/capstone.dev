@@ -40,7 +40,7 @@ class PetTableSeeder extends Seeder {
         $pet2->save();
 
         $pet2_img1 = new Image();
-        $pet2_img1->img_path = 'img/petimg/sheba1.png';
+        $pet2_img1->img_path = 'img/petimg/sheba1.jpg';
         $pet2_img1->pet_id = $pet2->id;
         $pet2_img1->save();
 
