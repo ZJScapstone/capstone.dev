@@ -14,8 +14,8 @@ class Post extends BaseModel
 
     public function setTitleAttribute($value)
     {
-    	$this->attributes['title'] = $value;
-    	$this->attributes['slug_title'] = Str::slug($value);
+        $this->attributes['title'] = $value;
+        $this->attributes['slug_title'] = Str::slug($value);
     }
 
     public function user()
@@ -23,4 +23,8 @@ class Post extends BaseModel
         return $this->belongsTo('User');
     }
 
+    public function postType()
+    {
+        return $this->belongsTo('PostType');
+    }
 }
