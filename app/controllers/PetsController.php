@@ -70,10 +70,10 @@ class PetsController extends \BaseController {
      */
     public function update($id)
     {
-        $pet       = Pet::findOrFail($id);
-        $data      = Input::all();
+        $pet             = Pet::findOrFail($id);
+        $data            = Input::all();
         $data['user_id'] = Confide::user()->id;
-        $validator = Validator::make($data, Pet::$rules);
+        $validator       = Validator::make($data, Pet::$rules);
         $response  = [];
 
         $response['data'] = $data;
@@ -82,11 +82,10 @@ class PetsController extends \BaseController {
         if ( $validator->fails() ) {
             $resposne['success'] = false;
             $response['errors']  = $validator->errors();
-            dd($response['errors']);
             if (Request::ajax()){
                 return Response::json($response);
             } else {
-                return Redirect::back()->withErrors('errors', $validator->errors());
+                return Redirect::back()->withErrors($validator->errors());
             }
         }
 
@@ -97,7 +96,7 @@ class PetsController extends \BaseController {
         if (Request::ajax()){
             return Response::json($response);
         } else {
-            return View::make('users.profile');
+            return Redirect::action('UsersController@showProfile');
         }
     }
 
