@@ -8,7 +8,6 @@
             <h4> Register for Happy Tails!</h4>
             <form class="col s12" method="POST" action="{{{ URL::to('users') }}}" accept-charset="UTF-8">
                 <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
-                <fieldset>
                     <div class="form-group">
                         <label for="first_name">{{{ Lang::get('confide::confide.first_name') }}} </label>
                         <input class="form-control" placeholder="{{{ Lang::get('confide::confide.first_name') }}}" type="text" name="first_name" id="first_name" value="{{{ Input::old('first_name') }}}">
@@ -50,5 +49,4 @@
                       <button type="submit" class="btn btn-primary">{{{ Lang::get('confide::confide.signup.submit') }}}</button>
                     </div>
 
-                </fieldset>
             </form>
