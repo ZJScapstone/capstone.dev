@@ -114,6 +114,10 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     $scope.finishNewPet = function(){
         $scope.newPet = {};
+        $('#pets-create-modal select').each(function(){
+            $(this).val('');
+            $(this).material_select();
+        });
     };
 
     $scope.verifyUser = function(){
