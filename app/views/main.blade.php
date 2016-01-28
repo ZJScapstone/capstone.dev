@@ -54,19 +54,19 @@
     </div>
 
     {{-- circle icons --}}
-    <div class="fixed-action-btn" id="test_toggle">
-        <a class="btn-floating btn-large deep-orange darken-3">
-            <i class="material-icons">shopping_basket</i>
+    <div id="icon-menu">
+        <a class="tooltipped btn-floating btn-large deep-orange darken-3" data-position="left" data-tooltip="Menu">
+            <i class="material-icons">menu</i>
         </a>
         <ul>
             <li>
-                <a class="btn-floating red modal-trigger" href="#pets-create-modal" ng-click="verifyUser()">
+                <a class="tooltipped btn-floating red modal-trigger" data-position="left" data-tooltip="New Pet" href="#pets-create-modal" ng-click="verifyUser()">
                     <i class="material-icons">mode_edit</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating green" href="#">
-                    <i class="material-icons">loyalty</i>
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Search">
+                    <i class="material-icons">search</i>
                 </a>
             </li>
         </ul>
