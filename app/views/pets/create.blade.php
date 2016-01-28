@@ -48,21 +48,21 @@
             </select>
         </div>
         <div class="input-field col s4">
-            <input type="text" class="validate" id="breed" ng-model="newPet.breed">
+            <input type="text" id="breed" ng-model="newPet.breed">
             <label for="breed">Breed</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s4">
-            <input id="pet_name" type="text" class="validate" ng-model="newPet.name">
+            <input id="pet_name" type="text" ng-model="newPet.name">
             <label for="pet_name">Pet Name</label>
         </div>
         <div class="input-field col s4">
-            <input type="text" id="a_num" class="validate" ng-model="newPet.a_num">
+            <input type="text" id="a_num" ng-model="newPet.a_num">
             <label for="a_num">Pet ID#</label>
         </div>
         <div class="input-field col s4">
-            <input id="pet_color" type="text" class="validate" ng-model="newPet.color">
+            <input id="pet_color" type="text" ng-model="newPet.color">
             <label for="pet_color">Pet Color</label>
         </div>
     </div>

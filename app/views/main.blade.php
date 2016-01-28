@@ -133,15 +133,15 @@
         <h4 class="center">Advanced Search</h4>
         <div class="row">
             <div class="input-field col s4">
-                <input id="pet_name" type="text" class="validate" ng-model="search.name">
+                <input id="pet_name" type="text" ng-model="search.name">
                 <label for="pet_name">Pet Name</label>
             </div>
             <div class="input-field col s4">
-                <input type="text" id="a_num" class="validate" ng-model="search.a_num">
+                <input type="text" id="a_num" ng-model="search.a_num">
                 <label for="a_num">Pet ID#</label>
             </div>
             <div class="input-field col s4">
-                <input id="pet_color" type="text" class="validate" ng-model="search.color">
+                <input id="pet_color" type="text" ng-model="search.color">
                 <label for="pet_color">Pet Color</label>
             </div>
         </div>
@@ -165,7 +165,7 @@
                 </select>
             </div>
             <div class="input-field col s4">
-                <input type="text" class="validate" id="search-breed" ng-model="search.breed">
+                <input type="text" id="search-breed" ng-model="search.breed">
                 <label for="search-breed">Breed</label>
             </div>
         </div>
