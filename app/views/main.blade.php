@@ -129,6 +129,7 @@
 
     {{-- search modal --}}
     <div class="modal bottom-sheet" id="search-modal">
+    <button class="right red btn" ng-click="clearSearch()">Clear</button>
         <h4 class="center">Advanced Search</h4>
         <div class="row">
             <div class="input-field col s4">

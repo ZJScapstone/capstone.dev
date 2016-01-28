@@ -82,7 +82,6 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         $http.get('/pets').then(function(response){
             $scope.user = response.data.user;
             $scope.pets = response.data.pets.map(addPlaceholders);
-            console.log($scope.pets.pop());
         },function(e){
             console.log(e);
         });
@@ -122,6 +121,26 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
             $('#pets-create-modal').closeModal();
             $('#auth-modal').openModal();
         }
+    };
+
+    $scope.clearSearch = function(){
+        $scope.search       = {
+            "raw": '',
+            "name": '',
+            "a_num": '',
+            "color": '',
+            "age": '',
+            "size": '',
+            "breed": '',
+            "status": '',
+            "species": '',
+            "gender": ''
+        };
+
+        $('#search-modal select').each(function(){
+            $(this).val(''); 
+            $(this).material_select();
+        });
     };
 
     $scope.pets         = [];
