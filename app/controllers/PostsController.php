@@ -21,18 +21,25 @@ class PostsController extends \BaseController {
 
         if($search) {
             $data = [
-                'docs' => Post::with('users', 'post_type')->where('post_type', '=', 'doc')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
-                    ->orderBy('updated_at', 'desc')->paginate(10),
-                'forums' => Post::with('users', 'post_type')->where('post_type', '=', 'forum')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
-                    ->orderBy('updated_at', 'desc')->paginate(10),
-                'events' => Post::with('users', 'post_type')->where('post_type', '=', 'event')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")
-                    ->orderBy('updated_at', 'desc')->paginate(10)
+                'docs' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'doc')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10),
+
+                'forums' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'forum')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10),
+
+                'events' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'event')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10)
             ];
         } else {
             $data = [
-                'docs' => Post::with('users', 'post_type')->where('type', '=', 'doc')->orderBy('updated_at', 'desc')->paginate(10),
-                'forums' => Post::with('users', 'post_type')->where('type', '=', 'forum')->orderBy('updated_at', 'desc')->paginate(10),
-                'events' => Post::with('users', 'post_type')->where('type', '=', 'event')->orderBy('updated_at', 'desc')->paginate(10)
+                'docs' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'doc')->paginate(10),
+
+                'forums' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'forum')->paginate(10),
+
+                'events' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
+                    ->where('post_type', '=', 'event')->paginate(10)
             ];
         }
 
