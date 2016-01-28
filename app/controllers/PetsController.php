@@ -72,6 +72,7 @@ class PetsController extends \BaseController {
     {
         $pet       = Pet::findOrFail($id);
         $data      = Input::all();
+        $data['user_id'] = Confide::user()->id;
         $validator = Validator::make($data, Pet::$rules);
         $response  = [];
 
@@ -81,14 +82,23 @@ class PetsController extends \BaseController {
         if ( $validator->fails() ) {
             $resposne['success'] = false;
             $response['errors']  = $validator->errors();
-            return Response::json($response);
+            dd($response['errors']);
+            if (Request::ajax()){
+                return Response::json($response);
+            } else {
+                return Redirect::back()->withErrors('errors', $validator->errors());
+            }
         }
 
         $pet->update($data);
         $response['success'] = true;
         $response['errors']  = [];
 
-        return Response::json($response);
+        if (Request::ajax()){
+            return Response::json($response);
+        } else {
+            return View::make('users.profile');
+        }
     }
 
     /**
