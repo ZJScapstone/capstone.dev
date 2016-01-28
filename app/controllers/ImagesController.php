@@ -40,4 +40,10 @@ class ImagesController extends \BaseController {
         return $filename;
     }
 
+    public function destroy($id)
+    {
+        Image::destroy($id);
+        return Redirect::back();
+    }
+
 }

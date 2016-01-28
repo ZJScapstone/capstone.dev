@@ -15,7 +15,7 @@ class User extends Eloquent implements ConfideUserInterface, EntrustUserInterfac
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token', 'confirmation_code');
+	protected $hidden = array('password', 'remember_token');
 
 	public function pets()
 	{
