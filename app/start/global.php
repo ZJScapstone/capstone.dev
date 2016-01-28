@@ -51,6 +51,17 @@ App::error(function(Exception $exception, $code)
 	Log::error($exception);
 });
 
+App::down(function()
+{
+	return Response::make("Be right back!", 503);
+});
+
+App::missing(function($exception)
+{
+	return Response::view('errors.404', array(), 404);	
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
