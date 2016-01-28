@@ -86,15 +86,15 @@ nav {
 }
 
 .modal-dismiss{
+    background: rgb(240,240,240);
     position: absolute;
     top: 0;
     right: 0;
     font-size: 1.5rem;
     padding: 0 10px;
     color: rgb(200,200,200);
-    margin: 15px;
+    margin: 0;
     transition: all 0.3s;
-    border-radius: 50%;
     border: 1px solid rgb(200,200,200);
 }
 
@@ -104,4 +104,17 @@ nav {
 
 #auth-modal .col{
     text-align: center;
+}
+
+#icon-menu{
+    text-align: center;
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    z-index: 10;
+}
+
+#icon-menu li{
+  margin: 10px;
 }

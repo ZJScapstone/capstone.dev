@@ -23,6 +23,7 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
     function onPostSuccess (response) {
         if (response.data.success){
             $scope.newPet.id = response.data.pet.id;
+            Materialize.toast('Pet Created!', 3000, 'rounded');
             createDropzone();
             $('#image-upload-modal').openModal();
         } else {
@@ -58,11 +59,29 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         return pet;
     }
 
+    String.prototype.has = function(substr){
+        return this.indexOf(substr) !== -1;
+    };
+
+    $scope.petFilter = function(pet){
+        var search = $scope.search;
+        return (
+            pet.name.has(search.name) &&
+            pet.a_num.has(search.a_num) &&
+            pet.color.has(search.color) &&
+            pet.age.has(search.age) &&
+            pet.size.size.has(search.size) &&
+            pet.breed.has(search.breed) &&
+            pet.status.has(search.status) &&
+            pet.species.species.has(search.species) &&
+            pet.gender.has(search.gender) 
+        );
+    }
+
     $scope.getPets = function(){
         $http.get('/pets').then(function(response){
             $scope.user = response.data.user;
             $scope.pets = response.data.pets.map(addPlaceholders);
-            
         },function(e){
             console.log(e);
         });
@@ -95,6 +114,10 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
 
     $scope.finishNewPet = function(){
         $scope.newPet = {};
+        $('#pets-create-modal select').each(function(){
+            $(this).val('');
+            $(this).material_select();
+        });
     };
 
     $scope.verifyUser = function(){
@@ -104,12 +127,43 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
         }
     };
 
+    $scope.clearSearch = function(){
+        $scope.search       = {
+            "raw": '',
+            "name": '',
+            "a_num": '',
+            "color": '',
+            "age": '',
+            "size": '',
+            "breed": '',
+            "status": '',
+            "species": '',
+            "gender": ''
+        };
+
+        $('#search-modal select').each(function(){
+            $(this).val(''); 
+            $(this).material_select();
+        });
+    };
+
     $scope.pets         = [];
     $scope.displayedPet = {};
     $scope.newPet       = {};
     $scope.errors       = {};
     $scope.user         = {};
-    $scope.search       = '';
+    $scope.search       = {
+        "raw": '',
+        "name": '',
+        "a_num": '',
+        "color": '',
+        "age": '',
+        "size": '',
+        "breed": '',
+        "status": '',
+        "species": '',
+        "gender": ''
+    };
 
     $scope.csrfToken = $('#csrf-token input').val();
 

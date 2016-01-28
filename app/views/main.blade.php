@@ -54,31 +54,31 @@
     </div>
 
     {{-- circle icons --}}
-    <div class="fixed-action-btn" id="test_toggle">
-        <a class="btn-floating btn-large deep-orange darken-3">
-            <i class="material-icons">shopping_basket</i>
+    <div id="icon-menu">
+        <a class="tooltipped btn-floating btn-large deep-orange darken-3" data-position="left" data-tooltip="Menu">
+            <i class="material-icons">menu</i>
         </a>
         <ul>
             <li>
-                <a class="btn-floating red modal-trigger" href="#pets-create-modal" ng-click="verifyUser()">
+                <a class="tooltipped btn-floating red modal-trigger" data-position="left" data-tooltip="New Pet" href="#pets-create-modal" ng-click="verifyUser()">
                     <i class="material-icons">mode_edit</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating green" href="#">
-                    <i class="material-icons">loyalty</i>
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="$('#search-modal').openModal()">
+                    <i class="material-icons">search</i>
                 </a>
             </li>
         </ul>
     </div>    
 
-    <a id="main"></a>
-
     {{-- search --}}
     <div class="container filters input-field">
-        <input type="text" ng-model="search" id="search">
+        <input type="text" ng-model="search.raw" id="search">
         <label for="search">Search</label>
     </div>
+
+    <a id="main"></a>
 
     {{-- pets index --}}
     @include('pets.index')
@@ -107,7 +107,6 @@
         <div class="container">
             <h2 class="center">Something went wrong!</h2>
             <p><strong>Please review the errors below.</strong></p>
-            <h4>There was an issue with your submission</h4>
             <p ng-repeat="err in errors"><% err %></p>
         </div>
     </div>
@@ -128,6 +127,73 @@
         </div>
     </div>
 
+    {{-- search modal --}}
+    <div class="modal bottom-sheet" id="search-modal">
+    <button class="right red btn" ng-click="clearSearch()">Clear</button>
+        <h4 class="center">Advanced Search</h4>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="pet_name" type="text" ng-model="search.name">
+                <label for="pet_name">Pet Name</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="text" id="a_num" ng-model="search.a_num">
+                <label for="a_num">Pet ID#</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="pet_color" type="text" ng-model="search.color">
+                <label for="pet_color">Pet Color</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select ng-model="search.age">
+                    <option value="" disabled selected>Age</option>
+                    <option value="baby">Baby</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.size">
+                    <option value="" disabled selected>Size</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="x-large">Xtra Large</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <input type="text" id="search-breed" ng-model="search.breed">
+                <label for="search-breed">Breed</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select id="pet-status" ng-model="search.status">
+                    <option value="" disabled selected>Status</option>
+                    <option value="available">Available</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="adopted">Adopted</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.species">
+                    <option value="" disabled selected>Species</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.gender">
+                    <option value="" disabled selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </div>
 
 @stop
