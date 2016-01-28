@@ -122,6 +122,9 @@
             <img class="responsive-img" src="{{ $image->img_path }}" alt="pet image {{ $index }}" data-id="{{ $image->id }}">
         </a>
     </div>
+    @if(($index + 1) % 3 == 0)
+        </div><div class="row">
+    @endif
 @endforeach
 </div>
 {{ Form::open( ['action' => ['ImagesController@destroy', 'img_id'], 'method' => 'DELETE', 'id' => 'delete-image-form'] ) }}
