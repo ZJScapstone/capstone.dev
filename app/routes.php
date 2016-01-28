@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('main');
-});
+Route::get('/', 'HomeController@showHome');
 
 Route::get('admin', function()
 {
@@ -62,6 +59,15 @@ Route::get('posts/show', function()
 
 Route::get('post/{id}', 'PostsController@show');
 
+
+Route::get('404', function()
+{
+	return View::make('errors.404');
+});
+Route::get('500', function()
+{
+	return View::make('errors.500');
+});
 
 //Pets routes
 Route::resource('pets', 'PetsController');
