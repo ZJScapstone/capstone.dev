@@ -5,16 +5,6 @@
     right: 50px;
 }
 
-#overlay:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0px;
-    left: 0px;
-    background: rgba(0, 0, 0, 0.3);
-}
-
 .fixed-action-btn ul {
     bottom: 10px;
 }
@@ -23,8 +13,10 @@
     height: 100vh;
     padding-top: 3vh;
     background-image: url("/img/dognose.jpg");
-    background-size: cover;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
+    background-color: #8AC640;
 }
 
 .fourofour{
@@ -133,4 +125,27 @@ nav {
 
 #icon-menu li{
   margin: 10px;
+}
+
+.delete-image:before{
+    content: 'Delete this image?';
+    color: firebrick;
+    opacity: 0;
+    font-size: 1.5rem;
+}
+
+.delete-image:hover:before{
+    opacity: 1;
+    content: 'Delete this image?';
+    transition: all 0.5s;
+
+}
+
+.delete-image{
+    position: relative;
+    overflow: hidden;
+}
+
+.error-message{
+    color: firebrick;
 }

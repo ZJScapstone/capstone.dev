@@ -6,10 +6,9 @@
                 <div class="card hoverable" ng-click="openPetModal(pet.id)">
                     <div class="card-image ">
                         <img ng-src="<% pet.images[0].img_path %>">
-                        <span class="card-title"><% pet.name %></span>
                     </div>
                     <div class="card-content">
-                        <p><% pet.description | limitTo : 25 : 0 %>...</p>
+                        <p class="center"><strong><% pet.name | limitTo : 25 : 0 %></strong></p>
                     </div>
                 </div>
             </div>

@@ -47,9 +47,9 @@ app.controller('PetsController', ['$http', '$scope',  function($http, $scope){
             var img = '';
 
             if (pet.species.species == 'cat') {
-                img = 'http://placehold.it/400';
+                img = '/img/cat_placeholder.png';
             } else {
-                img = 'http://placehold.it/500';
+                img = '/img/dog_placeholder.png';
             }
 
             pet.images.push({
