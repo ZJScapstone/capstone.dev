@@ -60,7 +60,9 @@ Route::get('posts/show', function()
 	return View::make('posts.show');
 });
 
+//All Posts routes
 Route::get('post/{id}', 'PostsController@show');
+Route::get('posts', 'PostsController@index');
 
 
 //Pets routes
