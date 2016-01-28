@@ -13,3 +13,4 @@
 
 Artisan::add(new petFaker);
 Artisan::add(new newUser);
+Artisan::add(new fakePets);

@@ -107,6 +107,7 @@
         <div class="container">
             <h2 class="center">Something went wrong!</h2>
             <p><strong>Please review the errors below.</strong></p>
+            <h4>There was an issue with your submission</h4>
             <p ng-repeat="err in errors"><% err %></p>
         </div>
     </div>
