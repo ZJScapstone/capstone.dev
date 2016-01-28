@@ -22,7 +22,23 @@
 .hero-title {
     height: 100vh;
     padding-top: 3vh;
-    background-image: url("/img/dog_fence.jpg");
+    background-image: url("/img/dognose.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.fourofour{
+    height: 100vh;
+    padding-top: 3vh;
+    background-image: url("/img/dog-digging.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.fivehundred{
+    height: 100vh;
+    padding-top: 3vh;
+    background-image: url("/img/sadpup.jpg");
     background-size: cover;
     background-position: center;
 }
