@@ -82,3 +82,4 @@ Route::get('users/logout', 'UsersController@logout');
 // Image routes
 Route::post('/images/pet', 'ImagesController@uploadPetImage');
 Route::post('/images/user', 'ImagesController@uploadUserImage');
+Route::delete('/images/{id}', 'ImagesController@destroy');
