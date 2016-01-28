@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'happytails!')
+@section('title', 'Furry-tail Endings!')
 
 @section('top-script')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/dropzone.css">
@@ -37,7 +37,7 @@
     {{-- hero area --}}
     <div id="overlay">
         <div class="hero-title z-depth-1">
-            <h1 class="white-text left-align">happy tails!</h1>
+            <h1 class="white-text left-align"></h1>
         </div>
     </div>
 
