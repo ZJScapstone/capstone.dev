@@ -26,6 +26,13 @@ class PetsController extends \BaseController {
 
     public function show(){}
 
+    public function edit($id)
+    {
+        $pet = Pet::find($id);
+        $pet->load('size', 'species', 'images');
+        return View::make('pets.edit')->with('pet', $pet);
+    }
+
     /**
      * Store a newly created pet in storage.
      *
