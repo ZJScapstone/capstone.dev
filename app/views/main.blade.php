@@ -65,20 +65,20 @@
                 </a>
             </li>
             <li>
-                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Search">
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="$('#search-modal').openModal()">
                     <i class="material-icons">search</i>
                 </a>
             </li>
         </ul>
     </div>    
 
-    <a id="main"></a>
-
     {{-- search --}}
     <div class="container filters input-field">
-        <input type="text" ng-model="search" id="search">
+        <input type="text" ng-model="search.raw" id="search">
         <label for="search">Search</label>
     </div>
+
+    <a id="main"></a>
 
     {{-- pets index --}}
     @include('pets.index')
@@ -107,7 +107,6 @@
         <div class="container">
             <h2 class="center">Something went wrong!</h2>
             <p><strong>Please review the errors below.</strong></p>
-            <h4>There was an issue with your submission</h4>
             <p ng-repeat="err in errors"><% err %></p>
         </div>
     </div>
@@ -128,6 +127,72 @@
         </div>
     </div>
 
+    {{-- search modal --}}
+    <div class="modal bottom-sheet" id="search-modal">
+        <h4 class="center">Advanced Search</h4>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="pet_name" type="text" class="validate" ng-model="search.name">
+                <label for="pet_name">Pet Name</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="text" id="a_num" class="validate" ng-model="search.a_num">
+                <label for="a_num">Pet ID#</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="pet_color" type="text" class="validate" ng-model="search.color">
+                <label for="pet_color">Pet Color</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select ng-model="search.age">
+                    <option value="" disabled selected>Age</option>
+                    <option value="baby">Baby</option>
+                    <option value="young">Young</option>
+                    <option value="adult">Adult</option>
+                    <option value="senior">Senior</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.size">
+                    <option value="" disabled selected>Size</option>
+                    <option value="small">Small</option>
+                    <option value="medium">Medium</option>
+                    <option value="large">Large</option>
+                    <option value="x-large">Xtra Large</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <input type="text" class="validate" id="search-breed" ng-model="search.breed">
+                <label for="search-breed">Breed</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select id="pet-status" ng-model="search.status">
+                    <option value="" disabled selected>Status</option>
+                    <option value="available">Available</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="adopted">Adopted</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.species">
+                    <option value="" disabled selected>Species</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                </select>
+            </div>
+            <div class="input-field col s4">
+                <select ng-model="search.gender">
+                    <option value="" disabled selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </div>
 
 @stop
