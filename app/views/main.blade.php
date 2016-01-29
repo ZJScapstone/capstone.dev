@@ -8,6 +8,7 @@
 
 @section('bottom-script')
 <script>
+    // materialize initialization
     $(document).ready(function() {
         $('.modal-trigger').leanModal();
         $('select').material_select();
@@ -17,8 +18,13 @@
             callback: 'Materialize.fadeInImage("#test_toggle")'
         }];
         Materialize.scrollFire(options);
-    });
 
+        // navlink fix
+        $('.tabs a').click(function(e){
+            e.preventDefault();
+            window.location = $(this).attr('href');
+        });
+    });
 
 </script>
 <script src="/js/styleFixes.js"></script>
@@ -40,11 +46,11 @@
     {{-- navbar tabs --}}
     <div class="row z-depth-1">
         <div class="col s12">
-            <ul class="tabs real-nav">
-                <li class="tab col s3"><a href="#">Pets</a></li>
-                <li class="tab col s3"><a href="#">Docs</a></li>
-                <li class="tab col s3"><a href="#">Forum</a></li>
-                <li class="tab col s3"><a href="#">Events</a></li>
+            <ul class="tabs">
+                <li class="tab col s3"><a href="/#main">Pets</a></li>
+                <li class="tab col s3"><a href="/posts#docs">Docs</a></li>
+                <li class="tab col s3"><a href="/posts#forum">Forum</a></li>
+                <li class="tab col s3"><a href="/posts#events">Events</a></li>
             </ul>
         </div>
     </div>

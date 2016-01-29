@@ -90,3 +90,9 @@ Route::get('users/logout', 'UsersController@logout');
 Route::post('/images/pet', 'ImagesController@uploadPetImage');
 Route::post('/images/user', 'ImagesController@uploadUserImage');
 Route::delete('/images/{id}', 'ImagesController@destroy');
+
+// Contact
+Route::get('/contact', function()
+{
+    return View::make('contact');
+});
