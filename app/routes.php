@@ -18,7 +18,7 @@ Route::get('admin', function()
 	return View::make('users.adminpanel');
 });
 
-Route::get('', 'UsersController@showProfile');
+Route::get('/users/profile', 'UsersController@showProfile');
 
 Route::get('register', function()
 {
