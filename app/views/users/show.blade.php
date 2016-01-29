@@ -20,29 +20,40 @@
                 @endif
             </div>
             <div class="col l6">
-                <h4>About {{{ $user->first_name }}}</h4>
-                <p> {{{ $user->description }}} </p>
-                <h5> Contact </h5>
-                <p>Email: {{{ $user->email }}} </p>
+                <h3>{{{ $user->email }}} </h3>
             </div>
         </div>
-{{--          <div class="row">
-            <h4> My Pets </h4>
-            @foreach( $user->$pets as $pet )
+
+        <div class="row">
             <div class="col m4">
-                <div class="card hoverable">
-                    <div class="card-image ">
-                        <img src="http://placehold.it/400">
-                        <span class="card-title">{{{ $pet->name }}}</span>
-                    </div>
-                    <div class="card-content">
-                        <p>{{{ $pet->status }}}</p>
-                        <p>{{{ $pet->description }}}</p>
-                    </div>
-                </div>
+                <h2>Posts</h2>
+                @forelse($user->posts as $post)
+                    <p>
+                        <a href="{{ action('PostsController@show', $post->id) }}">{{{ $post->title }}}</a>
+                    </p>
+                    @if(Confide::user() && Confide::user()->id == $post->user_id)
+                        <a href="{{ action('PostsController@edit', $post->id) }}" class="btn red">Edit This Post</a>
+                    @endif
+                @empty
+                    <p>This user has no posts yet.</p>
+                @endforelse
             </div>
-            @endforeach
-        </div>  --}}
+            <div class="col m8">
+                <h2>Pets</h2>
+                @foreach( $user->pets as $pet )
+                    <div class="col m6">
+                        <div class="card hoverable">
+                            <div class="card-image ">
+                                <img src="{{ $pet->images->first()->img_path }}">
+                            </div>
+                            <div class="card-content">
+                                <p>{{{ $pet->name }}}</p>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
 
     </div>
 @stop
