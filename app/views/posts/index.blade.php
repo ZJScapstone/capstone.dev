@@ -8,7 +8,11 @@
     <script src="/js/styleFixes.js"></script>
     <script src="/js/side_nav.js"></script>
     <script>
-
+        // navlink fix
+        $('#pet-home').click(function(e){
+            e.preventDefault();
+            window.location = $(this).attr('href');
+        });
     </script>
 @stop
 
@@ -17,8 +21,8 @@
         <div class="row z-depth-0 section fixed">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="/">Pets</a></li>
-                    <li class="tab col s3"><a href="#docs">Docs</a></li>
+                    <li class="tab col s3"><a href="/#main" id="pet-home">Pets</a></li>
+                    <li class="tab col s3"><a class="active" href="#docs">Docs</a></li>
                     <li class="tab col s3"><a href="#forums">Forum</a></li>
                     <li class="tab col s3"><a href="#events">Events</a></li>
                 </ul>
