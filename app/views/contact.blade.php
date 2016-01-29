@@ -26,7 +26,7 @@
         </div>
         <div class="col m4">
             <div class="card hoverable" onclick="$('#jonathan').openModal()">
-                <div class="card-image"><img src="http://placehold.it/400" alt="Jonathan Reyes"></div>
+                <div class="card-image"><img src="/img/jonathan.jpg" alt="Jonathan Reyes"></div>
                 <div class="card-content">
                     <p class="center">Jonathan Reyes</p>
                 </div>
@@ -34,7 +34,7 @@
         </div>
         <div class="col m4">
             <div class="card hoverable" onclick="$('#sj').openModal()">
-                <div class="card-image"><img src="http://placehold.it/400" alt="Sarajane Stevens"></div>
+                <div class="card-image"><img src="/img/sj.jpg" alt="Sarajane Stevens"></div>
                 <div class="card-content">
                     <p class="center">Sarajane Stevens</p>
                 </div>
