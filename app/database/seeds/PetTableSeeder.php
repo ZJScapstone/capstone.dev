@@ -4,24 +4,24 @@ class PetTableSeeder extends Seeder {
 
 	public function run()
 	{
-        $pet = new Pet();
+        $pet1 = new Pet();
 
-        $pet->name        = 'Marimba';
-        $pet->status      = 'adopted';
-        $pet->color       = 'calico';
-        $pet->age         = 'adult';
-        $pet->description = 'text goes here';
-        $pet->gender      = 'Female';
-        $pet->user_id     = User::first()->id;
-        $pet->breed       = 'Short hair domestic';
-        $pet->size_id     = '1';
-        $pet->species_id  = Species::first()->id;
-        $pet->a_num       = 'A143656';
-        $pet->save();
+        $pet1->name        = 'Marimba';
+        $pet1->status      = 'adopted';
+        $pet1->color       = 'calico';
+        $pet1->age         = 'adult';
+        $pet1->description = 'text goes here';
+        $pet1->gender      = 'Female';
+        $pet1->user_id     = User::first()->id;
+        $pet1->breed       = 'Short hair domestic';
+        $pet1->size_id     = '1';
+        $pet1->species_id  = '2';
+        $pet1->a_num       = 'A143656';
+        $pet1->save();
 
         $pet1_img1 = new Image();
         $pet1_img1->img_path = '/img/uploads/' . explode("\n", trim(`ls public/img/uploads/`))[0];
-        $pet1_img1->pet_id = $pet->id;
+        $pet1_img1->pet_id = $pet1->id;
         $pet1_img1->save();
 	
         $pet2 = new Pet();
@@ -40,9 +40,13 @@ class PetTableSeeder extends Seeder {
         $pet2->save();
 
         $pet2_img1 = new Image();
-        $pet2_img1->img_path = 'img/petimg/sheba1.jpg';
+        $pet2_img1->img_path = 'img/petimg/sheba1.png';
         $pet2_img1->pet_id = $pet2->id;
         $pet2_img1->save();
+        $pet2_img2 = new Image();
+        $pet2_img2->img_path = 'img/petimg/sheba2.jpg';
+        $pet2_img2->pet_id = $pet2->id;
+        $pet2_img2->save();
 
         $pet3 = new Pet();
 
@@ -63,6 +67,10 @@ class PetTableSeeder extends Seeder {
         $pet3_img1->img_path = 'img/petimg/maribel1.jpg';
         $pet3_img1->pet_id = $pet3->id;
         $pet3_img1->save();
+        $pet3_img2 = new Image();
+        $pet3_img2->img_path = 'img/petimg/maribel2.jpg';
+        $pet3_img2->pet_id = $pet3->id;
+        $pet3_img2->save();
 
         $pet4 = new Pet();
 
@@ -83,6 +91,10 @@ class PetTableSeeder extends Seeder {
         $pet4_img1->img_path = 'img/petimg/max1.png';
         $pet4_img1->pet_id = $pet4->id;
         $pet4_img1->save();
+        $pet4_img2 = new Image();
+        $pet4_img2->img_path = 'img/petimg/max2.jpg';
+        $pet4_img2->pet_id = $pet4->id;
+        $pet4_img2->save();
 
         $pet5 = new Pet();
 
@@ -104,6 +116,223 @@ class PetTableSeeder extends Seeder {
         $pet5_img1->img_path = 'img/petimg/nilla1.jpg';
         $pet5_img1->pet_id = $pet5->id;
         $pet5_img1->save();
+        $pet5_img2 = new Image();
+        $pet5_img2->img_path = 'img/petimg/nilla2.jpg';
+        $pet5_img2->pet_id = $pet5->id;
+        $pet5_img2->save();
+
+        $pet6 = new Pet();
+
+        $pet6->name        = 'Sebastian';
+        $pet6->status      = 'available';
+        $pet6->color       = 'orange';
+        $pet6->age         = 'baby';
+        $pet6->description = 'Sebastian is a super lovable little guy who is missing his freedom to run around. He and his siblings had to be returned to the shelter because we the fosters took in our grandmother which has been placed on hospice. Our furr babies were getting to be too much for us to handle with grandma in the house. Sebastian has grown up knowing how to sleep quietly in a crate and play with our sweet dog. He has been around a 2yo and has been fine with her picking him up kinda crazy like, but hasnt had prolonged contact with toddlers. he is fine with the litterbox and LOVES to stare out the window at the birds at the feeder. He is definitely a real lovebug. one wierd trait, he loves the smell of irish spring bar soap. Its like cat nip to him!! whenever my husband would get out of the shower he would attack his feet ;-P Please give sebastian a home he will love you for ever!!! ';
+        $pet6->gender      = 'Male';
+        $pet6->breed       = 'Domestic Short Hair / Tabby (short coat)';
+        $pet6->user_id     = User::first()->id;
+        $pet6->species_id  = '2';
+        $pet6->size_id     = '1';
+        $pet6->a_num       = 'A330726';
+        $pet6->save();
+
+        $pet6_img1 = new Image();
+        $pet6_img1->img_path = 'img/petimg/sebastian1.png';
+        $pet6_img1->pet_id = $pet6->id;
+        $pet6_img1->save();
+        $pet6_img2 = new Image();
+        $pet6_img2->img_path = 'img/petimg/sebastian2.jpg';
+        $pet6_img2->pet_id = $pet6->id;
+        $pet6_img2->save();
+
+        $pet7 = new Pet();
+
+        $pet7->name        = 'Matty';
+        $pet7->status      = 'available';
+        $pet7->color       = 'white';
+        $pet7->age         = 'young';
+        $pet7->description = ' I can fit perfectly on your lap! Matty ID#297703  is a male, one-year old Chihuahua & Rat Terrier blend.  He is a completely ADORABLE and tiny little dog ... the quintessential little lap dog.  He loves going for walks and he does well with other dogs.  Please come meet him and fall in love! He is neutered, current on vaccinations, microchipped and his adoption comes with one free month of pet health insurance. ';
+        $pet7->gender      = 'Male';
+        $pet7->breed       = 'Chihuahua / Rat Terrier / Mixed (short coat)';
+        $pet7->user_id     = User::first()->id;
+        $pet7->species_id  = '1';
+        $pet7->size_id     = '2';
+        $pet7->a_num       = 'A297703';
+        $pet7->save();
+
+        $pet7_img1 = new Image();
+        $pet7_img1->img_path = 'img/petimg/matty1.jpg';
+        $pet7_img1->pet_id = $pet7->id;
+        $pet7_img1->save();
+        $pet7_img2 = new Image();
+        $pet7_img2->img_path = 'img/petimg/matty2.jpg';
+        $pet7_img2->pet_id = $pet7->id;
+        $pet7_img2->save();
+
+        $pet8 = new Pet();
+
+        $pet8->name        = 'Alex AKA Jade';
+        $pet8->status      = 'available';
+        $pet8->color       = 'white and black';
+        $pet8->age         = 'young';
+        $pet8->description = 'Jade is one of the most loyal dogs I\'ve had the pleasure of fostering. She is full of love and just wants it back in return. She has to be the only dog and absolutely NO cats. She\'s very dominant so would make someone\'s best friend if you can have her as your only pet. She is an INSIDE dog she sleeps with my 3 year old and I. She protects the children as well as myself and sister. Please only serious inquiries. She\'s so full of love and deserves a forever home that can reciprocate her love.
+';
+        $pet8->gender      = 'Female';
+        $pet8->breed       = 'Great Dane / American Staffordshire Terrier (short coat)';
+        $pet8->user_id     = User::first()->id;
+        $pet8->species_id  = '1';
+        $pet8->size_id     = '3';
+        $pet8->a_num       = 'A303622';
+        $pet8->save();
+
+        $pet8_img1 = new Image();
+        $pet8_img1->img_path = 'img/petimg/jade1.jpg';
+        $pet8_img1->pet_id = $pet8->id;
+        $pet8_img1->save();
+        $pet8_img2 = new Image();
+        $pet8_img2->img_path = 'img/petimg/jade2.jpg';
+        $pet8_img2->pet_id = $pet8->id;
+        $pet8_img2->save();
+
+        $pet9 = new Pet();
+
+        $pet9->name        = 'Patch';
+        $pet9->status      = 'available';
+        $pet9->color       = 'white';
+        $pet9->age         = 'adult';
+        $pet9->description = 'Patch is Special Needs as he distrusts people and can be quite aggressive. He was severely abused and neglected as his intake photos clearly show. He is a lover once he attaches to his one person, though. It takes about an hour once he is out of his crate and lots of treats. Then he wants to cuddle in your lap. He loves gentle ear rubs and gives kisses all the time. Patch is very quiet, not a yappy guy. Loves to be held and with his person as much as possible. He shows some interest in balls and play, but is more interested in attention. He has NEVER been destructive when left alone nor has he ever had an accident while in my home.  Patch does fine with small dogss, and would do best in a single person home with very little human traffic (or at least where he could be put in a room away from anyone other then his person). He has come a very long way, and now needs his own person and a loving place to call home. ';
+        $pet9->gender      = 'Male';
+        $pet9->breed       = 'Chihuahua / Rat Terrier / Mixed (short coat)';
+        $pet9->user_id     = User::first()->id;
+        $pet9->species_id  = '1';
+        $pet9->size_id     = '1';
+        $pet9->a_num       = 'A303587';
+        $pet9->save();
+
+        $pet9_img1 = new Image();
+        $pet9_img1->img_path = 'img/petimg/patch1.jpg';
+        $pet9_img1->pet_id = $pet9->id;
+        $pet9_img1->save();
+        $pet9_img2 = new Image();
+        $pet9_img2->img_path = 'img/petimg/patch2.jpg';
+        $pet9_img2->pet_id = $pet9->id;
+        $pet9_img2->save();
+
+        $pet10 = new Pet();
+
+        $pet10->name        = 'Avery';
+        $pet10->status      = 'available';
+        $pet10->color       = 'calico';
+        $pet10->age         = 'young';
+        $pet10->description = 'FeLV+ Special Needs. Avery ID# 22316659 is a beautiful female, young adult Calico. She is a very sweet, quiet and gentle kitty. Avery is special needs because she is FeLV+positive. She is currently healthy. FeLV+ cats typically live up to 4 years or so after receiving their diagnosis and for the remainder of their life, they can only live with dogs, other non-feline pets, or o ther cats who are also FeLV+positive. They need to remain indoors always, eat a nutritionally-balanced diet and have veterinary care if they ever show signs of illness. Because Avery is FeLV+, her adoption fee is waived. She is spayed, current on vaccinations, microchipped and her adoption comes with one free month of pet health insurance. You can meet her at PETCO Ingram Park, 6001 NW Loop 410, San Antonio, TX 78238. Hours are Mondays-Fridays 11 a.m. until 8 p.m.; Saturdays & Sundays 10 a.m. until 7 p.m. For additional information, please write to petco.ingram@sanantoniopetsalive.org AND to Adopt@sanantoniopetsalive.org or call 210-370-7612. When inquiring about this pet, please be sure to give the pet\'s ID#.';
+        $pet10->gender      = 'Female';
+        $pet10->breed       = 'Domestic Short Hair';
+        $pet10->user_id     = User::first()->id;
+        $pet10->species_id  = '2';
+        $pet10->size_id     = '1';
+        $pet10->a_num       = '22316659';
+        $pet10->save();
+
+        $pet10_img1 = new Image();
+        $pet10_img1->img_path = 'img/petimg/avery1.jpg';
+        $pet10_img1->pet_id = $pet10->id;
+        $pet10_img1->save();
+        $pet10_img2 = new Image();
+        $pet10_img2->img_path = 'img/petimg/avery2.jpg';
+        $pet10_img2->pet_id = $pet10->id;
+        $pet10_img2->save();
+
+        $pet11 = new Pet();
+
+        $pet11->name        = 'Angel';
+        $pet11->status      = 'available';
+        $pet11->color       = 'tan and white';
+        $pet11->age         = 'baby';
+        $pet11->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet11->gender      = 'Female';
+        $pet11->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet11->user_id     = User::first()->id;
+        $pet11->species_id  = '1';
+        $pet11->size_id     = '2';
+        $pet11->a_num       = 'A360560';
+        $pet11->save();
+
+        $pet11_img1 = new Image();
+        $pet11_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet11_img1->pet_id = $pet11->id;
+        $pet11_img1->save();
+        $pet11_img2 = new Image();
+        $pet11_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet11_img2->pet_id = $pet11->id;
+        $pet11_img2->save();
+
+        $pet12 = new Pet();
+
+        $pet12->name        = 'Angel';
+        $pet12->status      = 'available';
+        $pet12->color       = 'tan and white';
+        $pet12->age         = 'baby';
+        $pet12->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet12->gender      = 'Female';
+        $pet12->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet12->user_id     = User::first()->id;
+        $pet12->species_id  = '1';
+        $pet12->size_id     = '2';
+        $pet12->a_num       = 'A360560';
+        $pet12->save();
+
+        $pet12_img1 = new Image();
+        $pet12_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet12_img1->pet_id = $pet12->id;
+        $pet12_img1->save();
+        $pet12_img2 = new Image();
+        $pet12_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet12_img2->pet_id = $pet12->id;
+        $pet12_img2->save();
+
+        $pet13 = new Pet();
+
+        $pet13->name        = 'Angel';
+        $pet13->status      = 'available';
+        $pet13->color       = 'tan and white';
+        $pet13->age         = 'baby';
+        $pet13->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet13->gender      = 'Female';
+        $pet13->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet13->user_id     = User::first()->id;
+        $pet13->species_id  = '1';
+        $pet13->size_id     = '2';
+        $pet13->a_num       = 'A360560';
+        $pet13->save();
+
+        $pet13_img1 = new Image();
+        $pet13_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet13_img1->pet_id = $pet13->id;
+        $pet13_img1->save();
+        $pet13_img2 = new Image();
+        $pet13_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet13_img2->pet_id = $pet13->id;
+        $pet13_img2->save();
+
+        $pet14 = new Pet();
+
+        $pet14->name        = 'Annie';
+        $pet14->status      = 'available';
+        $pet14->color       = 'Brown Tabby';
+        $pet14->age         = 'young';
+        $pet14->description = 'Can you give this sweet girl a home?';
+        $pet14->gender      = 'Female';
+        $pet14->breed       = 'Domestic Short Hair (short coat)';
+        $pet14->user_id     = User::first()->id;
+        $pet14->species_id  = '2';
+        $pet14->size_id     = '1';
+        $pet14->a_num       = 'A327383';
+        $pet14->save();
+
+        $pet14_img1 = new Image();
+        $pet14_img1->img_path = 'img/petimg/annie1.jpg';
+        $pet14_img1->pet_id = $pet14->id;
+        $pet14_img1->save();
 
 
         }
