@@ -47,10 +47,10 @@ Route::get('layout', function()
 });
 
 
-Route::get('posts/create', function()
-{
-	return View::make('posts.create');
-});
+//Route::get('posts/create', function()
+//{
+//	return View::make('posts.create');
+//});
 
 Route::get('posts/show', function()
 {
@@ -60,6 +60,8 @@ Route::get('posts/show', function()
 //All Posts routes
 Route::get('post/{id}', 'PostsController@show');
 Route::get('posts', 'PostsController@index');
+Route::post('posts/', 'PostsController@store');
+Route::get('posts/create', 'PostsController@create');
 
 
 Route::get('404', function()
