@@ -31,7 +31,7 @@
             @foreach($docs as $doc)
                 <div class="section blog-post">
                     <div class="card-panel">
-                        <a href="/post/{{ $doc->slug_title }}"><h4>{{ $doc->title }}</h4></a>
+                        <a href="/posts/{{ $doc->slug_title }}"><h4>{{ $doc->title }}</h4></a>
                         <div class="chip">
                             <img src="http://placehold.it/50" alt="Foster">
                             {{ $doc->user->first_name }}
