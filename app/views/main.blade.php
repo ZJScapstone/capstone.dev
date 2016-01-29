@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'happytails!')
+@section('title', 'Furry-tail Endings!')
 
 @section('top-script')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/dropzone.css">
@@ -10,13 +10,7 @@
 <script>
     $(document).ready(function() {
         $('.modal-trigger').leanModal();
-    });
-
-    $(document).ready(function() {
         $('select').material_select();
-    });
-
-    $(document).ready(function() {
         var options = [{
             selector: '#test_toggle',
             offset: 300,
@@ -24,6 +18,8 @@
         }];
         Materialize.scrollFire(options);
     });
+
+
 </script>
 <script src="/js/styleFixes.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -37,14 +33,14 @@
     {{-- hero area --}}
     <div id="overlay">
         <div class="hero-title z-depth-1">
-            <h1 class="white-text left-align">happy tails!</h1>
+            <h1 class="white-text left-align"></h1>
         </div>
     </div>
 
     {{-- navbar tabs --}}
     <div class="row z-depth-1">
         <div class="col s12">
-            <ul class="tabs">
+            <ul class="tabs real-nav">
                 <li class="tab col s3"><a href="#">Pets</a></li>
                 <li class="tab col s3"><a href="#">Docs</a></li>
                 <li class="tab col s3"><a href="#">Forum</a></li>

@@ -20,6 +20,11 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function showHome()
+	{
+		return View::make('main');
+	}
+
 	public function doContact(){
 
 		$from    = Input::get('from');

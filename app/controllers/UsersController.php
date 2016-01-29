@@ -206,6 +206,10 @@ class UsersController extends Controller
     {
         $user = Confide::user();
 
+        if (!$user){
+            return Redirect::action('UsersController@login');
+        }
+        
         return View::make('users.show')->with('user', $user);
     }
     /**

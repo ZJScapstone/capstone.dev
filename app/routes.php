@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('main');
-});
+Route::get('/', 'HomeController@showHome');
 
 Route::get('admin', function()
 {
@@ -65,6 +62,15 @@ Route::get('post/{id}', 'PostsController@show');
 Route::get('posts', 'PostsController@index');
 
 
+Route::get('404', function()
+{
+	return View::make('errors.404');
+});
+Route::get('500', function()
+{
+	return View::make('errors.500');
+});
+
 //Pets routes
 Route::resource('pets', 'PetsController');
 Route::post('/pets/image', 'PetsController@uploadImage');
@@ -84,3 +90,4 @@ Route::get('users/logout', 'UsersController@logout');
 // Image routes
 Route::post('/images/pet', 'ImagesController@uploadPetImage');
 Route::post('/images/user', 'ImagesController@uploadUserImage');
+Route::delete('/images/{id}', 'ImagesController@destroy');
