@@ -124,10 +124,11 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-
+        $postTypes = PostType::all();
 		$post = Post::find($id);
+        $post->load('user', 'postType');
 
-		return View::make('posts.edit')->with('post', $post);	
+		return View::make('posts.edit')->with( 'post', $post )->with( 'postTypes', $postTypes );
 	
 	}
 
@@ -145,7 +146,7 @@ class PostsController extends \BaseController {
 
         if ( $validator->fails() ) {
             Session::flash('message', 'Posting not updated!');
-            return Redirect::back()->withInput()->withErrors($validator);
+            return Redirect::back()->withInput()->withErrors($validator->errors());
         }
 
 		$post->update($data);
