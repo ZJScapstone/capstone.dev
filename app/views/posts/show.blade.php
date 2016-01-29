@@ -50,6 +50,24 @@
             </div>
         </div>
     </main>
+    {{-- circle icons --}}
+    <div id="icon-menu">
+        <a class="tooltipped btn-floating btn-large deep-orange darken-3" data-position="left" data-tooltip="Menu">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="tooltipped btn-floating red modal-trigger" data-position="left" data-tooltip="New Pet" href="#pets-create-modal" ng-click="verifyUser()">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </li>
+            <li>
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="$('#search-modal').openModal()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+        </ul>
+    </div>
 @elseif($post->postType->post_type == 'forum')
     <header>
         @include('partials.forums_nav')

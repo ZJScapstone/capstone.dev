@@ -19,29 +19,30 @@ class PostsController extends \BaseController {
         $search = Input::get('search');
 
 
+        $docs = Post::with('user', 'postType')->whereHas('postType', function($q)
+        {
+            $q->where('post_type', 'doc');
+        });
+        $forums = Post::with('user', 'postType')->whereHas('postType', function($q)
+        {
+            $q->where('post_type', 'forum');
+        });
+        $events = Post::with('user', 'postType')->whereHas('postType', function($q)
+        {
+            $q->where('post_type', 'event');
+        });
+
         if($search) {
-            $data = [
-                'docs' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'doc')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10),
-
-                'forums' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'forum')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10),
-
-                'events' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'event')->where('title', 'like', "%$search%")->where('body', 'like', "%$search")->paginate(10)
-            ];
-        } else {
-            $data = [
-                'docs' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'doc')->paginate(10),
-
-                'forums' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'forum')->paginate(10),
-
-                'events' => Post::with('user', 'postType')->join('post_type', 'post_type_id', '=', 'post_type.id')
-                    ->where('post_type', '=', 'event')->paginate(10)
-            ];
+            $docs->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
+            $forums->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
+            $events->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
         }
+
+        $data = [
+            'docs' => $docs->paginate(10),
+            'forums' => $forums->paginate(10),
+            'events' => $events->paginate(10)
+        ];
 
         return View::make('posts.index')->with($data);
     }
@@ -53,7 +54,8 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('posts.create');	
+        $postTypes = PostType::all();
+		return View::make('posts.create')->with('postTypes', $postTypes);
 	}
 
 	/**
@@ -122,10 +124,11 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-
+        $postTypes = PostType::all();
 		$post = Post::find($id);
+        $post->load('user', 'postType');
 
-		return View::make('posts.edit')->with('post', $post);	
+		return View::make('posts.edit')->with( 'post', $post )->with( 'postTypes', $postTypes );
 	
 	}
 
@@ -143,7 +146,7 @@ class PostsController extends \BaseController {
 
         if ( $validator->fails() ) {
             Session::flash('message', 'Posting not updated!');
-            return Redirect::back()->withInput()->withErrors($validator);
+            return Redirect::back()->withInput()->withErrors($validator->errors());
         }
 
 		$post->update($data);

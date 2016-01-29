@@ -18,7 +18,7 @@ Route::get('admin', function()
 	return View::make('users.adminpanel');
 });
 
-Route::get('users/profile', 'UsersController@showProfile');
+Route::get('', 'UsersController@showProfile');
 
 Route::get('register', function()
 {
@@ -47,19 +47,18 @@ Route::get('layout', function()
 });
 
 
-Route::get('posts/create', function()
-{
-	return View::make('posts.create');
-});
-
 Route::get('posts/show', function()
 {
 	return View::make('posts.show');
 });
 
 //All Posts routes
-Route::get('post/{id}', 'PostsController@show');
-Route::get('posts', 'PostsController@index');
+Route::resource('posts', 'PostsController');
+//Route::get('post/{id}', 'PostsController@show');
+//Route::get('posts', 'PostsController@index');
+//Route::post('posts/', 'PostsController@store');
+//Route::get('posts/create', 'PostsController@create');
+//Route::get('posts/{id}/edit');
 
 
 Route::get('404', function()
