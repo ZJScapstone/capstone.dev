@@ -204,7 +204,7 @@ class UsersController extends Controller
     }
     public function showProfile()
     {
-        $user = Confide::user();
+        $user = Confide::user()->load('pets', 'posts');
 
         if (!$user){
             return Redirect::action('UsersController@login');
@@ -222,5 +222,12 @@ class UsersController extends Controller
         Confide::logout();
 
         return Redirect::to('/');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        $user->load('pets', 'posts');
+        return View::make('users.show')->with('user', $user);
     }
 }

@@ -24,7 +24,11 @@ class PetsController extends \BaseController {
         return Response::json($response);
     }
 
-    public function show(){}
+    public function show($id)
+    {
+        $pet = Pet::find($id)->load('images', 'size', 'species', 'user');
+        return View::make('users.pet')->with('pet', $pet);
+    }
 
     public function edit($id)
     {
