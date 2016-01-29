@@ -80,7 +80,7 @@ class PetsController extends \BaseController {
 
 
         if ( $validator->fails() ) {
-            $resposne['success'] = false;
+            $response['success'] = false;
             $response['errors']  = $validator->errors();
             if (Request::ajax()){
                 return Response::json($response);
