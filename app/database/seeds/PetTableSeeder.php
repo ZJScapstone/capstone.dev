@@ -40,9 +40,13 @@ class PetTableSeeder extends Seeder {
         $pet2->save();
 
         $pet2_img1 = new Image();
-        $pet2_img1->img_path = 'img/petimg/sheba1.jpg';
+        $pet2_img1->img_path = 'img/petimg/sheba1.png';
         $pet2_img1->pet_id = $pet2->id;
         $pet2_img1->save();
+        $pet2_img2 = new Image();
+        $pet2_img2->img_path = 'img/petimg/sheba2.jpg';
+        $pet2_img2->pet_id = $pet2->id;
+        $pet2_img2->save();
 
         $pet3 = new Pet();
 
@@ -63,6 +67,10 @@ class PetTableSeeder extends Seeder {
         $pet3_img1->img_path = 'img/petimg/maribel1.jpg';
         $pet3_img1->pet_id = $pet3->id;
         $pet3_img1->save();
+        $pet3_img2 = new Image();
+        $pet3_img2->img_path = 'img/petimg/maribel2.jpg';
+        $pet3_img2->pet_id = $pet3->id;
+        $pet3_img2->save();
 
         $pet4 = new Pet();
 
@@ -83,6 +91,10 @@ class PetTableSeeder extends Seeder {
         $pet4_img1->img_path = 'img/petimg/max1.png';
         $pet4_img1->pet_id = $pet4->id;
         $pet4_img1->save();
+        $pet4_img2 = new Image();
+        $pet4_img2->img_path = 'img/petimg/max2.jpg';
+        $pet4_img2->pet_id = $pet4->id;
+        $pet4_img2->save();
 
         $pet5 = new Pet();
 
@@ -104,6 +116,10 @@ class PetTableSeeder extends Seeder {
         $pet5_img1->img_path = 'img/petimg/nilla1.jpg';
         $pet5_img1->pet_id = $pet5->id;
         $pet5_img1->save();
+        $pet5_img2 = new Image();
+        $pet5_img2->img_path = 'img/petimg/nilla2.jpg';
+        $pet5_img2->pet_id = $pet5->id;
+        $pet5_img2->save();
 
         $pet6 = new Pet();
 
@@ -124,6 +140,10 @@ class PetTableSeeder extends Seeder {
         $pet6_img1->img_path = 'img/petimg/sebastian1.png';
         $pet6_img1->pet_id = $pet6->id;
         $pet6_img1->save();
+        $pet6_img2 = new Image();
+        $pet6_img2->img_path = 'img/petimg/sebastian2.jpg';
+        $pet6_img2->pet_id = $pet6->id;
+        $pet6_img2->save();
 
         $pet7 = new Pet();
 
@@ -144,6 +164,10 @@ class PetTableSeeder extends Seeder {
         $pet7_img1->img_path = 'img/petimg/matty1.jpg';
         $pet7_img1->pet_id = $pet7->id;
         $pet7_img1->save();
+        $pet7_img2 = new Image();
+        $pet7_img2->img_path = 'img/petimg/matty2.jpg';
+        $pet7_img2->pet_id = $pet7->id;
+        $pet7_img2->save();
 
         $pet8 = new Pet();
 
@@ -165,6 +189,10 @@ class PetTableSeeder extends Seeder {
         $pet8_img1->img_path = 'img/petimg/jade1.jpg';
         $pet8_img1->pet_id = $pet8->id;
         $pet8_img1->save();
+        $pet8_img2 = new Image();
+        $pet8_img2->img_path = 'img/petimg/jade2.jpg';
+        $pet8_img2->pet_id = $pet8->id;
+        $pet8_img2->save();
 
         $pet9 = new Pet();
 
@@ -185,6 +213,10 @@ class PetTableSeeder extends Seeder {
         $pet9_img1->img_path = 'img/petimg/patch1.jpg';
         $pet9_img1->pet_id = $pet9->id;
         $pet9_img1->save();
+        $pet9_img2 = new Image();
+        $pet9_img2->img_path = 'img/petimg/patch2.jpg';
+        $pet9_img2->pet_id = $pet9->id;
+        $pet9_img2->save();
 
         $pet10 = new Pet();
 
@@ -205,6 +237,104 @@ class PetTableSeeder extends Seeder {
         $pet10_img1->img_path = 'img/petimg/avery1.jpg';
         $pet10_img1->pet_id = $pet10->id;
         $pet10_img1->save();
+        $pet10_img2 = new Image();
+        $pet10_img2->img_path = 'img/petimg/avery2.jpg';
+        $pet10_img2->pet_id = $pet10->id;
+        $pet10_img2->save();
+
+        $pet11 = new Pet();
+
+        $pet11->name        = 'Angel';
+        $pet11->status      = 'available';
+        $pet11->color       = 'tan and white';
+        $pet11->age         = 'baby';
+        $pet11->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet11->gender      = 'Female';
+        $pet11->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet11->user_id     = User::first()->id;
+        $pet11->species_id  = '1';
+        $pet11->size_id     = '2';
+        $pet11->a_num       = 'A360560';
+        $pet11->save();
+
+        $pet11_img1 = new Image();
+        $pet11_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet11_img1->pet_id = $pet11->id;
+        $pet11_img1->save();
+        $pet11_img2 = new Image();
+        $pet11_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet11_img2->pet_id = $pet11->id;
+        $pet11_img2->save();
+
+        $pet12 = new Pet();
+
+        $pet12->name        = 'Angel';
+        $pet12->status      = 'available';
+        $pet12->color       = 'tan and white';
+        $pet12->age         = 'baby';
+        $pet12->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet12->gender      = 'Female';
+        $pet12->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet12->user_id     = User::first()->id;
+        $pet12->species_id  = '1';
+        $pet12->size_id     = '2';
+        $pet12->a_num       = 'A360560';
+        $pet12->save();
+
+        $pet12_img1 = new Image();
+        $pet12_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet12_img1->pet_id = $pet12->id;
+        $pet12_img1->save();
+        $pet12_img2 = new Image();
+        $pet12_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet12_img2->pet_id = $pet12->id;
+        $pet12_img2->save();
+
+        $pet13 = new Pet();
+
+        $pet13->name        = 'Angel';
+        $pet13->status      = 'available';
+        $pet13->color       = 'tan and white';
+        $pet13->age         = 'baby';
+        $pet13->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
+        $pet13->gender      = 'Female';
+        $pet13->breed       = 'American Staffordshire Terrier (short coat)';
+        $pet13->user_id     = User::first()->id;
+        $pet13->species_id  = '1';
+        $pet13->size_id     = '2';
+        $pet13->a_num       = 'A360560';
+        $pet13->save();
+
+        $pet13_img1 = new Image();
+        $pet13_img1->img_path = 'img/petimg/angel1.jpg';
+        $pet13_img1->pet_id = $pet13->id;
+        $pet13_img1->save();
+        $pet13_img2 = new Image();
+        $pet13_img2->img_path = 'img/petimg/angel2.jpg';
+        $pet13_img2->pet_id = $pet13->id;
+        $pet13_img2->save();
+
+        $pet14 = new Pet();
+
+        $pet14->name        = 'Annie';
+        $pet14->status      = 'available';
+        $pet14->color       = 'Brown Tabby';
+        $pet14->age         = 'young';
+        $pet14->description = 'Can you give this sweet girl a home?';
+        $pet14->gender      = 'Female';
+        $pet14->breed       = 'Domestic Short Hair (short coat)';
+        $pet14->user_id     = User::first()->id;
+        $pet14->species_id  = '2';
+        $pet14->size_id     = '1';
+        $pet14->a_num       = 'A327383';
+        $pet14->save();
+
+        $pet14_img1 = new Image();
+        $pet14_img1->img_path = 'img/petimg/annie1.jpg';
+        $pet14_img1->pet_id = $pet14->id;
+        $pet14_img1->save();
+
+
         }
 
 }
