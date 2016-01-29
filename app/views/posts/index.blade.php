@@ -7,6 +7,9 @@
 @section('bottom-script')
     <script src="/js/styleFixes.js"></script>
     <script src="/js/side_nav.js"></script>
+    <script>
+
+    </script>
 @stop
 
 @section('content')
@@ -28,7 +31,7 @@
             @foreach($docs as $doc)
                 <div class="section blog-post">
                     <div class="card-panel">
-                        <a href="#"><h4>{{ $doc->title }}</h4></a>
+                        <a href="/post/{{ $doc->slug_title }}"><h4>{{ $doc->title }}</h4></a>
                         <div class="chip">
                             <img src="http://placehold.it/50" alt="Foster">
                             {{ $doc->user->first_name }}
@@ -48,7 +51,7 @@
             @foreach($forums as $forum)
             <div class="section blog-post">
                 <div class="card-panel">
-                    <a href="#"><h4>{{ $forum->title }}</h4></a>
+                    <a href="/post/{{ $forum->slug_title }}"><h4>{{ $forum->title }}</h4></a>
                     <div class="chip">
                         <img src="http://placehold.it/50" alt="Foster">
                         {{ $forum->user->first_name }}
@@ -68,7 +71,7 @@
             @foreach($events as $event)
                 <div class="section blog-post">
                     <div class="card-panel">
-                        <a href="#"><h4>{{ $event->title }}</h4></a>
+                        <a href="/post/{{ $event->slug_title }}"><h4>{{ $event->title }}</h4></a>
                         <div class="chip">
                             <img src="http://placehold.it/50" alt="Foster">
                             {{ $event->user->first_name }}
