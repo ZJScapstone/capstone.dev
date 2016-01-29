@@ -47,7 +47,9 @@
                                 <img src="{{ $pet->images->first()->img_path }}">
                             </div>
                             <div class="card-content">
-                                <p>{{{ $pet->name }}}</p>
+                                <p>
+                                    <a href="{{action('PetsController@show', $pet->id)}}">{{{ $pet->name }}}</a>
+                                </p>
                             </div>
                         </div>
                     </div>
