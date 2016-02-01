@@ -9,6 +9,9 @@
                     </div>
                     <div class="card-content">
                         <p class="center"><strong><% pet.name | limitTo : 25 : 0 %></strong></p>
+                        <p><% pet.a_num | limitTo : 25 : 0 %></p>
+                        <p><% pet.gender | limitTo : 25 : 0 %></p>
+                        <p><% pet.breed | limitTo : 35 : 0 %></p>
                     </div>
                 </div>
             </div>
