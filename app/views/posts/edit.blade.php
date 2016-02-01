@@ -51,6 +51,9 @@
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
                 <i class="material-icons right">></i>
             </button>
+            <a href="/posts#docs" class="btn waves-effect waves-light">Cancel
+                <i class="material-icons right">close</i>
+            </a>
     {{ Form::close() }}
     @endif
     </div>

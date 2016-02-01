@@ -30,16 +30,16 @@
         </div>
     </header>
     <main>
+        <div class="fixed-action-btn" id="icon">
+            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        </div>
         <div class="container" id="docs">
             @include('partials.docs_nav')
             @foreach($docs as $doc)
                 <div class="section blog-post">
                     <div class="card-panel">
                         <a href="/posts/{{ $doc->slug_title }}"><h4>{{ $doc->title }}</h4></a>
-                        <div class="chip">
-                            <img src="http://placehold.it/50" alt="Foster">
-                            {{ $doc->user->first_name }}
-                        </div>
+                        <p class="truncate">{{ $doc->body }}</p>
                         <br>
                         <div class="chip">
                             <i class="material-icons">schedule</i>
@@ -56,10 +56,7 @@
             <div class="section blog-post">
                 <div class="card-panel">
                     <a href="/posts/{{ $forum->slug_title }}"><h4>{{ $forum->title }}</h4></a>
-                    <div class="chip">
-                        <img src="http://placehold.it/50" alt="Foster">
-                        {{ $forum->user->first_name }}
-                    </div>
+                    <p class="truncate">{{ $forum->body }}</p>
                     <br>
                     <div class="chip">
                         <i class="material-icons">schedule</i>
@@ -76,10 +73,7 @@
                 <div class="section blog-post">
                     <div class="card-panel">
                         <a href="/posts/{{ $event->slug_title }}"><h4>{{ $event->title }}</h4></a>
-                        <div class="chip">
-                            <img src="http://placehold.it/50" alt="Foster">
-                            {{ $event->user->first_name }}
-                        </div>
+                        <p class="truncate">{{ $event->body }}</p>
                         <br>
                         <div class="chip">
                             <i class="material-icons">schedule</i>
