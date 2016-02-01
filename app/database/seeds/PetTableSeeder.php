@@ -127,7 +127,7 @@ class PetTableSeeder extends Seeder {
         $pet6->status      = 'available';
         $pet6->color       = 'orange';
         $pet6->age         = 'baby';
-        $pet6->description = 'Sebastian is a super lovable little guy who is missing his freedom to run around. He and his siblings had to be returned to the shelter because we the fosters took in our grandmother which has been placed on hospice. Our furr babies were getting to be too much for us to handle with grandma in the house. Sebastian has grown up knowing how to sleep quietly in a crate and play with our sweet dog. He has been around a 2yo and has been fine with her picking him up kinda crazy like, but hasnt had prolonged contact with toddlers. he is fine with the litterbox and LOVES to stare out the window at the birds at the feeder. He is definitely a real lovebug. one wierd trait, he loves the smell of irish spring bar soap. Its like cat nip to him!! whenever my husband would get out of the shower he would attack his feet ;-P Please give sebastian a home he will love you for ever!!! ';
+        $pet6->description = 'Sebastian is a super lovable little guy who is missing his freedom to run around. He and his siblings had to be returned to the shelter because we the fosters took in our grandmother which has been placed on hospice. Our furr babies were getting to be too much for us to handle with grandma in the house. Sebastian has grown up knowing how to sleep quietly in a crate and play with our sweet pup. He has been around a 2yo and has been fine with her picking him up kinda crazy like, but hasnt had prolonged contact with toddlers. he is fine with the litterbox and LOVES to stare out the window at the birds at the feeder. He is definitely a real lovebug. one wierd trait, he loves the smell of irish spring bar soap. Its like cat nip to him!! whenever my husband would get out of the shower he would attack his feet ;-P Please give sebastian a home he will love you for ever!!! ';
         $pet6->gender      = 'Male';
         $pet6->breed       = 'Domestic Short Hair / Tabby (short coat)';
         $pet6->user_id     = User::first()->id;
@@ -334,6 +334,183 @@ class PetTableSeeder extends Seeder {
         $pet14_img1->pet_id = $pet14->id;
         $pet14_img1->save();
 
+        $pet15 = new Pet();
+
+        $pet15->name        = 'Billie';
+        $pet15->status      = 'available';
+        $pet15->color       = 'White';
+        $pet15->age         = 'young';
+        $pet15->description = 'Billie is a very happy boy! He loves people and does great with other dogs. In true terrier fashion, Billie has endless energy and very high prey drive. He likes to chase birds, rabbits, cats, and anything else that runs! Billie is a young terrier and, as such, needs a minimum of 2 hours of exercise every day. He would do best in a very active home, with an experienced owner, or with a home that will work/challenge him.';
+        $pet15->gender      = 'Male';
+        $pet15->breed       = 'Terrier / Mixed (short coat)';
+        $pet15->user_id     = User::first()->id;
+        $pet15->species_id  = '1';
+        $pet15->size_id     = '2';
+        $pet15->a_num       = 'A359510';
+        $pet15->save();
+
+        $pet15_img1 = new Image();
+        $pet15_img1->img_path = 'img/petimg/billie1.jpg';
+        $pet15_img1->pet_id = $pet15->id;
+        $pet15_img1->save();
+        $pet15_img2 = new Image();
+        $pet15_img2->img_path = 'img/petimg/billie2.jpg';
+        $pet15_img2->pet_id = $pet15->id;
+        $pet15_img2->save();
+
+        $pet16 = new Pet();
+
+        $pet16->name        = 'Maximus';
+        $pet16->status      = 'available';
+        $pet16->color       = 'White and Black';
+        $pet16->age         = 'adult';
+        $pet16->description = 'Maximus is the sweetest most loving dog ever. He makes my own dog (who I absolutely adore and love) look like a grump. Max will do just about anything for a nice belly rub or pat on the head. Max has a severed toe that has heeled completely. Max is still a little afraid to put a lot of pressure on his left front leg but it doesn\'t stop him from anything. He is extremely playful and active. He can keep up with my 100lb pitbull on any given day. He can sit and shake on command, and can almost "lay" too!!! Max is about 90% house broken but he will have it down in no time :-) He is also crate trained. I ABSOLUTELY LOVE Maximus! He is one of the best dogs I\'ve fostered. If I could keep him, I most definitely would. Max has stolen my heart. he deserves the most loving home possible as he will only return the love! Fantastic dog!';
+        $pet16->gender      = 'Male';
+        $pet16->breed       = 'American Staffordshire Terrier / Mixed (short coat)';
+        $pet16->user_id     = User::first()->id;
+        $pet16->species_id  = '1';
+        $pet16->size_id     = '3';
+        $pet16->a_num       = 'A326218';
+        $pet16->save();
+
+        $pet16_img1 = new Image();
+        $pet16_img1->img_path = 'img/petimg/maximus1.jpg';
+        $pet16_img1->pet_id = $pet16->id;
+        $pet16_img1->save();
+        $pet16_img2 = new Image();
+        $pet16_img2->img_path = 'img/petimg/maximus2.jpg';
+        $pet16_img2->pet_id = $pet16->id;
+        $pet16_img2->save();
+
+        $pet17 = new Pet();
+
+        $pet17->name        = 'Lady';
+        $pet17->status      = 'available';
+        $pet17->color       = 'White and Black';
+        $pet17->age         = 'senior';
+        $pet17->description = 'Lady is just that - a lady! She is super easy to get along with, gets along with my other dogs, crate trained, house trained. She walks well on a lead without pulling and tugging. She does well with children but I wouldn\'t recommend they try to pick her up or carry her - she doesn\'t like that kind of handling. She loves to be petted and brushed and will lay in your lap given the chance. She even sits up and begs! Very sweet dog.';
+        $pet17->gender      = 'Female';
+        $pet17->breed       = 'Terrier / Mixed (medium coat))';
+        $pet17->user_id     = User::first()->id;
+        $pet17->species_id  = '1';
+        $pet17->size_id     = '1';
+        $pet17->a_num       = 'A339813';
+        $pet17->save();
+
+        $pet17_img1 = new Image();
+        $pet17_img1->img_path = 'img/petimg/lady1.jpg';
+        $pet17_img1->pet_id = $pet17->id;
+        $pet17_img1->save();
+        $pet17_img2 = new Image();
+        $pet17_img2->img_path = 'img/petimg/lady2.jpg';
+        $pet17_img2->pet_id = $pet17->id;
+        $pet17_img2->save();
+
+        $pet18 = new Pet();
+
+        $pet18->name        = 'Queenie';
+        $pet18->status      = 'available';
+        $pet18->color       = 'tortoiseshell';
+        $pet18->age         = 'baby';
+        $pet18->description = 'Lady is just that - a lady! She is super easy to get along with, gets along with my other pets, crate trained, house trained. She walks well on a lead without pulling and tugging. She does well with children but I wouldn\'t recommend they try to pick her up or carry her - she doesn\'t like that kind of handling. She loves to be petted and brushed and will lay in your lap given the chance. She even sits up and begs! Very sweet dog.';
+        $pet18->gender      = 'Female';
+        $pet18->breed       = 'Domestic Short Hair (short coat)';
+        $pet18->user_id     = '2';
+        $pet18->species_id  = '2';
+        $pet18->size_id     = '1';
+        $pet18->a_num       = 'A340004';
+        $pet18->save();
+
+        $pet18_img1 = new Image();
+        $pet18_img1->img_path = 'img/petimg/queenie1.jpg';
+        $pet18_img1->pet_id = $pet18->id;
+        $pet18_img1->save();
+
+        $pet19 = new Pet();
+
+        $pet19->name        = 'Zach';
+        $pet19->status      = 'available';
+        $pet19->color       = 'black';
+        $pet19->age         = 'young';
+        $pet19->description = 'Zacky is the sweetest and calmest puppy that I have ever met. He plays well with my other dogs but he is so content and happy to find a fuzzy monkey or a tennis ball and just sit quietly in the corner by himself while the others run circles around him. He doesn\'t give overwhelming or sloppy kisses, he is shy but perfectly so. He warms up quickly and enjoys attention but doesn\'t demand it or jump all over me. He is great with kids and other dogs. He is also great with training! He is crate trained, almost potty trained and has so far learned how to sit. Additionally he just falls asleep when out in public like when I take him to Marshalls, Ross or Pet Smart! Zacky just wants to be happy. I honestly dont know if anything bothers this perfect pup. He is excited to meet his furever family and love a person or a family of five. Additionally he HAD ringworm and has completed treatment, now he is just waiting for his fur to grow back in a few spots! PS Zacky is giving another puppy a kiss!  Here a couple of cute videos:  https://www.facebook.com/HudsonHappiness/videos/1106347876059680/   https://www.facebook.com/HudsonHappiness/videos/1117773634917104/';
+        $pet19->gender      = 'Male';
+        $pet19->breed       = 'Labrador Retriever / Mixed (medium coat)';
+        $pet19->user_id     = '2';
+        $pet19->species_id  = '1';
+        $pet19->size_id     = '2';
+        $pet19->a_num       = 'A345133';
+        $pet19->save();
+
+        $pet19_img1 = new Image();
+        $pet19_img1->img_path = 'img/petimg/zach1.jpg';
+        $pet19_img1->pet_id = $pet19->id;
+        $pet19_img1->save();
+        $pet19_img2 = new Image();
+        $pet19_img2->img_path = 'img/petimg/zach2.jpg';
+        $pet19_img2->pet_id = $pet19->id;
+        $pet19_img2->save();
+        $pet19_img3 = new Image();
+        $pet19_img3->img_path = 'img/petimg/zach3.jpg';
+        $pet19_img3->pet_id = $pet19->id;
+        $pet19_img3->save();
+
+        $pet20 = new Pet();
+
+        $pet20->name        = 'Howard';
+        $pet20->status      = 'available';
+        $pet20->color       = 'white';
+        $pet20->age         = 'young';
+        $pet20->description = 'Howard is a sweet, playful little guy who can be outgoing once he warms up to you. He loves to give kisses and will climb right into your lap for love! He is learning to walk on a leash currently and has been doing great. Crate-trained. (House-trained status and personality with other dogs unknown until we are past the 7 day quarantine period!) Howard is currently being treated for demodectic mange (NON contagious) with oral medication currently.';
+        $pet20->gender      = 'Male';
+        $pet20->breed       = 'Chihuahua / Terrier / Mixed (short coat)';
+        $pet20->user_id     = '2';
+        $pet20->species_id  = '1';
+        $pet20->size_id     = '2';
+        $pet20->a_num       = 'A364023';
+        $pet20->save();
+
+        $pet20_img1 = new Image();
+        $pet20_img1->img_path = 'img/petimg/howard1.jpg';
+        $pet20_img1->pet_id = $pet20->id;
+        $pet20_img1->save();
+        $pet20_img2 = new Image();
+        $pet20_img2->img_path = 'img/petimg/howard2.jpg';
+        $pet20_img2->pet_id = $pet20->id;
+        $pet20_img2->save();
+
+        $pet21 = new Pet();
+
+        $pet21->name        = 'Lulu';
+        $pet21->status      = 'available';
+        $pet21->color       = 'black';
+        $pet21->age         = 'young';
+        $pet21->description = 'Lulu is a lover of everyone and everything! She loves babies, young children, new dogs and walking on the leash. Lulu often accompanies me to work and meets handfuls of new people and pets every day, so she is incredibly well socialized and even knows a few tricks!';
+        $pet21->gender      = 'Male';
+        $pet21->breed       = 'American Staffordshire Terrier / Mixed (short coat)';
+        $pet21->user_id     = '2';
+        $pet21->species_id  = '1';
+        $pet21->size_id     = '3';
+        $pet21->a_num       = 'A';
+        $pet21->save();
+
+        $pet21_img1 = new Image();
+        $pet21_img1->img_path = 'img/petimg/lulu1.jpg';
+        $pet21_img1->pet_id = $pet21->id;
+        $pet21_img1->save();
+        $pet21_img2 = new Image();
+        $pet21_img2->img_path = 'img/petimg/lulu2.jpg';
+        $pet21_img2->pet_id = $pet21->id;
+        $pet21_img2->save();
+        $pet21_img3 = new Image();
+        $pet21_img3->img_path = 'img/petimg/lulu3.jpg';
+        $pet21_img3->pet_id = $pet21->id;
+        $pet21_img3->save();
+        $pet21_img4 = new Image();
+        $pet21_img4->img_path = 'img/petimg/lulu4.jpg';
+        $pet21_img4->pet_id = $pet21->id;
+        $pet21_img4->save();
+
+        
 
         }
 

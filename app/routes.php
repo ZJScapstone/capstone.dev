@@ -13,12 +13,17 @@
 
 Route::get('/', 'HomeController@showHome');
 
+Route::get('streetpets', function()
+{
+	return View::make('pets.streetpets');
+});
+
 Route::get('admin', function()
 {
 	return View::make('users.adminpanel');
 });
 
-Route::get('/users/profile', 'UsersController@showProfile');
+Route::get('users/{idOrEmail}', 'UsersController@showProfile');
 
 Route::get('register', function()
 {
@@ -46,6 +51,9 @@ Route::get('layout', function()
     return View::make('layout');
 });
 
+Route::get('posts/faq', function(){
+	return View::make('posts.faq');
+});
 
 Route::get('posts/show', function()
 {
