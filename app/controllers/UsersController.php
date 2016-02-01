@@ -203,12 +203,6 @@ class UsersController extends Controller
         }
     }
 
-        /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function showProfile($idOrEmail)
     {
         if(is_numeric($idOrEmail)){
@@ -237,5 +231,12 @@ class UsersController extends Controller
         Confide::logout();
 
         return Redirect::to('/');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        $user->load('pets', 'posts');
+        return View::make('users.show')->with('user', $user);
     }
 }

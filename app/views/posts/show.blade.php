@@ -5,6 +5,13 @@
 @stop
 
 @section('bottom-script')
+    <script>
+        // navlink fix
+        $('.tabs a').click(function(e){
+            e.preventDefault();
+            window.location = $(this).attr('href');
+        });
+    </script>
     <script src="/js/styleFixes.js"></script>
     <script src="/js/side_nav.js"></script>
 @stop
@@ -16,10 +23,10 @@
         <div class="row z-depth-0 section fixed">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="/">Pets</a></li>
-                    <li class="tab col s3"><a class="active" href="#">Docs</a></li>
-                    <li class="tab col s3"><a href="/forums">Forum</a></li>
-                    <li class="tab col s3"><a href="/events">Events</a></li>
+                    <li class="tab col s3"><a href="/#main">Pets</a></li>
+                    <li class="tab col s3"><a class="active" href="/posts/#docs">Docs</a></li>
+                    <li class="tab col s3"><a href="/posts/#forums">Forum</a></li>
+                    <li class="tab col s3"><a href="/posts/#events">Events</a></li>
                 </ul>
             </div>
         </div>
@@ -50,16 +57,34 @@
             </div>
         </div>
     </main>
+    {{-- circle icons --}}
+    <div id="icon-menu">
+        <a class="tooltipped btn-floating btn-large deep-orange darken-3" data-position="left" data-tooltip="Menu">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li>
+                <a class="tooltipped btn-floating red modal-trigger" data-position="left" data-tooltip="New Pet" href="#pets-create-modal" ng-click="verifyUser()">
+                    <i class="material-icons">mode_edit</i>
+                </a>
+            </li>
+            <li>
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="$('#search-modal').openModal()">
+                    <i class="material-icons">search</i>
+                </a>
+            </li>
+        </ul>
+    </div>
 @elseif($post->postType->post_type == 'forum')
     <header>
         @include('partials.forums_nav')
         <div class="row z-depth-0 section fixed">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="/">Pets</a></li>
-                    <li class="tab col s3"><a href="#">Docs</a></li>
-                    <li class="tab col s3"><a class="active" href="/forums">Forum</a></li>
-                    <li class="tab col s3"><a href="/events">Events</a></li>
+                    <li class="tab col s3"><a href="/#main">Pets</a></li>
+                    <li class="tab col s3"><a href="/posts/#docs">Docs</a></li>
+                    <li class="tab col s3"><a class="active" href="/posts/#forums">Forum</a></li>
+                    <li class="tab col s3"><a href="/posts/#events">Events</a></li>
                 </ul>
             </div>
         </div>
@@ -96,10 +121,10 @@
         <div class="row z-depth-0 section fixed">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="/">Pets</a></li>
-                    <li class="tab col s3"><a href="/docs">Docs</a></li>
-                    <li class="tab col s3"><a href="/forums">Forum</a></li>
-                    <li class="tab col s3"><a class="active" href="/events">Events</a></li>
+                    <li class="tab col s3"><a href="/#main">Pets</a></li>
+                    <li class="tab col s3"><a href="/posts/#docs">Docs</a></li>
+                    <li class="tab col s3"><a href="/posts/#forums">Forum</a></li>
+                    <li class="tab col s3"><a class="active" href="/posts/#events">Events</a></li>
                 </ul>
             </div>
         </div>

@@ -8,6 +8,7 @@
 @stop
 @section('content')
 <div class="container">
+
     {{ Form::open(array('action' => 'PostsController@store')) }}
     <h4 class="center"> Create A New Post </h4>
     @if(!Confide::user())    
@@ -20,8 +21,12 @@
             {{ Form::text('title', null, ['class' => 'form-control'] ) }}
         </div>
         <div class="input-field col s6">
-            {{ Form::label('post_type_id', 'Post Type') }}
-            {{ Form::select('post_type_id', array('' => '', '1' => 'Forum','3' => 'Document', '2' => 'Event')); }} 
+            <select name="post_type_id" id="post_type_id">
+                    <option value="" disabled selected>Post Type</option>
+                @foreach($postTypes as $postType)
+                    <option value="{{ $postType->id }}">{{ ucfirst($postType->post_type) }}</option>
+                @endforeach
+            </select>
         </div>
     </div>
     <div class="row">

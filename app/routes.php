@@ -55,19 +55,18 @@ Route::get('posts/faq', function(){
 	return View::make('posts.faq');
 });
 
-Route::get('posts/create', function()
-{
-	return View::make('posts.create');
-});
-
 Route::get('posts/show', function()
 {
 	return View::make('posts.show');
 });
 
 //All Posts routes
-Route::get('post/{id}', 'PostsController@show');
-Route::get('posts', 'PostsController@index');
+Route::resource('posts', 'PostsController');
+//Route::get('post/{id}', 'PostsController@show');
+//Route::get('posts', 'PostsController@index');
+//Route::post('posts/', 'PostsController@store');
+//Route::get('posts/create', 'PostsController@create');
+//Route::get('posts/{id}/edit');
 
 
 Route::get('404', function()
@@ -94,6 +93,7 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/reset_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+Route::get('users/{id}', 'UsersController@show');
 
 // Image routes
 Route::post('/images/pet', 'ImagesController@uploadPetImage');
