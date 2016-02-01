@@ -49,7 +49,7 @@
             <ul class="tabs">
                 <li class="tab col s3"><a href="/#main">Pets</a></li>
                 <li class="tab col s3"><a href="/posts#docs">Docs</a></li>
-                <li class="tab col s3"><a href="/posts#forum">Forum</a></li>
+                <li class="tab col s3"><a href="/posts#forums">Forum</a></li>
                 <li class="tab col s3"><a href="/posts#events">Events</a></li>
             </ul>
         </div>
