@@ -28,12 +28,15 @@
             <div class="col m4">
                 <h2>Posts</h2>
                 @forelse($user->posts as $post)
-                    <p>
+                    <div class="section">
+                    <h6>
                         <a href="{{ action('PostsController@show', $post->id) }}">{{{ $post->title }}}</a>
-                    </p>
+                    </h6>
                     @if(Confide::user() && Confide::user()->id == $post->user_id)
                         <a href="{{ action('PostsController@edit', $post->id) }}" class="btn red">Edit This Post</a>
                     @endif
+                    </div>
+                    <div class="divider"></div>
                 @empty
                     <p>This user has no posts yet.</p>
                 @endforelse
