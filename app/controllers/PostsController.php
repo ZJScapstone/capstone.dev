@@ -33,9 +33,9 @@ class PostsController extends \BaseController {
         });
 
         if($search) {
-            $docs->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
-            $forums->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
-            $events->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search");
+            $docs->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search")->orderBy('updated_at', 'desc');
+            $forums->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search")->orderBy('updated_at', 'desc');
+            $events->orWhere('title', 'like', "%$search%")->orWhere('body', 'like', "%$search")->orderBy('updated_at', 'desc');
         }
 
         $data = [
@@ -96,7 +96,7 @@ class PostsController extends \BaseController {
 	{
 		if(is_numeric($postIdOrTitle) ) {
 
-			$post = Post::with('postType')->where('id', '=', $postIdOrTitle)->first();
+			$post = Post::with('user','postType')->where('id', '=', $postIdOrTitle)->first();
 
             if(!$post){
                 App::abort(404);
