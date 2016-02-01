@@ -43,7 +43,11 @@
             </div>
             <div class="col m8">
                 <h2>Pets</h2>
-                @foreach( $user->pets as $pet )
+                <div class="row">
+                @foreach( $user->pets as $index => $pet )
+                    @if($index % 2 == 0)
+                        <div class="row"></div>
+                    @endif
                     <div class="col m6">
                         <div class="card hoverable">
                             <div class="card-image ">
@@ -57,6 +61,7 @@
                         </div>
                     </div>
                 @endforeach
+                </div>
             </div>
         </div>
 
