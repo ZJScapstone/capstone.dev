@@ -149,3 +149,7 @@ nav {
 .error-message{
     color: firebrick;
 }
+
+body{
+  background: url(/img/confectionary.png);
+}
