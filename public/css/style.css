@@ -150,6 +150,10 @@ nav {
     color: firebrick;
 }
 
+body{
+  background: url(/img/confectionary.png);
+}
+
 #displaypetname {
   margin: 30px;
 }

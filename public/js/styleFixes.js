@@ -34,7 +34,7 @@ $(document).ready(function(){
 
     $(window).scroll(function(){
         var position = $(window).scrollTop();
-        if (position > iconMenuOffset) {
+        if (position > 200) {
             $iconMenu.fadeIn();
         } else {
             $iconMenu.fadeOut();
