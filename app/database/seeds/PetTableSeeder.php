@@ -4,26 +4,6 @@ class PetTableSeeder extends Seeder {
 
 	public function run()
 	{
-        $pet1 = new Pet();
-
-        $pet1->name        = 'Marimba';
-        $pet1->status      = 'adopted';
-        $pet1->color       = 'calico';
-        $pet1->age         = 'adult';
-        $pet1->description = 'text goes here';
-        $pet1->gender      = 'Female';
-        $pet1->user_id     = User::first()->id;
-        $pet1->breed       = 'Short hair domestic';
-        $pet1->size_id     = '1';
-        $pet1->species_id  = '2';
-        $pet1->a_num       = 'A143656';
-        $pet1->save();
-
-        $pet1_img1 = new Image();
-        $pet1_img1->img_path = '/img/uploads/' . explode("\n", trim(`ls public/img/uploads/`))[0];
-        $pet1_img1->pet_id = $pet1->id;
-        $pet1_img1->save();
-	
         $pet2 = new Pet();
 
         $pet2->name        = 'Sheba';
