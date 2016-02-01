@@ -22,7 +22,7 @@
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3"><a href="/#main" id="pet-home">Pets</a></li>
-                    <li class="tab col s3"><a class="active" href="#docs">Docs</a></li>
+                    <li class="tab col s3"><a href="#docs">Docs</a></li>
                     <li class="tab col s3"><a href="#forums">Forum</a></li>
                     <li class="tab col s3"><a href="#events">Events</a></li>
                 </ul>
