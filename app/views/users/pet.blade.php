@@ -28,7 +28,7 @@
     <div class="row">
         @foreach($pet->images as $img)
             <div class="col m6">
-                <img class="responsive-img" src="{{{ $img->img_path }}}">
+                <img class="responsive-img" src="/{{{ $img->img_path }}}">
             </div>
         @endforeach
     </div>
