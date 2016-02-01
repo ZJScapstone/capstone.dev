@@ -59,7 +59,7 @@
         </div>
         <div class="input-field col s4">
             <input type="text" id="a_num" ng-model="newPet.a_num">
-            <label for="a_num">Pet ID#</label>
+            <label for="a_num">ID# From Your Shelter</label>
         </div>
         <div class="input-field col s4">
             <input id="pet_color" type="text" ng-model="newPet.color">
@@ -68,7 +68,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <textarea placeholder="Tell us about your pet! e.g. are they spayed/ neutered? microchipped? vaccinated?" id="description" class="materialize-textarea" ng-model="newPet.description"></textarea>
+            <textarea placeholder="Tell us about your pet! e.g. are they spayed / neutered? microchipped? vaccinated?" id="description" class="materialize-textarea" ng-model="newPet.description"></textarea>
             <label for="description">Pet Description</label>
         </div>
     </div>
