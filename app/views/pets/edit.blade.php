@@ -113,8 +113,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">done</i></button>
-        <button class="btn waves-effect waves-light" type="cancel">Cancel<i class="material-icons right">close</i></button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="ft-green">Submit<i class="material-icons right">done</i></button>
+        <button class="btn waves-effect waves-light" type="cancel" id="ft-green">Cancel<i class="material-icons right">close</i></button>
     </div>
 {{ Form::close() }}
 <h4 class="center">Images</h4>

@@ -73,7 +73,7 @@
         </div>
     </div>
     <div class="modal-footer">
-        <a href="#!" class="left modal-action modal-close waves-effect waves-light btn">Close<i class="material-icons right">close</i></a>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">done</i></button>
+        <a href="#!" class="left modal-action modal-close waves-effect waves-light btn" id="ft-green">Close<i class="material-icons right">close</i></a>
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="ft-green">Submit<i class="material-icons right">done</i></button>
     </div>
 </form>
