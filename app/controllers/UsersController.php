@@ -202,16 +202,25 @@ class UsersController extends Controller
                 ->with('error', $error_msg);
         }
     }
-    public function showProfile()
-    {
-        $user = Confide::user()->load('pets', 'posts');
 
-        if (!$user){
-            return Redirect::action('UsersController@login');
+    public function showProfile($idOrEmail)
+    {
+        if(is_numeric($idOrEmail)){
+            $user = User::find($idOrEmail);
+                if(!$user){
+                    App::abort(404);
+                    return Redirect::action('PetsController@index');
+                }
+        } else {
+            $user = User::where('email', '=', $idOrEmail)->first();
+            if(!$user){
+                return Redirect::action('PetsController@index');
+            }
         }
-        
         return View::make('users.show')->with('user', $user);
     }
+
+
     /**
      * Log the user out of the application.
      *
