@@ -222,30 +222,6 @@ class PetTableSeeder extends Seeder {
         $pet10_img2->pet_id = $pet10->id;
         $pet10_img2->save();
 
-        $pet11 = new Pet();
-
-        $pet11->name        = 'Angel';
-        $pet11->status      = 'available';
-        $pet11->color       = 'tan and white';
-        $pet11->age         = 'baby';
-        $pet11->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
-        $pet11->gender      = 'Female';
-        $pet11->breed       = 'American Staffordshire Terrier (short coat)';
-        $pet11->user_id     = User::first()->id;
-        $pet11->species_id  = '1';
-        $pet11->size_id     = '2';
-        $pet11->a_num       = 'A360560';
-        $pet11->save();
-
-        $pet11_img1 = new Image();
-        $pet11_img1->img_path = 'img/petimg/angel1.jpg';
-        $pet11_img1->pet_id = $pet11->id;
-        $pet11_img1->save();
-        $pet11_img2 = new Image();
-        $pet11_img2->img_path = 'img/petimg/angel2.jpg';
-        $pet11_img2->pet_id = $pet11->id;
-        $pet11_img2->save();
-
         $pet12 = new Pet();
 
         $pet12->name        = 'Angel';
@@ -269,30 +245,6 @@ class PetTableSeeder extends Seeder {
         $pet12_img2->img_path = 'img/petimg/angel2.jpg';
         $pet12_img2->pet_id = $pet12->id;
         $pet12_img2->save();
-
-        $pet13 = new Pet();
-
-        $pet13->name        = 'Angel';
-        $pet13->status      = 'available';
-        $pet13->color       = 'tan and white';
-        $pet13->age         = 'baby';
-        $pet13->description = 'Angel is a female, 12-week old American Staffy blend. Angel weighs approximately 10 1/2 pounds. Once she is spayed she will be adoption ready! If interested please inquire and we can make arrangements for a meet and greet and possible adoption. Angel is a bundle of energy. She loves to romp and play with her toys. Angel is cuddle bug and loves to give lots of hugs and kisses. Angel can be a laid back kind of girl, but she can keep up with her siblings in the playful puppy department. She has never been around young kids or cat. I have a teenage son and they love to play and chase him all around the house. Angel will be spayed, microchipped, current on vaccinations, and her adoption comes with one free month of pet health insurance! Please email me to meet this little bundle of love and remember ... when you adopt a puppy you are making a lifetime commitment to that puppy!';
-        $pet13->gender      = 'Female';
-        $pet13->breed       = 'American Staffordshire Terrier (short coat)';
-        $pet13->user_id     = User::first()->id;
-        $pet13->species_id  = '1';
-        $pet13->size_id     = '2';
-        $pet13->a_num       = 'A360560';
-        $pet13->save();
-
-        $pet13_img1 = new Image();
-        $pet13_img1->img_path = 'img/petimg/angel1.jpg';
-        $pet13_img1->pet_id = $pet13->id;
-        $pet13_img1->save();
-        $pet13_img2 = new Image();
-        $pet13_img2->img_path = 'img/petimg/angel2.jpg';
-        $pet13_img2->pet_id = $pet13->id;
-        $pet13_img2->save();
 
         $pet14 = new Pet();
 
