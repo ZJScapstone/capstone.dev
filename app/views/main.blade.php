@@ -26,6 +26,12 @@
         });
     });
 
+    function openSearchModal(){
+        $('#search-modal').openModal({
+            opacity: 0.1
+        });
+    }
+
 </script>
 <script src="/js/styleFixes.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
@@ -67,7 +73,7 @@
                 </a>
             </li>
             <li>
-                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="$('#search-modal').openModal()">
+                <a class="tooltipped btn-floating green" data-position="left" data-tooltip="Advanced Search" onclick="openSearchModal()">
                     <i class="material-icons">search</i>
                 </a>
             </li>
