@@ -23,7 +23,7 @@ Route::get('admin', function()
 	return View::make('users.adminpanel');
 });
 
-Route::get('users/{idOrEmail}', 'UsersController@showProfile');
+Route::get('users/{idOrUsername}', 'UsersController@showProfile');
 
 Route::get('register', function()
 {

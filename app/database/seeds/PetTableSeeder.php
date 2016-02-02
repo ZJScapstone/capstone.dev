@@ -10,13 +10,13 @@ class PetTableSeeder extends Seeder {
         $pet1->status      = 'adopted';
         $pet1->color       = 'calico';
         $pet1->age         = 'adult';
-        $pet1->description = 'text goes here';
+        $pet1->description = 'Marimba is an adorable dilute calico. She loves to be in the bathroom and eat goldfish crackers. Enjoys napping and knocking over your things.';
         $pet1->gender      = 'Female';
-        $pet1->user_id     = User::first()->id;
+        $pet1->user_id     = '2';
         $pet1->breed       = 'Short hair domestic';
         $pet1->size_id     = '1';
         $pet1->species_id  = '2';
-        $pet1->a_num       = 'A143656';
+        $pet1->a_num       = 'A187420';
         $pet1->save();
 
         $pet1_img1 = new Image();

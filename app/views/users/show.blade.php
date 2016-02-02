@@ -20,7 +20,7 @@
                 @endif
             </div>
             <div class="col l6">
-                <h3>{{{ $user->email }}} </h3>
+                <h3>{{{ $user->username }}} </h3>
             </div>
         </div>
 

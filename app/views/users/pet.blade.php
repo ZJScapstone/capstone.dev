@@ -10,7 +10,7 @@
     @endif
     <div class="row">
         <div class="col m6">
-            <p>posted by <a href="/users/{{ $pet->user_id }}">{{ $pet->user->email }}</a></p>
+            <p>posted by <a href="/users/{{ $pet->user_id }}">{{ $pet->user->username }}</a></p>
             <p><strong>Status:</strong> <em>{{ $pet->status }}</em></p>
             <p><strong>ID#:</strong>{{ $pet->a_num }}</p>
         </div>
