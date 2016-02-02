@@ -5,7 +5,7 @@ $(document).ready(function(){
     var menuFadeInt = 0;
 
     setTimeout( function(){
-        $('body').css('padding-bottom', (navbarHeight * 2) + 'px')
+        $('body').css('padding-bottom', '750px');
     }, 400);
 
     $('.modal-trigger').click(function(){
@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     $(window).resize(function(){
         iconMenuOffset = $('#icon-menu').offset().top;
-        $('body').css('padding-bottom', (navbarHeight * 2) + 'px');
+        $('body').css('padding-bottom', '750px');
         $('.modal-trigger').click(function(){
             $modal = $($(this).attr('href'));
             setTimeout( function(){
