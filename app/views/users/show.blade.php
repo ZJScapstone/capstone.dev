@@ -50,9 +50,11 @@
                     @endif
                     <div class="col m6">
                         <div class="card hoverable">
-                            <div class="card-image ">
-                                <img src="/{{ $pet->images->first()->img_path }}">
-                            </div>
+                            @if ($pet->images->count() > 0)
+                                <div class="card-image ">
+                                    <img src="/{{ $pet->images->first()->img_path }}">
+                                </div>
+                            @endif
                             <div class="card-content">
                                 <p>
                                     <a href="{{action('PetsController@show', $pet->id)}}">{{{ $pet->name }}}</a>
