@@ -22,7 +22,7 @@
             @endif
 
             <div class="form-actions form-group">
-                <button type="submit" class="btn btn-primary">{{{ Lang::get('confide::confide.forgot.submit') }}}</button>
+                <button type="submit" class="btn btn-primary" id="ft-green">{{{ Lang::get('confide::confide.forgot.submit') }}}</button>
             </div>
         </form>
     </div>

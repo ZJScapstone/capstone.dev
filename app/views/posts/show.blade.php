@@ -35,6 +35,9 @@
         <div class="container">
             <div class="section">
                 <h5>{{{ $post->title }}}</h5>
+                <div class="chip">
+                    Posted by: <a href="{{ action('UsersController@show', $post->user->id) }}">{{ $post->user->email }}</a>
+                </div>
                 <p>{{{ $post->body }}}</p>
                 <div class="divider"></div>
                 <div id="disqus_thread"></div>

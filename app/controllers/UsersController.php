@@ -203,20 +203,21 @@ class UsersController extends Controller
         }
     }
 
-    public function showProfile($idOrEmail)
+    public function showProfile($idOrUsername)
     {
-        if(is_numeric($idOrEmail)){
-            $user = User::find($idOrEmail);
+        if(is_numeric($idOrUsername)){
+            $user = User::find($idOrUsername);
                 if(!$user){
                     App::abort(404);
                     return Redirect::action('PetsController@index');
                 }
         } else {
-            $user = User::where('email', '=', $idOrEmail)->first();
+            $user = User::where('username', '=', $idOrUsername)->first();
             if(!$user){
                 return Redirect::action('PetsController@index');
             }
         }
+        $user->load('pets', 'posts');
         return View::make('users.show')->with('user', $user);
     }
 

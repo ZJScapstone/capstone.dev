@@ -28,23 +28,30 @@
             <div class="col m4">
                 <h2>Posts</h2>
                 @forelse($user->posts as $post)
-                    <p>
+                    <div class="section">
+                    <h6>
                         <a href="{{ action('PostsController@show', $post->id) }}">{{{ $post->title }}}</a>
-                    </p>
+                    </h6>
                     @if(Confide::user() && Confide::user()->id == $post->user_id)
                         <a href="{{ action('PostsController@edit', $post->id) }}" class="btn red">Edit This Post</a>
                     @endif
+                    </div>
+                    <div class="divider"></div>
                 @empty
                     <p>This user has no posts yet.</p>
                 @endforelse
             </div>
             <div class="col m8">
                 <h2>Pets</h2>
-                @foreach( $user->pets as $pet )
+                <div class="row">
+                @foreach( $user->pets as $index => $pet )
+                    @if($index % 2 == 0)
+                        <div class="row"></div>
+                    @endif
                     <div class="col m6">
                         <div class="card hoverable">
                             <div class="card-image ">
-                                <img src="{{ $pet->images->first()->img_path }}">
+                                <img src="/{{ $pet->images->first()->img_path }}">
                             </div>
                             <div class="card-content">
                                 <p>
@@ -54,6 +61,7 @@
                         </div>
                     </div>
                 @endforeach
+                </div>
             </div>
         </div>
 

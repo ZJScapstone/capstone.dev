@@ -97,7 +97,7 @@
 
     {{-- image upload modal --}}
     <div class="modal" id="image-upload-modal">
-        <button class="btn right modal-action modal-close" ng-click="finishNewPet()">done</button>
+        <button class="btn right modal-action modal-close" id="ft-green" ng-click="finishNewPet()">done</button>
         <h2 class="center">Let's add some pictures!</h2>
         <p>Click or drag pictures below</p>
         <div id="image-upload">&nbsp;</div>

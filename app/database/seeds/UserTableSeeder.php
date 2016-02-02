@@ -15,6 +15,7 @@ class UserTableSeeder extends Seeder {
         $user->description = '';
         $user->first_name = '';
         $user->last_name = '';
+        $user->username = 'sahappytails';
 
         if(! $user->save()) {
             Log::info('Unable to create user '.$user->email, (array)$user->errors());
@@ -33,6 +34,7 @@ class UserTableSeeder extends Seeder {
         $user2->description = 'I love animals!';
         $user2->first_name = 'Sarajane';
         $user2->last_name = 'Stevens';
+        $user2->username = 'Sarajane';
 
         if(! $user2->save()) {
             Log::info('Unable to create user '.$user2->email, (array)$user2->errors());
@@ -51,6 +53,7 @@ class UserTableSeeder extends Seeder {
         $user3->description = 'Knick knack paddiwhack give a dog a bone!';
         $user3->first_name = 'Zach';
         $user3->last_name = 'Gulde';
+        $user3->username = '';
 
         if(! $user3->save()) {
             Log::info('Unable to create user '.$user3->email, (array)$user3->errors());
@@ -69,6 +72,7 @@ class UserTableSeeder extends Seeder {
         $user4->description = 'I love horses, best of all the animals, I love horses, they\'re my friends!';
         $user4->first_name = 'Jonathan';
         $user4->last_name = 'Reyes';
+        $user4->username = '';
 
         if(! $user4->save()) {
             Log::info('Unable to create user '.$user4->email, (array)$user4->errors());

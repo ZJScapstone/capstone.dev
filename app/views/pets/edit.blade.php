@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('bottom-script')
+    <script src="/js/styleFixes.js"></script>
 <script>
     $('select').material_select();
 </script>
@@ -27,6 +28,7 @@
 
 @section('content')
 <div class="container">
+    <div class="section" id="main">
 @if($errors->all())
     @foreach($errors->all() as $err)
         <p class="error-message">{{ $err }}</p>
@@ -111,7 +113,8 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button class="btn waves-effect waves-light" type="submit">Submit</button>
+        <button class="btn waves-effect waves-light" type="submit" name="action" id="ft-green">Submit<i class="material-icons right">done</i></button>
+        <button class="btn waves-effect waves-light" type="cancel" id="ft-green">Cancel<i class="material-icons right">close</i></button>
     </div>
 {{ Form::close() }}
 <h4 class="center">Images</h4>
@@ -129,5 +132,6 @@
 </div>
 {{ Form::open( ['action' => ['ImagesController@destroy', 'img_id'], 'method' => 'DELETE', 'id' => 'delete-image-form'] ) }}
 {{ Form::close() }}
+</div>
 </div>
 @stop

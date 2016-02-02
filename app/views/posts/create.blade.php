@@ -35,9 +35,13 @@
             {{ Form::textarea('body', null, ['class' => 'form-control, materialize-textarea'] ) }}
         </div>
     </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-        <i class="material-icons right">></i>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="ft-green">Submit
+        <i class="material-icons right">done</i>
     </button>
+    <a href="/posts#docs" class="btn waves-effect waves-light" id="ft-green">Cancel
+        <i class="material-icons right">close</i>
+    </a>
+
     {{ Form::close() }}
     @endif
 </div>
