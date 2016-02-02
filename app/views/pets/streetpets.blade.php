@@ -25,6 +25,15 @@
 	      <li>
 	        <img src="img/streetpets/sad4.png"> <!-- random image -->
 	      </li>
+	      <li>
+	        <img src="img/streetpets/sad5.png"> <!-- random image -->
+	      </li>
+	      <li>
+	        <img src="img/streetpets/sad6.png"> <!-- random image -->
+	      </li>
+	      <li>
+	        <img src="img/streetpets/sad7.png"> <!-- random image -->
+	      </li>
 	    </ul>
   	</div>
 </div>

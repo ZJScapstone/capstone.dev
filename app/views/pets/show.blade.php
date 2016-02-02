@@ -4,7 +4,7 @@
     <hr>
     <div class="row">
         <div class="col m6">
-            <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.email %></a> <% displayedPet.posted %></p>
+            <p>posted by <a href="/users/<% displayedPet.user.id %>"><% displayedPet.user.username %></a> <% displayedPet.posted %></p>
             <p><strong>Status:</strong> <em><% displayedPet.status %></em></p>
             <p><strong>ID#:</strong> <% displayedPet.a_num %></p>
         </div>
