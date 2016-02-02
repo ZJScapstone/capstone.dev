@@ -25,6 +25,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <button class="right modal-action modal-close btn waves-effect waves-light">Close</button>
+        <button class="right modal-action modal-close btn waves-effect waves-light" id="ft-green">Close</button>
     </div>
 </div>

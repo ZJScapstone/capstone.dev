@@ -18,7 +18,7 @@
 
 @section('content')
     <header>
-        <div class="row z-depth-0 section fixed">
+        <div class="z-depth-0 fixed">
             <div class="col s12">
                 <ul class="tabs">
                     <li class="tab col s3"><a href="/#main" id="pet-home">Pets</a></li>
@@ -30,8 +30,8 @@
         </div>
     </header>
     <main>
-        <div class="fixed-action-btn" id="icon">
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+        <div class="fixed-action-btn" id="icon" style="bottom: 80vh; right: 74%;">
+            <a href="{{ action('PostsController@create') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
         </div>
         <div class="container" id="docs">
             @include('partials.docs_nav')

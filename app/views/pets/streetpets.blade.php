@@ -4,7 +4,7 @@
 <script>
 
     $(document).ready(function(){
-      $('.slider').slider({full_width: true, interval: 4000});
+      $('.slider').slider({full_width: true, interval: 6000});
     });
 </script>
 @stop
@@ -17,41 +17,14 @@
 	        <img src="img/streetpets/saddogs.png"> <!-- random image -->
 	      </li>
 	      <li>
-	        <img src="img/streetpets/browndog.jpg"> <!-- random image -->
+	        <img src="img/streetpets/sad2.png"> <!-- random image -->
 	      </li>
 	      <li>
-	        <img src="img/streetpets/pico.jpg"> <!-- random image -->
+	        <img src="img/streetpets/sad3.png"> <!-- random image -->
 	      </li>
 	      <li>
-	        <img src="img/streetpets/piper.jpg"> <!-- random image -->
+	        <img src="img/streetpets/sad4.png"> <!-- random image -->
 	      </li>
-	      <li>
-	        <img src="img/streetpets/skinny.jpg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/streetdogs.jpg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/sparky.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/paxie.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/juvenile.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/mama.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/blue.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/brownpup.jpeg"> <!-- random image -->
-	      </li>
-	      <li>
-	        <img src="img/streetpets/penny.jpeg"> <!-- random image -->
-	      </li>	      
 	    </ul>
   	</div>
 </div>
