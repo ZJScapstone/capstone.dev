@@ -100,7 +100,7 @@ class PetsController extends \BaseController {
         if (Request::ajax()){
             return Response::json($response);
         } else {
-            return Redirect::action('UsersController@showProfile');
+            return Redirect::action('UsersController@showProfile', Confide::user()->id);
         }
     }
 
