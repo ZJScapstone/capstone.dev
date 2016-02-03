@@ -34,14 +34,14 @@
         </div>
         <div class="col m4">
             <div class="card hoverable" onclick="$('#sj').openModal()">
-                <div class="card-image"><img src="/img/sj.jpg" alt="Sarajane Stevens"></div>
+                <div class="card-image"><img src="/img/sj.png" alt="Sarajane Stevens"></div>
                 <div class="card-content">
                     <p class="center">Sarajane Stevens</p>
                 </div>
             </div>
         </div>
     </div>
-    <p>Check out <a class="deep-orange-text darken-3" href="https://github.com/ZJScapstone">the github repository</a> for this project!</p>
+    <p>Check out <a class="deep-orange-text darken-3" href="https://github.com/ZJScapstone/capstone.dev">the github repository</a> for this project!</p>
 </div>
 
 {{-- modals --}}
@@ -50,7 +50,7 @@
         <h2 class="center">Zach Gulde</h2>
         <div class="row">
             <div class="col m9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit cupiditate at dicta quia dolorem tempore, quaerat repellat sequi cum iste explicabo saepe repudiandae placeat consectetur ipsum, doloribus distinctio aliquid culpa.</p>
+                <p>Zach is a recent Codeup graduate who hopes to transition into a career in software devolpment. He comes from a customer service background and hopes to use the skills gained from 10+ years of experience to excel in his new career. Zach enjoys spending time with his family, playing the guitar, and like his teammates, lots of pet puns.</p>
             </div>
             <div class="col m3">
                 <p class="deep-orange-text darken-3 right">
@@ -84,7 +84,7 @@
         <h2 class="center">Sarajane Stevens</h2>
         <div class="row">
             <div class="col m9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit cupiditate at dicta quia dolorem tempore, quaerat repellat sequi cum iste explicabo saepe repudiandae placeat consectetur ipsum, doloribus distinctio aliquid culpa.</p>
+                <p>An avid animal lover, Sarajane hopes to use technology to help the community around her grow to be one that includes its weakest members, rather than cast them aside. She loves rescuing animals, spending time with her family, and creating things online. </p>
             </div>
             <div class="col m3">
                 <p class="deep-orange-text darken-3 right">
