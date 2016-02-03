@@ -29,7 +29,7 @@ class UserTableSeeder extends Seeder {
         $user2->confirmation_code = md5(uniqid(mt_rand(), true));
         $user2->confirmed = 1;
         $user2->is_foster = 1;
-        $user2->img_path = 'sjaura.jpg';
+        $user2->img_path = '/img/sjaura.jpg';
         $user2->description = 'I love animals!';
         $user2->first_name = 'Sarajane';
         $user2->last_name = 'Stevens';
@@ -47,7 +47,7 @@ class UserTableSeeder extends Seeder {
         $user3->confirmation_code = md5(uniqid(mt_rand(), true));
         $user3->confirmed = 1;
         $user3->is_foster = 1;
-        $user3->img_path = 'cat_placeholder.png';
+        $user3->img_path = '/img/zach.jpg';
         $user3->description = 'Knick knack paddiwhack give a dog a bone!';
         $user3->first_name = 'Zach';
         $user3->last_name = 'Gulde';
@@ -65,7 +65,7 @@ class UserTableSeeder extends Seeder {
         $user4->confirmation_code = md5(uniqid(mt_rand(), true));
         $user4->confirmed = 1;
         $user4->is_foster = 1;
-        $user4->img_path = 'dog_placeholder.png';
+        $user4->img_path = '/img/jonathan.jpg';
         $user4->description = 'I love horses, best of all the animals, I love horses, they\'re my friends!';
         $user4->first_name = 'Jonathan';
         $user4->last_name = 'Reyes';
