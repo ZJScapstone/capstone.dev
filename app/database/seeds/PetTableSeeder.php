@@ -225,7 +225,7 @@ class PetTableSeeder extends Seeder {
         $pet10->status      = 'available';
         $pet10->color       = 'calico';
         $pet10->age         = 'young';
-        $pet10->description = 'FeLV+ Special Needs. Avery ID# 22316659 is a beautiful female, young adult Calico. She is a very sweet, quiet and gentle kitty. Avery is special needs because she is FeLV+positive. She is currently healthy. FeLV+ cats typically live up to 4 years or so after receiving their diagnosis and for the remainder of their life, they can only live with dogs, other non-feline pets, or o ther cats who are also FeLV+positive. They need to remain indoors always, eat a nutritionally-balanced diet and have veterinary care if they ever show signs of illness. Because Avery is FeLV+, her adoption fee is waived. She is spayed, current on vaccinations, microchipped and her adoption comes with one free month of pet health insurance. You can meet her at PETCO Ingram Park, 6001 NW Loop 410, San Antonio, TX 78238. Hours are Mondays-Fridays 11 a.m. until 8 p.m.; Saturdays & Sundays 10 a.m. until 7 p.m. For additional information, please write to petco.ingram@sanantoniopetsalive.org AND to Adopt@sanantoniopetsalive.org or call 210-370-7612. When inquiring about this pet, please be sure to give the pet\'s ID#.';
+        $pet10->description = 'FeLV+ Special Needs. Avery ID# 22316659 is a beautiful female, young adult Calico. She is a very sweet, quiet and gentle kitty. Avery is special needs because she is FeLV+positive. She is currently healthy. FeLV+ cats typically live up to 4 years or so after receiving their diagnosis and for the remainder of their life, they can only live with dogs, other non-feline pets, or o ther cats who are also FeLV+positive. They need to remain indoors always, eat a nutritionally-balanced diet and have veterinary care if they ever show signs of illness. Because Avery is FeLV+, her adoption fee is waived. She is spayed, current on vaccinations, microchipped and her adoption comes with one free month of pet health insurance. You can meet her at PETCO Ingram Park, 6001 NW Loop 410, San Antonio, TX 78238. Hours are Mondays-Fridays 11 a.m. until 8 p.m.; Saturdays & Sundays 10 a.m. until 7 p.m. For additional information, please write to petco.ingram@sanantoniopetsalive.org AND to Adopt@sanantoniopetsalive.org or call 220-370-7612. When inquiring about this pet, please be sure to give the pet\'s ID#.';
         $pet10->gender      = 'Female';
         $pet10->breed       = 'Domestic Short Hair';
         $pet10->user_id     = User::first()->id;
@@ -463,6 +463,86 @@ class PetTableSeeder extends Seeder {
         $pet21_img4->pet_id = $pet21->id;
         $pet21_img4->save();
 
+        $pet22 = new Pet();
+
+        $pet22->name        = 'Cookie';
+        $pet22->status      = 'available';
+        $pet22->color       = 'red';
+        $pet22->age         = 'young';
+        $pet22->description = 'Cookie ID#365961 a female 1-year old Shepherd & possible cattle dog blend. She is an adorable, friendly, lovable girl! She is a beautiful and unusual red-brindle with white. She is fun-loving and great with other dogs. You are guaranteed to love Cookie! She is spayed, current on vaccinations and microchipped and her adoption comes with one free month of pet health insurance.';
+        $pet22->gender      = 'Female';
+        $pet22->breed       = 'Shepherd / Cattle Dog / Mixed (short coat)';
+        $pet22->user_id     = '3';
+        $pet22->species_id  = '1';
+        $pet22->size_id     = '3';
+        $pet22->a_num       = 'A365961';
+        $pet22->save();
+
+        $pet22_img1 = new Image();
+        $pet22_img1->img_path = 'img/petimg/cookie1.jpg';
+        $pet22_img1->pet_id = $pet22->id;
+        $pet22_img1->save();
+        $pet22_img2 = new Image();
+        $pet22_img2->img_path = 'img/petimg/cookie2.jpg';
+        $pet22_img2->pet_id = $pet22->id;
+        $pet22_img2->save();
+        $pet22_img3 = new Image();
+
+        $pet23 = new Pet();
+
+        $pet23->name        = 'Lisa';
+        $pet23->status      = 'available';
+        $pet23->color       = 'white and tan';
+        $pet23->age         = 'young';
+        $pet23->description = 'Lisa is one of the sweetest and most lovable pups you would ever want to meet.  
+
+Lisa is 14# of sweetness and loves everyone she meets, although she has yet to meet a cat. Lisa is approximately 9 months old, and is a basset mix. She did have a little problem with sarcoptic mange previously, but it is all cleared up at this time. 
+
+Lisa is housebroken, but will use potty pads if provided. When it is cold, she is more reluctant to go out on her own as well. She is doing well learning the leash and responds well to encouragement. 
+
+Lisa has bonded her best friend here, Sabella, who is a Blue Lacy/retriever mix, who was very shy at first but is coming out of shell very nicely. Lisa’s friendly and outgoing nature has made such a difference in Sabella, that it would be wonderful if they could be adopted together, but it is not mandatory.
+
+';
+        $pet23->gender      = 'Female';
+        $pet23->breed       = 'Basset Hound (short coat)';
+        $pet23->user_id     = '2';
+        $pet23->species_id  = '1';
+        $pet23->size_id     = '1';
+        $pet23->a_num       = 'A355435';
+        $pet23->save();
+
+        $pet23_img1 = new Image();
+        $pet23_img1->img_path = 'img/petimg/lisa1.jpg';
+        $pet23_img1->pet_id = $pet23->id;
+        $pet23_img1->save();
+        $pet23_img2 = new Image();
+        $pet23_img2->img_path = 'img/petimg/lisa2.jpg';
+        $pet23_img2->pet_id = $pet23->id;
+        $pet23_img2->save();
+
+        $pet24 = new Pet();
+
+        $pet24->name        = 'Spot';
+        $pet24->status      = 'available';
+        $pet24->color       = 'White and Black';
+        $pet24->age         = 'adult';
+        $pet24->description = ' a male 3-year old dalmation & cattle dog blend. He is friendly, well-mannered and a "total sweetheart"! He LOVES going for walks and exploring! Please come meet him. Spot is neutered, current on vaccinations and microchipped. His adoption comes with one free month of pet health insurance. ';
+        $pet24->gender      = 'Male';
+        $pet24->breed       = 'Dalmatian / Cattle Dog / Mixed (short coat)';
+        $pet24->user_id     = '2';
+        $pet24->species_id  = '1';
+        $pet24->size_id     = '3';
+        $pet24->a_num       = 'A342417';
+        $pet24->save();
+
+        $pet24_img1 = new Image();
+        $pet24_img1->img_path = 'img/petimg/spot1.jpg';
+        $pet24_img1->pet_id = $pet24->id;
+        $pet24_img1->save();
+        $pet24_img2 = new Image();
+        $pet24_img2->img_path = 'img/petimg/spot2.jpg';
+        $pet24_img2->pet_id = $pet24->id;
+        $pet24_img2->save();
         
 
         }
