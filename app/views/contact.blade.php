@@ -34,7 +34,7 @@
         </div>
         <div class="col m4">
             <div class="card hoverable" onclick="$('#sj').openModal()">
-                <div class="card-image"><img src="/img/sj.jpg" alt="Sarajane Stevens"></div>
+                <div class="card-image"><img src="/img/sj.png" alt="Sarajane Stevens"></div>
                 <div class="card-content">
                     <p class="center">Sarajane Stevens</p>
                 </div>
