@@ -67,7 +67,7 @@
         <h2 class="center">Jonathan Reyes</h2>
         <div class="row">
             <div class="col m9">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit cupiditate at dicta quia dolorem tempore, quaerat repellat sequi cum iste explicabo saepe repudiandae placeat consectetur ipsum, doloribus distinctio aliquid culpa.</p>
+                <p>A recent Codeup graduate making the transition in a coding career. With over 15 years of customer service experience, he brings a dedicated passion to everything he does. With a love for learning, he stays challenged keeping up with his two boys and furthering his knowledge of code.</p>
             </div>
             <div class="col m3">
                 <p class="deep-orange-text darken-3 right">
