@@ -29,3 +29,11 @@ Our application is built on the LAMP stack. Specifically,
 ## Code
 
 Please note that we changed the angular interpolation symbols from the double curly brace, i.e. `{{ }}`, to `<%  %>` to not conflict with Laravel's Blade templating engine.
+
+## Contributors
+
+[Zachary Gulde](http://zgulde.com/)
+
+[Jonathan Reyes](http://jonathanreyes.net/)
+
+[Sarajane Stevens](http://sarajane.xyz/)
