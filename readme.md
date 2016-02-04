@@ -1,25 +1,39 @@
-## Laravel PHP Framework
+# Furry Tail Endings
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+This repository holds our capstone project done at [Codeup](http://codeup.com).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+[Check out the site!](http://furry-tail-endings.org)
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+[Furry-Tail-Endings](http://furry-tail-endings.org) is a portal for recue organizations that connects pet foster parents. When foster parents are able to easily find information and connect to the community on their own, it lessens the burden on shelter staff, which allows staff to spend more time caring for animals and performing important duties, which ultimately leads to more pets being placed in homes and taken off the streets.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Technology
 
-## Official Documentation
+Our application is built on the LAMP stack. Specifically,
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+**Front End**
 
-### Contributing To Laravel
+- [Angular](https://angularjs.org/) javascript framework
+- [jQuery](https://jquery.com/) javascript library
+- [Dropzone.js](http://www.dropzonejs.com/) javascript library
+- [Materialize](http://materializecss.com/) CSS framework
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+**Back End**
 
-### License
+- [Composer](https://getcomposer.org/) for dependancy managment
+- [Laravel](https://laravel.com/) MVC framework
+  - [Confide](https://github.com/Zizaco/confide) for user authentication and email validation
+  - [Mailgun](http://www.mailgun.com/) for sending emails
+- Hosted By [Digital Ocean](https://www.digitalocean.com/)
+- [Warpspeed](https://warpspeed.io/) to make deployment easy
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Code
+
+Please note that we changed the angular interpolation symbols from the double curly brace, i.e. `{{ }}`, to `<%  %>` to not conflict with Laravel's Blade templating engine.
+
+## Contributors
+
+[Zachary Gulde](http://zgulde.com/)
+
+[Jonathan Reyes](http://jonathanreyes.net/)
+
+[Sarajane Stevens](http://sarajane.xyz/)
